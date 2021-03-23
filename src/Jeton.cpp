@@ -1,72 +1,70 @@
 /* Inclusion de l'entète du module */
 #include "Jeton.h"
 
-/* Inclusion d'entêtes standards */
-#include <cassert>
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-/* Définitions des fonctions membres publiques et privées */
-
-// Constructeur par défaut de la classe: initialise dimx et dimy à 0
+// Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
-       NomJeton = "Jeton";
+       NomJeton = "Pion";
        EffetJeton = NULL;
        Utilisé = false;
    }
 
-// Destructeur de la classe: déallocation de la mémoire du tableau de pixels
-   // et mise à jour des champs dimx et dimy à 0
+// Constructeur de la classe Jeton.
+    Jeton::Jeton(char nom, Effet effet, bool utilisation) {
+       NomJeton = nom;
+       EffetJeton = effet;
+       Utilisé = utilisation;
+   }
+
+// Destructeur de la classe Jeton.
    Jeton::~Jeton () {
-       NomJeton = NULL;
+       NomJeton = "Pion";
        EffetJeton = NULL;
        Utilisé = false;
    }
 
-// Accesseur :
-   Jeton & Jeton::getNomJeton () const {
+// Accesseur : Récupère la valeur NomJeton du Jeton.
+   char & Jeton::getNomJeton () const {
       return NomJeton;
    }
 
-// Accesseur :
-   Jeton & Jeton::getEffetJeton () const {
+// Accesseur : Récupère la valeur EffetJeton du Jeton.
+   Effet & Jeton::getEffet () const {
       return EffetJeton;
    }
 
-// Accesseur :
-   Jeton & Jeton::getUtiliseJeton () const {
+// Accesseur : Récupère la valeur Utilisé du Jeton.
+   bool & Jeton::getUtilisation () const {
       return Utilisé;
    }
 
 
-// Mutateur :
-   void Jeton::setNomJeton () {
-      NomJeton = NomJet;
+// Mutateur : Modifie la valeur NomJeton du Jeton.
+   void Jeton::setNomJeton (char & nvNom) {
+      NomJeton = nvNom;
    }
 
-// Mutateur :
-   void Jeton::setEffetJeton () {
-      EffetJeton = EffetJet;
+// Mutateur : Modifie l'effet du Jeton.
+   void Jeton::setEffet(Effet & nvEffet) {
+      EffetJeton = nvEffet;
    }
 
-// Mutateur :
-   void Jeton::setUtiliseJeton () {
-      Utilisé = UtiliseJet;
+// Mutateur : Modifie la valeur Utilisé du Jeton.
+   void Jeton::setUtilisation (bool & nvBool) {
+      Utilisé = nvBool;
    }
 
-  // Dessine un rectangle plein de la couleur du joueur
+  // Dessine un jeton de la couleur du joueur.
    void Jeton::DessinerJeton (unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax) {
       for(unsigned int i = Ymin; i<Ymax+1; i++)
        {
            for(unsigned int j= Xmin; j<Xmax+1; j++)
            {
-               setPix(j,i); 
+
            }
        }
    }
 
-   // Efface l'image en la remplissant de la couleur en paramètre
-   // (en appelant dessinerRectangle avec le bon rectangle)
+   // Efface un jeton.
    void Jeton::EffacerJeton () {
+
    }

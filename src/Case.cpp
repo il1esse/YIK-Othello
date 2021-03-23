@@ -23,25 +23,25 @@ Case::~Case()
 }
 
 /* Accesseur : Récupère la valeur de couleur de la case. */
-unsigned char & Case::getCouleurC() const;
+char & Case::getCouleurC() const;
 {
     return couleurC;
 }
 
 /* Mutateur : Modifie la couleur de la case. */
-unsigned char Case::setCouleurC(char & nvCouleur);
+void Case::setCouleurC(char & nvCouleur);
 {
     couleurC = nvCouleur;
 }
 
 /* Accesseur : Récupère la valeur d'état de la case. */
-unsigned char & Case::getEtat() const;
+unsigned int & Case::getEtat() const;
 {
     return etat;
 }
 
 /* Mutateur : Modifie l'état de la case. */
-unsigned char & Case::setEtat(unsigned int & nvEtat);
+void & Case::setEtat(unsigned int & nvEtat);
 {
     etat = nvEtat;
 }

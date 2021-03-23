@@ -24,34 +24,65 @@ class Jeton {
  public :
     
     /**
-    @brief Constructeur par défaut de la classe:
+    @brief Constructeur par défaut de la classe Jeton.
     */
     Jeton();
 
     /**
-    @brief Destructeur de la classe:
+    @brief Constructeur de la classe Jeton.
+    @param nom Nom du jeton.
+    @param effet Effet du jeton.
+    @param utilisation Utilisation du jeton par un booléen.
+    */
+    Jeton(char nom, Effet effet, bool utilisation);
+
+    /**
+    @brief Destructeur de la classe Jeton.
     */
     ~Jeton();
 
     /**
-    @brief 
+    @brief Accesseur : Récupère la valeur NomJeton du Jeton.
     */
-    GetJeton();
+    char & getNomJeton() const;
 
     /**
-    @brief 
+    @brief Accesseur : Récupère la valeur EffetJeton du Jeton.
     */
-    SetJeton();
+    Effet & getEffet() const;
 
     /**
-    @brief
+    @brief Accesseur : Récupère la valeur Utilisé du Jeton.
     */
-    DessineJeton();
+    bool & getUtilisation() const;
 
     /**
-    @brief
+    @brief Mutateur : Modifie l'effet du Jeton.
+    @param nvEffet Le nouvelle effet du Jeton.
     */
-    EffaceJeton();
+    void setEffet(Effet & nvEffet);
+
+    /**
+    @brief Mutateur : Modifie la valeur Utilisé du Jeton.
+    @param nvBool Le nouvelle valeur booléenne d'utilisation Jeton.
+    */
+    void setUtilisation(bool & nvBool);
+
+    /**
+    @brief Mutateur : Modifie la valeur NomJeton du Jeton.
+    @param nvNom Le nouvelle valeur NomJeton du Jeton.
+    */
+    void setNomJeton(char & nvNom);
+
+    /**
+    @brief Dessine un jeton.
+    */
+    void dessineJeton();
+
+    /**
+    @brief Efface un jeton.
+    */
+    void effaceJeton();
 
 };
 #endif /* Termine le #ifndef JETON_H */

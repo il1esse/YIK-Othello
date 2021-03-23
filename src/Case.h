@@ -43,13 +43,13 @@ public :
     /**
     @brief Accesseur : Récupère la valeur de couleur de la case.
     */
-    unsigned char & getCouleurC() const;
+    char & getCouleurC() const;
 
     /**
     @brief Mutateur : Modifie la couleur de la case.
     @param nvCouleur La nouvelle valeur couleur de la case.
     */
-    unsigned char setCouleurC(char & nvCouleur);
+    void setCouleurC(char & nvCouleur);
 
     /**
     @brief Accesseur : Récupère la valeur d'état de la case.
@@ -60,7 +60,7 @@ public :
     @brief Mutateur : Modifie l'état de la case.
     @param nvEtat La nouvelle valeur d'état de la case.
     */
-    unsigned int setEtat(int & nvEtat);
+    void setEtat(int & nvEtat);
 
 };
 

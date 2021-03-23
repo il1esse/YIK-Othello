@@ -37,7 +37,7 @@ class Plateau {
     Plateau(unsigned int x, unsigned int y, bool type);
 
     /**
-    @brief Destructeur de la classe:
+    @brief Destructeur de la classe plateau.
     */
     ~Plateau();
 
@@ -53,7 +53,7 @@ class Plateau {
     @param y La valeur de la case en Y.
     @param etat La nouvelle valeur état de la case.
     */
-    void setCase(unsigned int x, unsigned int y,const Case & etat);
+    void setCase(unsigned int x, unsigned int y,const Case & c);
 
     /**
     @brief Initialise les cases du plateau.
@@ -63,27 +63,27 @@ class Plateau {
     /**
     @brief Dessine le plateau.
     */
-    void DessinePlateau();
+    void dessinePlateau();
 
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.
     */
-    void majPlateau(unsigned int x, unsigned int y,Case & etat);
+    void majPlateau(unsigned int x, unsigned int y,Case & c);
 
     /**
     @brief Applique la règle horizontale.
     */
-    void appliRegleHori(Case & etat);
+    void appliRegleHori(unsigned int x, unsigned int y,Case & c);
 
     /**
     @brief Applique la règle verticale.
     */
-    void appliRegleVerti(Case & etat);
+    void appliRegleVerti(unsigned int x, unsigned int y,Case & c);
 
     /**
     @brief Applique la règle diagonale
     */
-    void appliRegleDiag(Case & etat);
+    void appliRegleDiag(unsigned int x, unsigned int y,Case & c);
 
 };
 #endif /* Termine le #ifndef PLATEAU_H */

@@ -1,33 +1,47 @@
-#include <case.h>
+/* Inclusions de l'entête du module */
+#include "Case.h"
 
-case::case()
+/* Constructeur par défaut de la classe Case, met les valeurs à la case Neutre */
+Case::Case()
 {
-    couleurC = "neutre";
-    etat = 0;
+    couleurC = "Neutre";
+    etat = 2;
 }
 
-case::~case()
+/* Constructeur de la classe Case */
+Case::Case(char c, unsigned int e)
 {
-    couleurC = NULL;
-    etat = NULL;
+    couleurC = c;
+    etat = e;
 }
 
-unsigned char & case::getCouleurC() const;
+/* Destructeur de la classe Case */
+Case::~Case()
+{
+    couleurC = "Neutre";
+    etat = 2;
+}
+
+/* Accesseur : Récupère la valeur de couleur de la case. */
+unsigned char & Case::getCouleurC() const;
 {
     return couleurC;
 }
 
-unsigned char case::setCouleurC(char & nouvCouleur);
+/* Mutateur : Modifie la couleur de la case. */
+unsigned char Case::setCouleurC(char & nvCouleur);
 {
-    couleurC = nouvCouleur;
+    couleurC = nvCouleur;
 }
 
-unsigned char & case::getEtat() const;
+/* Accesseur : Récupère la valeur d'état de la case. */
+unsigned char & Case::getEtat() const;
 {
     return etat;
 }
 
-unsigned char & case::setEtat(bool & nouvEtat);
+/* Mutateur : Modifie l'état de la case. */
+unsigned char & Case::setEtat(unsigned int & nvEtat);
 {
-    etat = nouvEtat;
+    etat = nvEtat;
 }

@@ -10,32 +10,60 @@ using namespace std;
 /* Définitions des fonctions membres publiques et privées */
 
 // Constructeur par défaut de la classe: initialise dimx et dimy à 0
-   // ce constructeur n'alloue pas de pixel
     Jeton::Jeton() {
-       NomJeton = 0;
-       EffetJeton = ;
-       Utilisé = ;
+       NomJeton = "Jeton";
+       EffetJeton = NULL;
+       Utilisé = false;
    }
 
 // Destructeur de la classe: déallocation de la mémoire du tableau de pixels
    // et mise à jour des champs dimx et dimy à 0
    Jeton::~Jeton () {
-       NomJeton = 0;
-       EffetJeton = 0;
-       Utilisé = 0;
+       NomJeton = NULL;
+       EffetJeton = NULL;
+       Utilisé = false;
    }
 
-// Accesseur : récupère le pixel original de coordonnées (x,y) en vérifiant leur validité
-   // la formule pour passer d'un tab 2D à un tab 1D est tab[y*dimx+x]
-   Jeton & Jeton::getJeton () const {
+// Accesseur :
+   Jeton & Jeton::getNomJeton () const {
+      return NomJeton;
    }
 
-// Mutateur : modifie le pixel de coordonnées (x,y)
-   void Jeton::setJeton () {
+// Accesseur :
+   Jeton & Jeton::getEffetJeton () const {
+      return EffetJeton;
    }
 
-  // Dessine un rectangle plein de la couleur dans l'image (en utilisant setPix, indices en paramètre compris)
-   void Jeton::DessinerJeton () {
+// Accesseur :
+   Jeton & Jeton::getUtiliseJeton () const {
+      return Utilisé;
+   }
+
+
+// Mutateur :
+   void Jeton::setNomJeton () {
+      NomJeton = NomJet;
+   }
+
+// Mutateur :
+   void Jeton::setEffetJeton () {
+      EffetJeton = EffetJet;
+   }
+
+// Mutateur :
+   void Jeton::setUtiliseJeton () {
+      Utilisé = UtiliseJet;
+   }
+
+  // Dessine un rectangle plein de la couleur du joueur
+   void Jeton::DessinerJeton (unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax) {
+      for(unsigned int i = Ymin; i<Ymax+1; i++)
+       {
+           for(unsigned int j= Xmin; j<Xmax+1; j++)
+           {
+               setPix(j,i); 
+           }
+       }
    }
 
    // Efface l'image en la remplissant de la couleur en paramètre

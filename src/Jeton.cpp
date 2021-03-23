@@ -1,5 +1,5 @@
 /* Inclusion de l'entète du module */
-#include "Image.h"
+#include "Jeton.h"
 
 /* Inclusion d'entêtes standards */
 #include <cassert>

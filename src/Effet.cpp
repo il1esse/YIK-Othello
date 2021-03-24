@@ -1,139 +1,163 @@
-#include <effet.h>
+/* Inclusions de l'entête du module */
+#include <Effet.h>
 
-effet::effet()
+// Constructeur par défaut de la classe Effet.
+Effet::Effet()
 {
     nomE = "pas attribu�";
     description = "Rien";
     special = NULL;
 }
 
-effet::~effet()
+// Desctructeur par défaut de la classe Effet.
+Effet::~Effet()
 {
-
+    nomE = NULL;
+    description = NULL;
+    special = NULL;
 }
 
-unsigned char & effet::getNomE() const
+//Accesseur : Récupère le nom de l'effet.
+unsigned char & Effet::getNomE() const
 {
     return nomE;
 }
 
-unsigned char effet::setNomE(char & nouvNomE)
+//Mutateur : Modifie le nom de l'effet.
+unsigned char Effet::setNomE(char & nouvNomE)
 {
     nomE = nouvNomE;
 }
 
-unsigned char &  effet::getDescription() const
+//Accesseur : Récupère la description de l'effet.
+unsigned char &  Effet::getDescription() const
 {
     return description
 }
 
-unsigned char effet::setDescription(string & nouvDescription)
+//Mutateur : Modifie la description de l'effet.
+unsigned char Effet::setDescription(string & nouvDescription)
 {
     description = nouvDescription;
 }
 
-unsigned char & effet::getSpecial() const
+//Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
+unsigned char & Effet::getSpecial() const
 {
     return special
 }
 
-unsigned char effet::setSpecial(bool & nouvSpecial)
+//Mutateur : Modifie la valeur special de l'effet.
+unsigned char Effet::setSpecial(bool & nouvSpecial)
 {
     special = nouvDescription
 }
 
 
 
-
+//Constructeur par défaut de la classe HautGauche.
 HautGauche::HautGauche()
 {
     nomE = "Haut Gauche";
     description = "Change l�etat de la case Haut Gauche";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet HautGauche.
 HautGauche::comportementHG(int J.x,int J.y)
 {
     x = x-1;
     y = y+1;
 }
 
-
+//Constructeur par défaut de la classe HautDroite.
 HautDroite::HautDroite()
 {
     nomE = "Haut Droite";
     description = "Change l�etat de la case Haut Droite";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet HautDroite.
 HautDroite::comportementHD(int J.x,int J.y)
 {
     x = x+1;
     y = y+1;
 }
 
+//Constructeur par défaut de la classe BasGauche.
 BasGauche::BasGauche()
 {
     nomE = "BasGauche";
     description = "Change l�etat de la case BasGauche";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet BasGauche.
 BasGauche::comportementBG(int J.x,int J.y)
 {
     x = x-1;
     y = y-1;
 }
 
+//Constructeur par défaut de la classe BasDroite.
 BasDroite::BasDroite()
 {
     nomE = "BasDroite";
     description = "Change l�etat de la case BasDroite";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet BasDroite.
 BasDroite::comportementBD(int J.x,int J.y)
 {
     x = x+1;
     y = y-1;
 }
 
-
+//Constructeur par défaut de la classe Haut.
 Haut::Haut()
 {
     nomE = "Haut";
     description = "Change l�etat de la case Haut";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet Haut.
 Haut::comportementH(int J.y)
 {
     y = y+1;
 }
 
+//Constructeur par défaut de la classe Droite.
 Droite::Droite()
 {
     nomE = "Droite";
     description = "Change l�etat de la case Droite";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet Droite.
 Droite::comportementD(int J.x)
 {
     x = x+1
 }
 
+//Constructeur par défaut de la classe Gauche.
 Gauche::Gauche()
 {
     nomE = "Gauche";
     description = "Change l�etat de la case Gauche";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet Gauche.
 Gauche::comportementG(int J.x)
 {
     x = x-1
 }
 
+//Constructeur par défaut de la classe Bas.
 Bas::Bas()
 {
     nomE = "Bas";
     description = "Change l�etat de la case Bas";
     special = 0;
 }
+//Procédure permettant de gerer le comportement de l'effet Bas.
 Bas::comportementB(int J.y)
 {
     y = y-1;

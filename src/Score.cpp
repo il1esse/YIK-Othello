@@ -1,6 +1,7 @@
 /* Inclusion de l'entète du module */
 #include "Score.h"
 #include "Jeu.h"
+#include "Plateau.h"
 /* Inclusion d'entêtes standards */
 #include <cassert>
 #include <iostream>
@@ -32,26 +33,51 @@ using namespace std;
 
 // CalculateurScore();
     Score & CalculateurScore(); {
-
-
-        
-        bonusmult=//x2 si le perdant a aucune case
-        bonusd'occupation=//x2 si tte les cases sont occuper
-        //bonus plateau special
-        bonusvictoire =0
-        bonusdefaite=0
+        caseocc = 0;
+        score = 0;
+        for(int i=0; i<dimx; i++)
+        {
+            for(int j=0; i<dimy; j++)
+            {
+                if(tabCase[i][j] == 1)
+                {
+                    caseocc = caseocc +1;
+                }
+                else(tabCase[i][j] == 2)
+                {
+                    caseadv = caseadv +1;
+                }
+            }
+        }
+        if(caseadv = 0)
+        {
+            score = score * 2;
+        }
+        if(caseocc = (dimx * dimy))
+        {
+            score = score *2;
+        }
+        if(joueur1 == true) && (classique == true)
+        {
+            score = score * 2;
+        }
+        if(joueur 1 == true) && (classique == false)
+        {
+            score = score * 3;
+        }
     }
 
 // AfficherScore();
     void Score::AfficherScore();
     {
-        cout << score;
+        if()//condition de victoire
+        {
+            cout << "Bien joué !!! tu as gagnés" <<endl;
+            sleep(8)
+            cout << "Voici ton score" << score;
+        }
     }
 
-// EffacerScore();
-    void EffacerScore();
-    {
-    }
 
 
   

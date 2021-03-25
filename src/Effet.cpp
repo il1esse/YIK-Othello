@@ -63,7 +63,7 @@ HautGauche::HautGauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautGauche.
-HautGauche::comportementHG(int J.x,int J.y)
+HautGauche::comportementHG(int x,int y)
 {
     x = x-1;
     y = y+1;
@@ -77,7 +77,7 @@ HautDroite::HautDroite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautDroite.
-HautDroite::comportementHD(int J.x,int J.y)
+HautDroite::comportementHD(int x,int y)
 {
     x = x+1;
     y = y+1;
@@ -91,7 +91,7 @@ BasGauche::BasGauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasGauche.
-BasGauche::comportementBG(int J.x,int J.y)
+BasGauche::comportementBG(int x,int y)
 {
     x = x-1;
     y = y-1;
@@ -105,7 +105,7 @@ BasDroite::BasDroite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasDroite.
-BasDroite::comportementBD(int J.x,int J.y)
+BasDroite::comportementBD(int x,int y)
 {
     x = x+1;
     y = y-1;
@@ -119,7 +119,7 @@ Haut::Haut()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Haut.
-Haut::comportementH(int J.y)
+Haut::comportementH(int y)
 {
     y = y+1;
 }
@@ -132,7 +132,7 @@ Droite::Droite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Droite.
-Droite::comportementD(int J.x)
+Droite::comportementD(int x)
 {
     x = x+1
 }
@@ -145,7 +145,7 @@ Gauche::Gauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Gauche.
-Gauche::comportementG(int J.x)
+Gauche::comportementG(int x)
 {
     x = x-1
 }
@@ -158,7 +158,7 @@ Bas::Bas()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Bas.
-Bas::comportementB(int J.y)
+Bas::comportementB(int y)
 {
     y = y-1;
 }

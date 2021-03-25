@@ -43,7 +43,7 @@ public :
     @brief Mutateur : Modifie le nom de l'effet.
     @param nouvNomE Le nouveau nom de l'effet.
     */
-    unsigned char setNomE(char & nouvNomE);
+    void setNomE(char & nouvNomE);
 
     /**
     @brief Accesseur : Récupère la description de l'effet.
@@ -54,7 +54,7 @@ public :
     @brief Mutateur : Modifie la description de l'effet.
     @param nouvDescription La nouvelle description de l'effet.
     */
-    unsigned char setDescription(string & nouvDescription);
+    void setDescription(string & nouvDescription);
 
     /**
     @brief Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
@@ -65,7 +65,7 @@ public :
     @brief Mutateur : Modifie la valeur special de l'effet.
     @param nouvSpecial La nouvelle valeur permettant de savoir si l'effet est special.
     */
-    unsigned char setSpecial(bool & nouvSpecial);
+    void setSpecial(bool & nouvSpecial);
 };
 
 /* Définitions des classes qui heritent de la classe effet*/
@@ -95,7 +95,7 @@ class HautDroite : public Effet
     @param x Coordonées ou est placé le jeton sur l'axe des x.
     @param y Coordonées ou est placé le jeton sur l'axe des y.
     */
-    void comportementHD(int x,int y);
+    void comportementHD(int & x,int & y);
 };
 
 class BasGauche : public Effet
@@ -109,7 +109,7 @@ class BasGauche : public Effet
     @param x Coordonées ou est placé le jeton sur l'axe des x.
     @param y Coordonées ou est placé le jeton sur l'axe des y.
     */
-    void comportementBG(int x,int y);
+    void comportementBG(int & x,int & y);
 };
 
 class BasDroite : public Effet
@@ -123,7 +123,7 @@ class BasDroite : public Effet
     @param x Coordonées ou est placé le jeton sur l'axe des x.
     @param y Coordonées ou est placé le jeton sur l'axe des y.
     */
-    void comportementBD(int x,int y);
+    void comportementBD(int & x,int & y);
 };
 
 
@@ -138,7 +138,7 @@ class Haut : public Effet
     @brief Procédure permettant de gerer le comportement de l'effet Haut.
     @param y Coordonées ou est placé le jeton sur l'axe des y.
     */
-    void comportementH(int y);
+    void comportementH(int & y);
 };
 
 class Droite : public Effet
@@ -151,7 +151,7 @@ class Droite : public Effet
     @brief Procédure permettant de gerer le comportement de l'effet Droite.
     @param x Coordonées ou est placé le jeton sur l'axe des x.
     */
-    void comportementD(int x);
+    void comportementD(int & x);
 };
 
 class Gauche : public Effet
@@ -164,7 +164,7 @@ class Gauche : public Effet
     @brief Procédure permettant de gerer le comportement de l'effet Gauche.
     @param x Coordonées ou est placé le jeton sur l'axe des x.
     */
-    void comportementG(int x);
+    void comportementG(int & x);
 };
 
 class Bas : public Effet
@@ -177,7 +177,7 @@ class Bas : public Effet
     @brief Procédure permettant de gerer le comportement de l'effet Bas.
     @param y Coordonées ou est placé le jeton sur l'axe des y.
     */
-    void comportementB(int y);
+    void comportementB(int & y);
 };
 
 #endif // EFFET_H_INCLUDED

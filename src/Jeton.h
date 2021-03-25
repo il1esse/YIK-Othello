@@ -81,7 +81,7 @@ class Jeton {
     @param effet Effet du jeton.
     @param utilisation Utilisation du jeton par un booléen.
     */
-    Jeton(char nom, Effet effet, bool utilisation);
+    Jeton(char nom, bool utilisation);
 
 
 

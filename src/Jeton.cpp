@@ -30,11 +30,38 @@ using namespace std;
 
 
 // Constructeur de la classe Jeton.
-    Jeton::Jeton(char nom, Effet effet, bool utilisation) {
-       NomJeton = nom;
-       EffetJeton = effet;
-       Utilisé = utilisation;
-   }
+   Jeton::Jeton(char nom, bool utilisation) {
+      NomJeton = nom;
+      Utilisé = utilisation;
+
+      int effetRand = rand() % 8 + 1; 
+      switch(effetRand)
+      {
+         case 1:
+               EffetJeton = HautGauche();
+               break;
+         case 2:
+               EffetJeton = HautDroite();
+               break;
+         case 3:
+               EffetJeton = BasGauche();
+               break;
+         case 4:
+               EffetJeton = BasDroite();
+               break;
+         case 5:
+               EffetJeton = Haut();
+               break;
+         case 6:
+               EffetJeton = Droite();
+               break;
+         case 7:
+               EffetJeton = Gauche();
+               break;
+         case 8:
+               EffetJeton = Bas();
+               break;
+      }
 
 
 

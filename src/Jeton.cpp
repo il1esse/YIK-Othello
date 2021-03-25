@@ -56,12 +56,12 @@
   // Dessine un jeton de la couleur du joueur.
    void Jeton::DessinerJeton (unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax) {
       for(unsigned int i = Ymin; i<Ymax+1; i++)
-       {
-           for(unsigned int j= Xmin; j<Xmax+1; j++)
-           {
-
-           }
-       }
+      {
+         for(unsigned int j= Xmin; j<Xmax+1; j++)
+         {
+            
+         }
+      }
    }
 
    // Efface un jeton.

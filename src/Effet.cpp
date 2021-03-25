@@ -24,7 +24,7 @@ unsigned char & Effet::getNomE() const
 }
 
 //Mutateur : Modifie le nom de l'effet.
-unsigned char Effet::setNomE(char & nouvNomE)
+void Effet::setNomE(char & nouvNomE)
 {
     nomE = nouvNomE;
 }
@@ -36,7 +36,7 @@ unsigned char &  Effet::getDescription() const
 }
 
 //Mutateur : Modifie la description de l'effet.
-unsigned char Effet::setDescription(string & nouvDescription)
+void Effet::setDescription(string & nouvDescription)
 {
     description = nouvDescription;
 }
@@ -48,7 +48,7 @@ unsigned char & Effet::getSpecial() const
 }
 
 //Mutateur : Modifie la valeur special de l'effet.
-unsigned char Effet::setSpecial(bool & nouvSpecial)
+void Effet::setSpecial(bool & nouvSpecial)
 {
     special = nouvDescription
 }
@@ -63,7 +63,7 @@ HautGauche::HautGauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautGauche.
-HautGauche::comportementHG(int x,int y)
+HautGauche::comportementHG(int & x,int & y)
 {
     x = x-1;
     y = y+1;
@@ -77,7 +77,7 @@ HautDroite::HautDroite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautDroite.
-HautDroite::comportementHD(int x,int y)
+HautDroite::comportementHD(int & x,int & y)
 {
     x = x+1;
     y = y+1;
@@ -91,7 +91,7 @@ BasGauche::BasGauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasGauche.
-BasGauche::comportementBG(int x,int y)
+BasGauche::comportementBG(int & x,int & y)
 {
     x = x-1;
     y = y-1;
@@ -105,7 +105,7 @@ BasDroite::BasDroite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasDroite.
-BasDroite::comportementBD(int x,int y)
+BasDroite::comportementBD(int & x,int & y)
 {
     x = x+1;
     y = y-1;
@@ -119,7 +119,7 @@ Haut::Haut()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Haut.
-Haut::comportementH(int y)
+Haut::comportementH(int & y)
 {
     y = y+1;
 }
@@ -132,7 +132,7 @@ Droite::Droite()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Droite.
-Droite::comportementD(int x)
+Droite::comportementD(int & x)
 {
     x = x+1
 }
@@ -145,7 +145,7 @@ Gauche::Gauche()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Gauche.
-Gauche::comportementG(int x)
+Gauche::comportementG(int & x)
 {
     x = x-1
 }
@@ -158,7 +158,7 @@ Bas::Bas()
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Bas.
-Bas::comportementB(int y)
+Bas::comportementB(int & y)
 {
     y = y-1;
 }

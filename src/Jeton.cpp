@@ -1,14 +1,14 @@
 /* Inclusion de l'entète du module */
 #include "Jeton.h"
-
 /* Inclusion d'entêtes standards */
 #include <cassert>
 #include <iostream>
 #include <fstream>
 using namespace std;
 
-/* Définitions des fonctions membres publiques et privées */
 
+
+/* Définitions des fonctions membres publiques et privées */
 // Constructeur par défaut de la classe: initialise dimx et dimy à 0
     Jeton::Jeton() {
        NomJeton = "Jeton";
@@ -39,7 +39,6 @@ using namespace std;
       return Utilisé;
    }
 
-
 // Mutateur :
    void Jeton::setNomJeton () {
       NomJeton = NomJet;
@@ -55,18 +54,4 @@ using namespace std;
       Utilisé = UtiliseJet;
    }
 
-  // Dessine un rectangle plein de la couleur du joueur
-   void Jeton::DessinerJeton (unsigned int Xmin, unsigned int Ymin, unsigned int Xmax, unsigned int Ymax) {
-      for(unsigned int i = Ymin; i<Ymax+1; i++)
-       {
-           for(unsigned int j= Xmin; j<Xmax+1; j++)
-           {
-               setPix(j,i); 
-           }
-       }
-   }
 
-   // Efface l'image en la remplissant de la couleur en paramètre
-   // (en appelant dessinerRectangle avec le bon rectangle)
-   void Jeton::EffacerJeton () {
-   }

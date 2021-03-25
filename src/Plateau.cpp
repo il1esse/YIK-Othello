@@ -52,11 +52,23 @@
 
     // Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
 
-    void Plateau::setCase(unsigned int x, unsigned int y,const Case & c){
+    void Plateau::setCase(unsigned int x, unsigned int y, char couleur){
         assert(x >= 0 && y >= 0); // Précondition X et Y positif ou égale à 0.
         assert(x < dimx && y < dimy); // Précondition x et y inférieur à leurs bornes.
-        tabCase[y*dimx+x].setEtat(c.getEtat());
-        tabCase[y*dimx+x].setCouleurC(c.getCouleurC());
+        if(couleur == "Rouge")
+        {
+            tabCase[y*dimx+x].setEtat(1);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+        if(couleur == "Bleu"){
+            tabCase[y*dimx+x].setEtat(0);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+        else(couleur == "Neutre"){
+            tabCase[y*dimx+x].setEtat(2);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+
     }
 
 
@@ -93,18 +105,17 @@
 
     // Met à jour le plateau par rapport à l'état d'une case.
 
-    void Plateau::majPlateau(unsigned int x, unsigned int y,Case & c){
-        setCase(x,y,c);
-        appliRegleHori(x,y,c);
-        appliRegleVerti(x,y,c);
-        appliRegleDiag(x,y,c);
-
+    void Plateau::majPlateau(unsigned int x, unsigned int y,char couleur){
+        setCase(x,y,couleur);
+        appliRegleHori(x,y);
+        appliRegleVerti(x,y);
+        appliRegleDiag(x,y);
     }
 
 
     // Applique la règle horizontale.
 
-    void Plateau::appliRegleHori(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleHori(unsigned int x, unsigned int y){
         int i = 1;
         int j = 1;
 
@@ -137,7 +148,7 @@
 
     // Applique la règle verticale.
 
-    void Plateau::appliRegleVerti(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleVerti(unsigned int x, unsigned int y){
         int i = 1;
         int j = 1;
 
@@ -171,7 +182,7 @@
 
     // Applique la règle diagonale
 
-    void Plateau::appliRegleDiag(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleDiag(unsigned int x, unsigned int y){
         //x et y définissent la position du jeton posé
         int i = 1;
         int j = 1;

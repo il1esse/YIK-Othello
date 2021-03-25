@@ -2,13 +2,11 @@
 #include "Score.h"
 #include "Jeu.h"
 #include "Plateau.h"
+
 /* Inclusion d'entêtes standards */
 #include <cassert>
 #include <iostream>
 #include <fstream>
-using namespace std;
-
-
 
 /* Définitions des fonctions membres publiques et privées */
 // Constructeur par défaut de la classe:
@@ -33,17 +31,18 @@ using namespace std;
 
 // CalculateurScore();
     Score & CalculateurScore(); {
-        caseocc = 0;
+        int caseocc = 0;
+        int caseadv = 0;
         score = 0;
-        for(int i=0; i<dimx; i++)
+        for(int i=1; i<dimx-2; i++)
         {
-            for(int j=0; i<dimy; j++)
+            for(int j=1; i<dimy-2; j++)
             {
-                if(tabCase[i][j] == 1)
+                if(tabCase[j*dimx+i] == 0)
                 {
                     caseocc = caseocc +1;
                 }
-                else(tabCase[i][j] == 2)
+                else(tabCase[j*dimx+i] == 1)
                 {
                     caseadv = caseadv +1;
                 }
@@ -53,7 +52,7 @@ using namespace std;
         {
             score = score * 2;
         }
-        if(caseocc = (dimx * dimy))
+        if(caseocc = (dimx-2 * dimy-2))
         {
             score = score *2;
         }
@@ -70,16 +69,13 @@ using namespace std;
 // AfficherScore();
     void Score::AfficherScore();
     {
-        if()//condition de victoire
+        if()//condition de victoire: Le joueur possède + de case que son adversaire.
         {
             cout << "Bien joué !!! tu as gagnés" <<endl;
-            sleep(8)
+            sleep(8);
             cout << "Voici ton score" << score;
         }
     }
-
-
-
   
 
 

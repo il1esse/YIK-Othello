@@ -74,13 +74,13 @@
         for (int i=0; i<7; i++)
         {
             switch(i){
-                case 0 : tabJeton[0].setNomJeton("Pion");
-                case 1 : tabJeton[1].setNomJeton("Soldat");
-                case 2 : tabJeton[2].setNomJeton("Cavalier");
-                case 3 : tabJeton[3].setNomJeton("Clown");
-                case 4 : tabJeton[4].setNomJeton("Danseuse");
-                case 5 : tabJeton[5].setNomJeton("Sorcier");
-                case 6 : tabJeton[6].setNomJeton("Empereur");
+                case 0 : tabJeton[0].setNomJeton("Pion");break;
+                case 1 : tabJeton[1].setNomJeton("Soldat");break;
+                case 2 : tabJeton[2].setNomJeton("Cavalier");break;
+                case 3 : tabJeton[3].setNomJeton("Clown");break;
+                case 4 : tabJeton[4].setNomJeton("Danseuse");break;
+                case 5 : tabJeton[5].setNomJeton("Sorcier");break;
+                case 6 : tabJeton[6].setNomJeton("Empereur");break;
             }
         }
     }

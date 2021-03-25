@@ -65,7 +65,7 @@ class Plateau {
     @param y La valeur de la case en Y.
     @param etat La nouvelle valeur état de la case.
     */
-    void setCase(unsigned int x, unsigned int y,const Case & c);
+    void setCase(unsigned int x, unsigned int y,char couleur);
 
     /**
     @brief Initialise les cases du plateau.
@@ -80,22 +80,22 @@ class Plateau {
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.
     */
-    void majPlateau(unsigned int x, unsigned int y,Case & c);
+    void majPlateau(unsigned int x, unsigned int y,char couleur);
 
     /**
     @brief Applique la règle horizontale.
     */
-    void appliRegleHori(unsigned int x, unsigned int y,Case & c);
+    void appliRegleHori(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle verticale.
     */
-    void appliRegleVerti(unsigned int x, unsigned int y,Case & c);
+    void appliRegleVerti(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle diagonale
     */
-    void appliRegleDiag(unsigned int x, unsigned int y,Case & c);
+    void appliRegleDiag(unsigned int x, unsigned int y);
 
 };
 #endif /* Termine le #ifndef PLATEAU_H */

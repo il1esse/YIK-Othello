@@ -1,20 +1,20 @@
 /* Inclusions de l'entête du module */
-#include <Effet.h>
+#include "Effet.h"
 
 // Constructeur par défaut de la classe Effet.
 Effet::Effet()
 {
-    nomE = "pas attribu�";
-    description = "Rien";
-    special = NULL;
+    nomE = "Vide";
+    description = "Vide";
+    special = false;
 }
 
 // Desctructeur par défaut de la classe Effet.
 Effet::~Effet()
 {
-    nomE = NULL;
-    description = NULL;
-    special = NULL;
+    nomE = "Vide";
+    description = "Vide";
+    special = false;
 }
 
 //Accesseur : Récupère le nom de l'effet.
@@ -32,7 +32,7 @@ void Effet::setNomE(char & nouvNomE)
 //Accesseur : Récupère la description de l'effet.
 unsigned char &  Effet::getDescription() const
 {
-    return description
+    return description;
 }
 
 //Mutateur : Modifie la description de l'effet.
@@ -44,13 +44,13 @@ void Effet::setDescription(string & nouvDescription)
 //Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
 unsigned char & Effet::getSpecial() const
 {
-    return special
+    return special;
 }
 
 //Mutateur : Modifie la valeur special de l'effet.
 void Effet::setSpecial(bool & nouvSpecial)
 {
-    special = nouvDescription
+    special = nouvSpecial;
 }
 
 
@@ -59,106 +59,114 @@ void Effet::setSpecial(bool & nouvSpecial)
 HautGauche::HautGauche()
 {
     nomE = "Haut Gauche";
-    description = "Change l�etat de la case Haut Gauche";
+    description = "Acquiert la case à la diagonale haute gauche de l'endroit ou a été posé le jeton, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautGauche.
-HautGauche::comportementHG(int & x,int & y)
+HautGauche::comportementHG(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x-1;
-    y = y+1;
+    nvX = x-1;
+    nvY = y+1;
+    Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe HautDroite.
 HautDroite::HautDroite()
 {
     nomE = "Haut Droite";
-    description = "Change l�etat de la case Haut Droite";
+    description = "Acquiert la case à la diagonale haute droite de l'endroit ou a été posé le jeton, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet HautDroite.
-HautDroite::comportementHD(int & x,int & y)
+HautDroite::comportementHD(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x+1;
-    y = y+1;
+    nvX = x+1;
+    nvY = y+1;
+    Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasGauche.
 BasGauche::BasGauche()
 {
     nomE = "BasGauche";
-    description = "Change l�etat de la case BasGauche";
+    description = "Acquiert la case à la diagonale basse gauche de l'endroit ou a été posé le jeton, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasGauche.
-BasGauche::comportementBG(int & x,int & y)
+BasGauche::comportementBG(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x-1;
-    y = y-1;
+    nvX = x-1;
+    nvY = y-1;
+    Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasDroite.
 BasDroite::BasDroite()
 {
     nomE = "BasDroite";
-    description = "Change l�etat de la case BasDroite";
+    description = "Acquiert la case à la diagonale basse droite de l'endroit ou a été posé le jeton, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet BasDroite.
-BasDroite::comportementBD(int & x,int & y)
+BasDroite::comportementBD(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x+1;
-    y = y-1;
+    nvX = x+1;
+    nvY = y-1;
+    Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Haut.
 Haut::Haut()
 {
     nomE = "Haut";
-    description = "Change l�etat de la case Haut";
+    description = "Acquiert la case au dessus du l'endroit ou le jeton a été posé, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Haut.
-Haut::comportementH(int & y)
+Haut::comportementH(int & x,int & y, Plateau & p,char couleur)
 {
-    y = y+1;
+    nvY = y+1;
+    Plateau::majPlateau(x,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Droite.
 Droite::Droite()
 {
     nomE = "Droite";
-    description = "Change l�etat de la case Droite";
+    description = "Acquiert la case à droite l'endroit ou le jeton a été posé, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Droite.
-Droite::comportementD(int & x)
+Droite::comportementD(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x+1
+    nvX = x+1
+    Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Gauche.
 Gauche::Gauche()
 {
     nomE = "Gauche";
-    description = "Change l�etat de la case Gauche";
+    description = "Acquiert la case a gauche l'endroit ou le jeton a été posé, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Gauche.
-Gauche::comportementG(int & x)
+Gauche::comportementG(int & x,int & y, Plateau & p,char couleur)
 {
-    x = x-1
+    nvX = x-1
+    Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Bas.
 Bas::Bas()
 {
     nomE = "Bas";
-    description = "Change l�etat de la case Bas";
+    description = "Acquiert la case en dessous de l'endroit ou le jeton a été posé, si elle est neutre";
     special = 0;
 }
 //Procédure permettant de gerer le comportement de l'effet Bas.
-Bas::comportementB(int & y)
+Bas::comportementB(int & x,int & y, Plateau & p,char couleur)
 {
-    y = y-1;
+    nvY = y-1;
+    Plateau::majPlateau(x,nvY,couleur);
 }

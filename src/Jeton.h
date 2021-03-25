@@ -5,7 +5,6 @@
  @date 2021/03/17
 */
 
-
 /* Directives pour éviter les inclusions multiples */
 #ifndef JETON_H
 #define JETON_H
@@ -31,7 +30,7 @@ class Jeton {
     @param effet Effet du jeton.
     @param utilisation Utilisation du jeton par un booléen.
     */
-    Jeton(char nom, bool utilisation);
+    Jeton(char nom);
 
     /**
     @brief Destructeur de la classe Jeton.

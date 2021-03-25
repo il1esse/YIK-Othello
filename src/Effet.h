@@ -10,6 +10,8 @@
 #define EFFET_H_INCLUDED
 
 /* Inclusions des entêtes utilisées */
+#include <string.h>
+#include "Plateau.h"
 
 /* Définitions de la classes */
 class Effet{
@@ -57,13 +59,13 @@ public :
     void setDescription(string & nouvDescription);
 
     /**
-    @brief Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
+    @brief Accesseur : Récupère la valeur booléenne "special" de l'effet.
     */
     unsigned char & getSpecial() const;
 
     /**
     @brief Mutateur : Modifie la valeur special de l'effet.
-    @param nouvSpecial La nouvelle valeur permettant de savoir si l'effet est special.
+    @param nouvSpecial La nouvelle valeur booléenne spécial de l'effet.
     */
     void setSpecial(bool & nouvSpecial);
 };
@@ -78,8 +80,8 @@ class HautGauche : public Effet
     HautGauche();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet HautGauche.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
     void comportementHG(int x,int y);
 };
@@ -92,10 +94,10 @@ class HautDroite : public Effet
     HautDroite();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementHD(int & x,int & y);
+    void comportementHD(int x,int y);
 };
 
 class BasGauche : public Effet
@@ -106,10 +108,10 @@ class BasGauche : public Effet
     BasGauche();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet BasGauche.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementBG(int & x,int & y);
+    void comportementBG(int x,int y);
 };
 
 class BasDroite : public Effet
@@ -120,10 +122,10 @@ class BasDroite : public Effet
     BasDroite();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet BasDroite.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementBD(int & x,int & y);
+    void comportementBD(int x,int y);
 };
 
 
@@ -136,9 +138,9 @@ class Haut : public Effet
     Haut();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet Haut.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementH(int & y);
+    void comportementH(int y);
 };
 
 class Droite : public Effet
@@ -149,9 +151,9 @@ class Droite : public Effet
     Droite();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet Droite.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
     */
-    void comportementD(int & x);
+    void comportementD(int x);
 };
 
 class Gauche : public Effet
@@ -162,9 +164,9 @@ class Gauche : public Effet
     Gauche();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet Gauche.
-    @param x Coordonées ou est placé le jeton sur l'axe des x.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
     */
-    void comportementG(int & x);
+    void comportementG(int x);
 };
 
 class Bas : public Effet
@@ -175,9 +177,9 @@ class Bas : public Effet
     Bas();
     /**
     @brief Procédure permettant de gerer le comportement de l'effet Bas.
-    @param y Coordonées ou est placé le jeton sur l'axe des y.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementB(int & y);
+    void comportementB(int y);
 };
 
 #endif // EFFET_H_INCLUDED

@@ -8,7 +8,9 @@
 /* Directives pour éviter les inclusions multiples */
 #ifndef PLATEAU_H
 #define PLATEAU_H
+
 /* Inclusions des entêtes utilisées */
+#include "Case.h"
 
 /* Définitions de la classes */
 class Plateau {
@@ -46,6 +48,16 @@ class Plateau {
     validité la formule pour passer d'un tab 2D à un tab 1D est tab[y*dimx+x].
     */
     Case & getCase(unsigned int x, unsigned int y) const;
+
+    /**
+    @brief Accesseur : Récupère la dimension x du plateau
+    */
+    unsigned int & getDimensionX() const;
+
+    /**
+    @brief Accesseur : Récupère la dimension y du plateau
+    */
+    unsigned int & getDimensionY() const;
 
     /**
     @brief Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).

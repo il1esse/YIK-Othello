@@ -30,6 +30,16 @@
         classique = true;
     }
 
+    // Accesseur : Récupère la dimension x du plateau
+    unsigned int & getDimensionX() const{
+        return dimx;
+    }
+
+    // Accesseur : Récupère la dimension y du plateau
+    unsigned int & getDimensionY() const{
+        return dimy;
+    }
+
     
     // Accesseur : Récupère la case de coordonnées (x,y) en vérifiant leur 
     // validité, + la formule pour passer d'un tab 2D à un tab 1D est tab[y*dimx+x].
@@ -218,5 +228,3 @@
         }
 
     }
-
-};

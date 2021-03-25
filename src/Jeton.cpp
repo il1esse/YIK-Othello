@@ -16,7 +16,7 @@
 // Constructeur de la classe Jeton.
     Jeton::Jeton(char nom, bool utilisation) {
       NomJeton = nom;
-      Utilisé = utilisation;
+      Utilise = utilisation;
 
       int effetRand = rand() % 8 + 1; 
       switch(effetRand)

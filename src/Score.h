@@ -1,5 +1,5 @@
 /**
- @brief Jeton contient les données & les entêtes des fonctions jeton.
+ @brief Score contient les données & les entêtes des fonctions Score.
  @author YIK
  @version 1.0
  @date 2021/03/17
@@ -69,5 +69,5 @@ class Score {
    SetScore(Score & nouvScore);
 
 };
-#endif /* Termine le #ifndef JETON_H */
+#endif /* Termine le #ifndef SCORE_H */
 

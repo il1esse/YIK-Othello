@@ -83,7 +83,7 @@ class HautGauche : public Effet
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementHG(int x,int y);
+    void comportementHG(int & x,int & y, Plateau & p,char couleur);
 };
 
 class HautDroite : public Effet
@@ -96,8 +96,10 @@ class HautDroite : public Effet
     @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementHD(int x,int y);
+    void comportementHD(int & x,int & y, Plateau & p,char couleur);
 };
 
 class BasGauche : public Effet
@@ -107,11 +109,13 @@ class BasGauche : public Effet
     */  
     BasGauche();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet BasGauche.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementBG(int x,int y);
+    void comportementBG(int & x,int & y, Plateau & p,char couleur);
 };
 
 class BasDroite : public Effet
@@ -121,11 +125,13 @@ class BasDroite : public Effet
     */  
     BasDroite();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet BasDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementBD(int x,int y);
+    void comportementBD(int & x,int & y, Plateau & p,char couleur);
 };
 
 
@@ -137,10 +143,13 @@ class Haut : public Effet
     */  
     Haut();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet Haut.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementH(int y);
+    void comportementH(int & x,int & y, Plateau & p,char couleur);
 };
 
 class Droite : public Effet
@@ -150,10 +159,13 @@ class Droite : public Effet
     */  
     Droite();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet Droite.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementD(int x);
+    void comportementD(int & x,int & y, Plateau & p,char couleur);
 };
 
 class Gauche : public Effet
@@ -163,10 +175,13 @@ class Gauche : public Effet
     */  
     Gauche();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet Gauche.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
+    @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementG(int x);
+    void comportementG(int & x,int & y, Plateau & p,char couleur);
 };
 
 class Bas : public Effet
@@ -176,10 +191,13 @@ class Bas : public Effet
     */    
     Bas();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet Bas.
+    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
+    @param p Plateau de jeu.
+    @param couleur Couleur du jeton.
     */
-    void comportementB(int y);
+    void comportementB(int & x,int & y, Plateau & p,char couleur);
 };
 
 #endif // EFFET_H_INCLUDED

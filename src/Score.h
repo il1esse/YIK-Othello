@@ -10,12 +10,20 @@
 #define SCORE_H
 /* Inclusions des entêtes utilisées */
 
+#include "Plateau.h"
+
 /* Définitions de la classes */
 class Score {
 /* Données privés */
 
  private :
     int score;
+    int nbCaseJ1Sco;
+    int nbCaseJ2Sco;
+    bool tabClassiqueSco;
+    bool victoireJ1;
+    Plateau pSco;
+
 
 /* Donnée et fonctions publique */
  public :   
@@ -23,12 +31,17 @@ class Score {
     /**
     @brief Constructeur par défaut de la classe:
     */
-    Score();
+    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique);
 
     /**
     @brief Destructeur de la classe:
     */
     ~Score();
+
+   /**
+    @brief 
+    */
+    condMultiplicateur()
 
     /**
     @brief 
@@ -53,7 +66,7 @@ class Score {
     /**
     @brief
     */
-   SetScore();
+   SetScore(Score & nouvScore);
 
 };
 #endif /* Termine le #ifndef JETON_H */

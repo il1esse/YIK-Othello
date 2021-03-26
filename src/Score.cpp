@@ -10,13 +10,20 @@
 
 /* Définitions des fonctions membres publiques et privées */
 // Constructeur par défaut de la classe:
-    Jeton::Jeton() {
+    Score::Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p) {
         score = 0;
+        nbCaseJ1Sco = nbCaseJ1;
+        nbCaseJ2Sco = nbCaseJ2 ;
+        tabClassiqueSco = tabClassique;
+        pSco = p;
    }
 
 // Destructeur de la classe: 
-   Jeton::~Jeton () {
-       score = NULL;
+   Score::~Score () {
+        score = 0;
+        nbCaseJ1Sco = 0;
+        nbCaseJ2Sco = 0 ;
+        tabClassiqueSco = true;
    }
 
 // Accesseur :
@@ -25,46 +32,45 @@
    }
 
 // Mutateur :
-   void Score::SetScore () {
-        Score = score;
+   void Score::SetScore (Score & nouvScore) {
+        score = nouvScore;
    }
 
-// CalculateurScore();
-    Score & CalculateurScore(); {
-        int caseocc = 0;
-        int caseadv = 0;
-        score = 0;
-        for(int i=1; i<dimx-2; i++)
+// condMultiplicateur()
+    int condMultiplicateur()
+    {
+        int m=1;
+        if(nbCaseJ1Sco == 0 || nbCaseJ2Sco == 0)
         {
-            for(int j=1; i<dimy-2; j++)
-            {
-                if(tabCase[j*dimx+i] == 0)
-                {
-                    caseocc = caseocc +1;
-                }
-                else(tabCase[j*dimx+i] == 1)
-                {
-                    caseadv = caseadv +1;
-                }
-            }
+            m=m*2;
         }
-        if(caseadv = 0)
+        int nbCaseMax = j*dimx*i;
+        if(nbCaseJ1Sco == nbCaseMax || nbCaseJ2Sco == nbCaseMax)
         {
-            score = score * 2;
+            m=m*2;
         }
-        if(caseocc = (dimx-2 * dimy-2))
+        if(tabClassiqueSco==true)
         {
-            score = score *2;
+            m=m*2
         }
-        if(joueur1 == true) && (classique == true)
-        {
-            score = score * 2;
-        }
-        if(joueur 1 == true) && (classique == false)
-        {
-            score = score * 3;
-        }
+        else m=m*3;
+
+        return m;
     }
+
+// CalculateurScore();
+    Score & CalculateurScore(); 
+    {   
+        int m = PlateauRemplie();
+        if (victoireJ1 == true)
+        {
+            return nbCaseJ1Sco * m;
+        }
+        else return nbCaseJ2Sco * m;
+    }
+        
+
+
 
 // AfficherScore();
     void Score::AfficherScore();

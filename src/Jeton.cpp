@@ -4,12 +4,12 @@
 // Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
        NomJeton = "Pion";
-       EffetJeton = NULL;
+       EffetJeton = Effet();
        Utilise = false;
    }
 
 // Constructeur de la classe Jeton.
-    Jeton::Jeton(char nom) {
+    Jeton::Jeton(std::string nom) {
       NomJeton = nom;
 
       int effetRand = rand() % 8 + 1; 
@@ -42,7 +42,7 @@
       }
 
 // Destructeur de la classe Jeton.
-   Jeton::~Jeton () {
+   Jeton::~Jeton(){
        NomJeton = "Pion";
        EffetJeton = NULL;
        Utilise = false;

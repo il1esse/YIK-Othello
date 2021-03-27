@@ -10,6 +10,7 @@
 #define JEU_H
 
 /* Inclusions des entêtes utilisées */
+#include <stdlib.h>
 #include "Joueur.h"
 #include "Plateau.h"
 #include "Score.h"
@@ -18,7 +19,7 @@
 class Jeu{
 
 /* Données privés */
- private :
+ private :  
     Plateau pla;
     Joueur j1;
     Joueur j2;
@@ -93,7 +94,7 @@ class Jeu{
     /**
     @brief Défini les options du jeu.
     */
-    void menuJeu();
+    void menuJeu(int choix);
 
     /**
     @brief Met à jour la partie de jeu avec les dernières informations.
@@ -119,7 +120,7 @@ class Jeu{
     /**
     @brief Permet de déterminer le tour des joueurs.
     */
-    void joueurTour();
+    void joueurTour(Joueur j);
 
     /**
     @brief Permet au joueur de jouer son tour.

@@ -12,6 +12,7 @@
 
 #include "Plateau.h"
 #include "Jeu.h"
+#include <iostream>
 
 /* Définitions de la classes */
 class Score {
@@ -28,11 +29,15 @@ class Score {
 
 /* Donnée et fonctions publique */
  public :   
-
     /**
     @brief Constructeur par défaut de la classe:
     */
-    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique);
+    Score();
+
+    /**
+    @brief Constructeur de la classe:
+    */
+    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p);
 
     /**
     @brief Destructeur de la classe:

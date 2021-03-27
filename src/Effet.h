@@ -10,7 +10,8 @@
 #define EFFET_H_INCLUDED
 
 /* Inclusions des entêtes utilisées */
-#include <string.h>
+#include <strings.h>
+#include <stdlib.h>
 #include "Plateau.h"
 
 /* Définitions de la classes */
@@ -19,8 +20,8 @@ class Effet{
 /* Données privés */
 private :
 
-    string nomE;
-    string description;
+    std::string nomE;
+    std::string description;
     bool special;
 
 /* Donnée et fonctions publique */
@@ -39,24 +40,24 @@ public :
     /**
     @brief Accesseur : Récupère le nom de l'effet.
     */
-    unsigned char & getNomE() const;
+    std::string & getNomE() const;
 
     /**
     @brief Mutateur : Modifie le nom de l'effet.
     @param nouvNomE Le nouveau nom de l'effet.
     */
-    void setNomE(char & nouvNomE);
+    void setNomE(std::string & nouvNomE);
 
     /**
     @brief Accesseur : Récupère la description de l'effet.
     */
-    unsigned char & getDescription() const;
+    std::string & getDescription() const;
 
     /**
     @brief Mutateur : Modifie la description de l'effet.
     @param nouvDescription La nouvelle description de l'effet.
     */
-    void setDescription(string & nouvDescription);
+    void setDescription(std::string & nouvDescription);
 
     /**
     @brief Accesseur : Récupère la valeur booléenne "special" de l'effet.

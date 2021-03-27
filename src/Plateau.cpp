@@ -31,12 +31,12 @@
     }
 
     // Accesseur : Récupère la dimension x du plateau
-    unsigned int & getDimensionX() const{
+    unsigned int & Plateau::getDimensionX() const{
         return dimx;
     }
 
     // Accesseur : Récupère la dimension y du plateau
-    unsigned int & getDimensionY() const{
+    unsigned int & Plateau::getDimensionY() const{
         return dimy;
     }
 
@@ -92,12 +92,12 @@
     void Plateau::dessinePlateau(){
         for(int y=1; y< dimy-1; y++)
         {
-            cout << "_" << endl;
+            std::cout << "_" << std::endl;
             for(int x=1; x<dimx-1; x++)
             {
-                cout<< "|" << tabCase[y*dimx+x].getEtat();
+                std::cout<< "|" << tabCase[y*dimx+x].getEtat()<< std::endl;
             }
-            cout << "|" << endl;
+            std::cout << "|" << std::endl;
 
         }
     }

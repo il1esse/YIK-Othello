@@ -12,14 +12,15 @@
 /* Inclusions des entêtes utilisées */
 #include "Jeton.h"
 #include "Plateau.h"
+#include <iostream>
 
 /* Définitions de la classes */
 class Joueur {
 
 /* Données privés */
  private :
-    char pseudo;
-    char couleur;
+    std::string pseudo;
+    std::string couleur;
     unsigned int nbrJ;
     unsigned int nbrC;
     Jeton tabJeton;
@@ -46,12 +47,12 @@ class Joueur {
     /**
     @brief Accesseur : Récupère le pseudo du joueur.
     */
-    char & getPseudo() const;
+    std::string & getPseudo() const;
 
     /**
     @brief Accesseur : Récupère la couleur associé au joueur.
     */
-    char & getCouleur() const;
+    std::string & getCouleur() const;
 
     /**
     @brief Accesseur : Récupère le nombre de jeton possédé par le joueur.
@@ -67,13 +68,13 @@ class Joueur {
     @brief Mutateur : Modifie le nom du joueur.
     @param nvPseudo Le nouveau pseudo du joueur.
     */
-    void setPseudo(char & nvPseudo);
+    void setPseudo(std::string & nvPseudo);
 
     /**
     @brief Mutateur : Modifie la couleur du joueur..
     @param nvCouleur La nouvelle couleur du joueur.
     */
-    void setCouleur(char & nvCouleur);
+    void setCouleur(std::string & nvCouleur);
 
     /**
     @brief Mutateur : Modifie le nombre de jeton du joueur.
@@ -90,17 +91,18 @@ class Joueur {
     /**
     @brief Crée les 7 jetons.
     */
-    void créerJeton();
+    void creerJeton();
 
     /**
     @brief Met à jour l'information du nombre de case possédé par le joueur.
+    @param p Plateau de jeu.
     */
-    void majCaseJoueur();
+    void majCaseJoueur(Plateau & p);
 
     /**
     @brief Permet au joueur de poser un jeton sur le plateau.
     */
-    void poseJeton();
+    void poseJeton(unsigned int x, unsigned int y, Plateau & p, char nomJeton);
 
     /**
     @brief Affiche les informations du joueur graphiquement.

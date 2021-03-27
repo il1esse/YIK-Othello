@@ -11,6 +11,8 @@
 
 /* Inclusions des entêtes utilisées */
 #include "Case.h"
+#include <iostream>
+#include <assert.h>
 
 /* Définitions de la classes */
 class Plateau {

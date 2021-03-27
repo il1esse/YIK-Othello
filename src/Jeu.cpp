@@ -6,24 +6,24 @@
         pla = Plateau();
         j1 = Joueur();
         j2 = Joueur();
-        score = 0;
+        score = Score();
     }
 
 
     // Constructeur de la classe Jeu.
-    Jeu::(Plateau p, Joueur joueur1, Joueur joueur2){
+    Jeu::Jeu(Plateau p, Joueur joueur1, Joueur joueur2){
         pla = p;
         j1 = joueur1;
         j2 = joueur2;
-        score = 0;
+        score = Score();
     }
 
     // Destructeur de la classe Joueur.
     Jeu::~Jeu(){
-        pla = NULL;
+        pla = Plateau();
         j1 = NULL;
         j2 = NULL;
-        score = NULL;
+        score = Score();
     }
 
 
@@ -93,7 +93,7 @@
 
     // Met fin à la partie.
     void Jeu::finDePartie(){
-        Score scof = new Score(j1.getNombreCase,j2.getNombreCase, pla.getClassique,pla);
+        Score * scof = new Score(j1.getNombreCase,j2.getNombreCase, pla.getClassique,pla);
         scof.CalculateurScore();
         sco.setScore(scof);
         //A COMPLETER//
@@ -119,7 +119,7 @@
     }
 
     // Permet de déterminer le tour des joueurs.
-    void Jeu::joueurTour(){
+    void Jeu::joueurTour(Joueur j){
         
     }
 

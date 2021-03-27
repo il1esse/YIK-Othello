@@ -28,12 +28,12 @@
 
     
     // Accesseur : Récupère le pseudo du joueur.
-    char & Joueur::getPseudo() const{
+    std::string & Joueur::getPseudo() const{
         return pseudo;
     }
 
     // Accesseur : Récupère la couleur associé au joueur.
-    char & Joueur::getCouleur() const{
+    std::string & Joueur::getCouleur() const{
         return couleur;
     }
 
@@ -48,12 +48,12 @@
     }
 
     //Mutateur : Modifie le nom du joueur.
-    void Joueur::setPseudo(char & nvPseudo){
+    void Joueur::setPseudo(std::string & nvPseudo){
         pseudo = nvPseudo;
     }
 
     // Mutateur : Modifie la couleur du joueur.
-    void Joueur::setCouleur(char & nvCouleur){
+    void Joueur::setCouleur(std::string & nvCouleur){
         couleur = nvCouleur;
     }
 
@@ -89,11 +89,11 @@
     // Met à jour l'information du nombre de case possédé par le joueur.
     void Joueur::majCaseJoueur(Plateau & p){
         nbrC=0;
-        for(int i=1; i<Plateau::getDimensionX()-2; i++)
+        for(int i=1; i<p.Plateau::getDimensionX()-2; i++)
         {
-            for(int j=1; j<Plateau::getDimensionY()-2; j++)
+            for(int j=1; j<p.Plateau::getDimensionY()-2; j++)
             {
-                if(Plateau::getCase(i,j).Case::getCouleurC() == couleur)
+                if(p.Plateau::getCase(i,j).Case::getCouleurC() == couleur)
                 {
                     nbrC++;
                 }
@@ -104,7 +104,7 @@
 
     // Permet au joueur de poser un jeton sur le plateau.
     void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, char nomJeton){
-        Jeton nvTabJeton = newTabJeton[nbJeton-1];
+        Jeton nvTabJeton = new TabJeton[nbJeton-1];
         int j = 0;
         for(int i=0; i<nbrJ; i++){
             if(tabJeton[i].getNomJeton() == nomJeton)
@@ -141,15 +141,15 @@
 
     // Affiche les informations du joueur textuellement.
     void Joueur::afficheJoueurTxt(){
-        cout << "Pseudo du joueur : " << pseudo << endl;
-        cout << "La couleur associée au joueur : " << couleur << endl;
-        cout << "Nombre de Case possédé par le joueur : " << nbrC << endl;
-        cout << "Nombre de jeton restant a utilisé : " << nbrJ << endl;
-        cout << "Jeton restant : " << endl;
+        std::cout << "Pseudo du joueur : " << pseudo << std::endl;
+        std::cout << "La couleur associée au joueur : " << couleur << std::endl;
+        std::cout << "Nombre de Case possédé par le joueur : " << nbrC << std::endl;
+        std::cout << "Nombre de jeton restant a utilisé : " << nbrJ << std::endl;
+        std::cout << "Jeton restant : " << std::endl;
         for(int i =0; i<nbrJ; i++)
         {
-            cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << endl;
-            cout << "Effet du jeton : " << tabJeton[i].getEffet() << endl;
+            std::cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << std::endl;
+            std::cout << "Effet du jeton : " << tabJeton[i].getEffet() << std::endl;
         }
     }
 

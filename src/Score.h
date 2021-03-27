@@ -11,6 +11,7 @@
 /* Inclusions des entêtes utilisées */
 
 #include "Plateau.h"
+#include "Jeu.h"
 
 /* Définitions de la classes */
 class Score {

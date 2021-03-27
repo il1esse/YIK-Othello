@@ -1,12 +1,9 @@
 /* Inclusion de l'entète du module */
 #include "Score.h"
-#include "Jeu.h"
-#include "Plateau.h"
 
 /* Inclusion d'entêtes standards */
 #include <cassert>
 #include <iostream>
-#include <fstream>
 
 /* Définitions des fonctions membres publiques et privées */
 // Constructeur par défaut de la classe:
@@ -61,7 +58,7 @@
 // CalculateurScore();
     Score & CalculateurScore(); 
     {   
-        int m = PlateauRemplie();
+        int m = condMultiplicateur();
         if (victoireJ1 == true)
         {
             return nbCaseJ1Sco * m;

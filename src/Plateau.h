@@ -8,7 +8,11 @@
 /* Directives pour éviter les inclusions multiples */
 #ifndef PLATEAU_H
 #define PLATEAU_H
+
 /* Inclusions des entêtes utilisées */
+#include "Case.h"
+#include <iostream>
+#include <assert.h>
 
 /* Définitions de la classes */
 class Plateau {
@@ -48,12 +52,22 @@ class Plateau {
     Case & getCase(unsigned int x, unsigned int y) const;
 
     /**
+    @brief Accesseur : Récupère la dimension x du plateau
+    */
+    unsigned int & getDimensionX() const;
+
+    /**
+    @brief Accesseur : Récupère la dimension y du plateau
+    */
+    unsigned int & getDimensionY() const;
+
+    /**
     @brief Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
     @param x La valeur de la case en X.
     @param y La valeur de la case en Y.
     @param etat La nouvelle valeur état de la case.
     */
-    void setCase(unsigned int x, unsigned int y,const Case & c);
+    void setCase(unsigned int x, unsigned int y,char couleur);
 
     /**
     @brief Initialise les cases du plateau.
@@ -68,22 +82,22 @@ class Plateau {
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.
     */
-    void majPlateau(unsigned int x, unsigned int y,Case & c);
+    void majPlateau(unsigned int x, unsigned int y,char couleur);
 
     /**
     @brief Applique la règle horizontale.
     */
-    void appliRegleHori(unsigned int x, unsigned int y,Case & c);
+    void appliRegleHori(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle verticale.
     */
-    void appliRegleVerti(unsigned int x, unsigned int y,Case & c);
+    void appliRegleVerti(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle diagonale
     */
-    void appliRegleDiag(unsigned int x, unsigned int y,Case & c);
+    void appliRegleDiag(unsigned int x, unsigned int y);
 
 };
 #endif /* Termine le #ifndef PLATEAU_H */

@@ -1,24 +1,34 @@
 /* Inclusion de l'entète du module */
 #include "Score.h"
-#include "Jeu.h"
-#include "Plateau.h"
+
 /* Inclusion d'entêtes standards */
 #include <cassert>
 #include <iostream>
-#include <fstream>
-using namespace std;
-
-
 
 /* Définitions des fonctions membres publiques et privées */
+
+
 // Constructeur par défaut de la classe:
-    Jeton::Jeton() {
+    Score::Score()
+    {
         score = 0;
-   }
+    }
+
+// Constructeur de la classe Score: 
+    Score::Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p) {
+        score = 0;
+        nbCaseJ1Sco = nbCaseJ1;
+        nbCaseJ2Sco = nbCaseJ2 ;
+        tabClassiqueSco = tabClassique;
+        pSco = p;
+    }
 
 // Destructeur de la classe: 
-   Jeton::~Jeton () {
-       score = NULL;
+   Score::~Score () {
+        score = 0;
+        nbCaseJ1Sco = 0;
+        nbCaseJ2Sco = 0 ;
+        tabClassiqueSco = true;
    }
 
 // Accesseur :
@@ -27,59 +37,56 @@ using namespace std;
    }
 
 // Mutateur :
-   void Score::SetScore () {
-        Score = score;
+   void Score::SetScore (Score & nouvScore) {
+        score = nouvScore;
    }
+   
+// condMultiplicateur()
+    int condMultiplicateur()
+    {
+        int m=1;
+        if(nbCaseJ1Sco == 0 || nbCaseJ2Sco == 0)
+        {
+            m=m*2;
+        }
+        int nbCaseMax = j*dimx*i; //refaire calcul du nombre de case a part
+        if(nbCaseJ1Sco == nbCaseMax || nbCaseJ2Sco == nbCaseMax)
+        {
+            m=m*2;
+        }
+        if(tabClassiqueSco==true)
+        {
+            m=m*2
+        }
+        else m=m*3;
+
+        return m;
+    }
 
 // CalculateurScore();
-    Score & CalculateurScore(); {
-        int caseocc = 0;
-        int score = 0;
-        for(int i=0; i<dimx; i++)
+    Score & CalculateurScore(); 
+    {   
+        int m = condMultiplicateur();
+        if (victoireJ1 == true)
         {
-            for(int j=0; i<dimy; j++)
-            {
-                if(tabCase[i][j] == 1)
-                {
-                    caseocc = caseocc +1;
-                }
-                else(tabCase[i][j] == 2)
-                {
-                    caseadv = caseadv +1;
-                }
-            }
+            return nbCaseJ1Sco * m;
         }
-        if(caseadv = 0)
-        {
-            score = score * 2;
-        }
-        if(caseocc = (dimx * dimy))
-        {
-            score = score *2;
-        }
-        if(joueur1 == true) && (classique == true)
-        {
-            score = score * 2;
-        }
-        if(joueur 1 == true) && (classique == false)
-        {
-            score = score * 3;
-        }
+        else return nbCaseJ2Sco * m;
     }
+        
+
+
 
 // AfficherScore();
     void Score::AfficherScore();
     {
-        if()//condition de victoire
+        if()//condition de victoire: Le joueur possède + de case que son adversaire.
         {
-            cout << "Bien joué !!! tu as gagnés" <<endl;
-            sleep(8)
-            cout << "Voici ton score" << score;
+            std::cout << "Bien joué !!! tu as gagnés" <<std::endl;
+            sleep(8);
+            std::cout << "Voici ton score" << score <<std::endl;
         }
     }
-
-
-
   
 
 

@@ -30,6 +30,16 @@
         classique = true;
     }
 
+    // Accesseur : Récupère la dimension x du plateau
+    unsigned int & Plateau::getDimensionX() const{
+        return dimx;
+    }
+
+    // Accesseur : Récupère la dimension y du plateau
+    unsigned int & Plateau::getDimensionY() const{
+        return dimy;
+    }
+
     
     // Accesseur : Récupère la case de coordonnées (x,y) en vérifiant leur 
     // validité, + la formule pour passer d'un tab 2D à un tab 1D est tab[y*dimx+x].
@@ -42,11 +52,23 @@
 
     // Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
 
-    void Plateau::setCase(unsigned int x, unsigned int y,const Case & c){
+    void Plateau::setCase(unsigned int x, unsigned int y, char couleur){
         assert(x >= 0 && y >= 0); // Précondition X et Y positif ou égale à 0.
         assert(x < dimx && y < dimy); // Précondition x et y inférieur à leurs bornes.
-        tabCase[y*dimx+x].setEtat(c.getEtat());
-        tabCase[y*dimx+x].setCouleurC(c.getCouleurC());
+        if(couleur == "Rouge")
+        {
+            tabCase[y*dimx+x].setEtat(1);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+        if(couleur == "Bleu"){
+            tabCase[y*dimx+x].setEtat(0);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+        else(couleur == "Neutre"){
+            tabCase[y*dimx+x].setEtat(2);
+            tabCase[y*dimx+x].setCouleurC(couleur);
+        }
+
     }
 
 
@@ -70,12 +92,12 @@
     void Plateau::dessinePlateau(){
         for(int y=1; y< dimy-1; y++)
         {
-            cout << "_" << endl;
+            std::cout << "_" << std::endl;
             for(int x=1; x<dimx-1; x++)
             {
-                cout<< "|" << tabCase[y*dimx+x].getEtat();
+                std::cout<< "|" << tabCase[y*dimx+x].getEtat()<< std::endl;
             }
-            cout << "|" << endl;
+            std::cout << "|" << std::endl;
 
         }
     }
@@ -83,18 +105,17 @@
 
     // Met à jour le plateau par rapport à l'état d'une case.
 
-    void Plateau::majPlateau(unsigned int x, unsigned int y,Case & c){
-        setCase(x,y,c);
-        appliRegleHori(x,y,c);
-        appliRegleVerti(x,y,c);
-        appliRegleDiag(x,y,c);
-
+    void Plateau::majPlateau(unsigned int x, unsigned int y,char couleur){
+        setCase(x,y,couleur);
+        appliRegleHori(x,y);
+        appliRegleVerti(x,y);
+        appliRegleDiag(x,y);
     }
 
 
     // Applique la règle horizontale.
 
-    void Plateau::appliRegleHori(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleHori(unsigned int x, unsigned int y){
         int i = 1;
         int j = 1;
 
@@ -127,7 +148,7 @@
 
     // Applique la règle verticale.
 
-    void Plateau::appliRegleVerti(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleVerti(unsigned int x, unsigned int y){
         int i = 1;
         int j = 1;
 
@@ -161,7 +182,7 @@
 
     // Applique la règle diagonale
 
-    void Plateau::appliRegleDiag(unsigned int x, unsigned int y,Case & c){
+    void Plateau::appliRegleDiag(unsigned int x, unsigned int y){
         //x et y définissent la position du jeton posé
         int i = 1;
         int j = 1;
@@ -218,5 +239,3 @@
         }
 
     }
-
-};

@@ -5,18 +5,20 @@
  @date 2021/03/17
 */
 
-
 /* Directives pour éviter les inclusions multiples */
 #ifndef JETON_H
 #define JETON_H
+
+/* Inclusions des entêtes utilisées */
+#include "Effet.h"
 
 /* Définitions de la classes */
 class Jeton {
 /* Données privés */
  private :
-    char NomJeton;
+    std::string NomJeton;
     Effet EffetJeton;
-    bool Utilisé;
+    bool Utilise;
 
 /* Donnée et fonctions publique */
  public :
@@ -31,7 +33,7 @@ class Jeton {
     @param effet Effet du jeton.
     @param utilisation Utilisation du jeton par un booléen.
     */
-    Jeton(char nom, bool utilisation);
+    Jeton(std::string nom);
 
     /**
     @brief Destructeur de la classe Jeton.
@@ -41,7 +43,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur NomJeton du Jeton.
     */
-    char & getNomJeton() const;
+    std::string & getNomJeton() const;
 
     /**
     @brief Accesseur : Récupère la valeur EffetJeton du Jeton.
@@ -69,7 +71,7 @@ class Jeton {
     @brief Mutateur : Modifie la valeur NomJeton du Jeton.
     @param nvNom Le nouvelle valeur NomJeton du Jeton.
     */
-    void setNomJeton(char & nvNom);
+    void setNomJeton(std::string & nvNom);
 };
 
 #endif /* Termine le #ifndef JETON_H */

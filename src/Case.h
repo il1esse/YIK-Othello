@@ -11,13 +11,15 @@
 
 /* Inclusions des entêtes utilisées */
 
+#include <iostream>
+
 /* Définitions de la classes */
 class Case{
 
 /* Données privés */
 private :
 
-    char couleurC;
+    std::string couleurC;
     unsigned int etat;
 
 /* Donnée et fonctions publique */
@@ -33,7 +35,7 @@ public :
     @param c Représente la couleur de la case.
     @param e Représente l'état de la case (0=Joueur, 1=Adversaire, 2=Neutre, 3=Bord).
     */
-    Case(char c,unsigned int e);
+    Case(std::string c,unsigned int e);
 
     /**
     @brief Destructeur de la classe Case (Met les valeurs à neutre).
@@ -43,13 +45,13 @@ public :
     /**
     @brief Accesseur : Récupère la valeur de couleur de la case.
     */
-    char & getCouleurC() const;
+    std::string & getCouleurC() const;
 
     /**
     @brief Mutateur : Modifie la couleur de la case.
     @param nvCouleur La nouvelle valeur couleur de la case.
     */
-    void setCouleurC(char & nvCouleur);
+    void setCouleurC(std::string & nvCouleur);
 
     /**
     @brief Accesseur : Récupère la valeur d'état de la case.
@@ -60,7 +62,7 @@ public :
     @brief Mutateur : Modifie l'état de la case.
     @param nvEtat La nouvelle valeur d'état de la case.
     */
-    void setEtat(int & nvEtat);
+    void setEtat(unsigned int & nvEtat);
 
 };
 

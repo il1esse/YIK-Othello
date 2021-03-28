@@ -1,22 +1,16 @@
 /* Inclusion de l'entète du module */
 #include "Jeton.h"
 
-/* Définitions des fonctions membres publiques et privées */
-// Constructeur par défaut de la classe: initialise dimx et dimy à 0
-
-
-
 // Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
        NomJeton = "Pion";
-       EffetJeton = NULL;
+       EffetJeton = Effet();
        Utilise = false;
    }
 
 // Constructeur de la classe Jeton.
-    Jeton::Jeton(char nom, bool utilisation) {
+    Jeton::Jeton(std::string nom) {
       NomJeton = nom;
-      Utilise = utilisation;
 
       int effetRand = rand() % 8 + 1; 
       switch(effetRand)
@@ -48,7 +42,7 @@
       }
 
 // Destructeur de la classe Jeton.
-   Jeton::~Jeton () {
+   Jeton::~Jeton(){
        NomJeton = "Pion";
        EffetJeton = NULL;
        Utilise = false;

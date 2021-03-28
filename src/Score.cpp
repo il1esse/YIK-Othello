@@ -64,7 +64,7 @@
     }
 
 // CalculateurScore();
-    Score & CalculateurScore(); 
+    Score & CalculateurScore()
     {   
         int m = condMultiplicateur();
         if (victoireJ1 == true)
@@ -78,14 +78,12 @@
 
 
 // AfficherScore();
-    void Score::AfficherScore();
+    void Score::AfficherScore()
     {
-        if()//condition de victoire: Le joueur possède + de case que son adversaire.
-        {
-            std::cout << "Bien joué !!! tu as gagnés" <<std::endl;
-            sleep(8);
-            std::cout << "Voici ton score" << score <<std::endl;
-        }
+        std::cout << "Bien joué !!! tu as gagnés" <<std::endl;
+        sleep(8); //A VOIR 
+        std::cout << "Voici ton score" << score <<std::endl;
+
     }
   
 

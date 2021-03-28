@@ -71,7 +71,7 @@ HautGauche::comportementHG(int & x,int & y, Plateau & p,char couleur)
 {
     int nvX = x-1;
     int nvY = y+1;
-    Plateau::majPlateau(nvX,nvY,couleur);
+    p.Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe HautDroite.
@@ -90,7 +90,7 @@ HautDroite::comportementHD(int & x,int & y, Plateau & p,char couleur)
 {
     int nvX = x+1;
     int nvY = y+1;
-    Plateau::majPlateau(nvX,nvY,couleur);
+    p.Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasGauche.
@@ -109,7 +109,7 @@ BasGauche::comportementBG(int & x,int & y, Plateau & p,char couleur)
 {
     int nvX = x-1;
     int nvY = y-1;
-    Plateau::majPlateau(nvX,nvY,couleur);
+    p.Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasDroite.
@@ -128,7 +128,7 @@ BasDroite::comportementBD(int & x,int & y, Plateau & p,char couleur)
 {
     int nvX = x+1;
     int nvY = y-1;
-    Plateau::majPlateau(nvX,nvY,couleur);
+    p.Plateau::majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Haut.
@@ -146,7 +146,7 @@ Haut::Haut()
 Haut::comportementH(int & x,int & y, Plateau & p,char couleur)
 {
     int nvY = y+1;
-    Plateau::majPlateau(x,nvY,couleur);
+    p.Plateau::majPlateau(x,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Droite.
@@ -163,8 +163,8 @@ Droite::Droite()
 //Procédure permettant de gerer le comportement de l'effet Droite.
 Droite::comportementD(int & x,int & y, Plateau & p,char couleur)
 {
-    int nvX = x+1
-    Plateau::majPlateau(nvX,y,couleur);
+    int nvX = x+1;
+    p.Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Gauche.
@@ -181,8 +181,8 @@ Gauche::Gauche()
 //Procédure permettant de gerer le comportement de l'effet Gauche.
 Gauche::comportementG(int & x,int & y, Plateau & p,char couleur)
 {
-    int nvX = x-1
-    Plateau::majPlateau(nvX,y,couleur);
+    int nvX = x-1;
+    p.Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Bas.
@@ -200,5 +200,5 @@ Bas::Bas()
 Bas::comportementB(int & x,int & y, Plateau & p,char couleur)
 {
     int nvY = y-1;
-    Plateau::majPlateau(x,nvY,couleur);
+    p.Plateau::majPlateau(x,nvY,couleur);
 }

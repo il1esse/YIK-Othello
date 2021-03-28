@@ -23,7 +23,7 @@ class Joueur {
     std::string couleur;
     unsigned int nbrJ;
     unsigned int nbrC;
-    Jeton tabJeton;
+    Jeton tabJeton[];
 
 /* Donnée et fonctions publique */
  public :

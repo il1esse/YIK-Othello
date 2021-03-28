@@ -31,18 +31,19 @@ class Score {
  public :   
     /**
     @brief Constructeur par défaut de la classe:
+    */
+    Score();
+   
+   /**
+    @brief Constructeur de la classe:
     @param nbCaseJ1 initialise nbCaseJ1 par le nombre de case occupé par le joueur 1
     @param nbCaseJ2 initialise nbCaseJ2 par le nombre de case occupé par le joueur 2
     @param tabClassique initialise si le plateau est de type classique ou spécial
     @param p recupère le plateau de jeu
     */
-    Score::Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p)
+    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p)
 
-    /**
-    @brief Constructeur de la classe:
-    */
-    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p);
-
+    
     /**
     @brief Destructeur de la classe:
     */
@@ -64,17 +65,18 @@ class Score {
     /**
     @brief Fonction qui permet d'afficher le score du joueur vainqueur à l'écran 
     */
-    void Score::AfficherScore();
+    void AfficherScore();
 
     /**
     @brief Accesseur: Récupère le contenu de score
     */
-    Score & Score::getScore () const;
+    Score & getScore () const;
 
     /**
     @brief Mutateur: Modifie le contenu de score
+    @param nouvScore variable du nouveau score
     */
-   void Score::SetScore (Score & nouvScore);
+   void SetScore (Score & nouvScore);
 
 };
 #endif /* Termine le #ifndef SCORE_H */

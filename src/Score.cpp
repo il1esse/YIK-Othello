@@ -33,8 +33,8 @@ using namespace std;
 
 // CalculateurScore();
     Score & CalculateurScore(); {
-        caseocc = 0;
-        score = 0;
+        int caseocc = 0;
+        int score = 0;
         for(int i=0; i<dimx; i++)
         {
             for(int j=0; i<dimy; j++)

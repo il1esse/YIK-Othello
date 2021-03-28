@@ -23,7 +23,7 @@ Case::~Case()
 }
 
 /* Accesseur : Récupère la valeur de couleur de la case. */
-std::string & Case::getCouleurC() const
+std::string Case::getCouleurC() const
 {
     return couleurC;
 }
@@ -35,7 +35,7 @@ void Case::setCouleurC(std::string & nvCouleur)
 }
 
 /* Accesseur : Récupère la valeur d'état de la case. */
-unsigned int & Case::getEtat() const
+unsigned int Case::getEtat() const
 {
     return etat;
 }

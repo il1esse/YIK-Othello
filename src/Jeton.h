@@ -11,13 +11,14 @@
 
 /* Inclusions des entêtes utilisées */
 #include "Effet.h"
+#include <iostream>
 
 /* Définitions de la classes */
 class Jeton {
 /* Données privés */
  private :
-    std::string NomJeton;
-    Effet EffetJeton;
+    std::string * NomJeton;
+    Effet * EffetJeton;
     bool Utilise;
 
 /* Donnée et fonctions publique */
@@ -33,7 +34,7 @@ class Jeton {
     @param effet Effet du jeton.
     @param utilisation Utilisation du jeton par un booléen.
     */
-    Jeton(std::string nom);
+    Jeton(const std::string & nom);
 
     /**
     @brief Destructeur de la classe Jeton.
@@ -43,7 +44,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur NomJeton du Jeton.
     */
-    std::string & getNomJeton() const;
+    std::string getNomJeton() const;
 
     /**
     @brief Accesseur : Récupère la valeur EffetJeton du Jeton.
@@ -53,7 +54,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur Utilisé du Jeton.
     */
-    bool & getUtilisation() const;
+    bool getUtilisation() const;
 
     /**
     @brief Mutateur : Modifie l'effet du Jeton.

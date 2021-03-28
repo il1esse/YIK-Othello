@@ -23,7 +23,7 @@ class Joueur {
     std::string couleur;
     unsigned int nbrJ;
     unsigned int nbrC;
-    Jeton tabJeton[];
+    Jeton * tabJeton;
 
 /* Donnée et fonctions publique */
  public :
@@ -47,22 +47,22 @@ class Joueur {
     /**
     @brief Accesseur : Récupère le pseudo du joueur.
     */
-    std::string & getPseudo() const;
+    std::string getPseudo() const;
 
     /**
     @brief Accesseur : Récupère la couleur associé au joueur.
     */
-    std::string & getCouleur() const;
+    std::string getCouleur() const;
 
     /**
     @brief Accesseur : Récupère le nombre de jeton possédé par le joueur.
     */
-    unsigned int & getNombreJeton() const;
+    unsigned int getNombreJeton() const;
 
     /**
     @brief Accesseur : Récupère le nombre de case possédé par le joueur.
     */
-    unsigned int & getNombreCase() const;
+    unsigned int getNombreCase() const;
 
     /**
     @brief Mutateur : Modifie le nom du joueur.

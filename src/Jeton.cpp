@@ -4,12 +4,12 @@
 // Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
        NomJeton = "Pion";
-       EffetJeton = Effet();
+       EffetJeton = new Effet();
        Utilise = false;
    }
 
 // Constructeur de la classe Jeton.
-    Jeton::Jeton(std::string nom) {
+ /*  Jeton::Jeton(std::string nom) {
       NomJeton = nom;
 
       int effetRand = rand() % 8 + 1; 
@@ -39,17 +39,18 @@
          case 8:
                EffetJeton = Bas();
                break;
-      }
-
+      } 
+*/
 // Destructeur de la classe Jeton.
-   Jeton::~Jeton(){
+   Jeton::~Jeton()
+   {
        NomJeton = "Pion";
-       EffetJeton = NULL;
+       EffetJeton = new Effet();
        Utilise = false;
    }
 
 // Accesseur : Récupère la valeur NomJeton du Jeton.
-   char & Jeton::getNomJeton () const {
+   std::string & Jeton::getNomJeton () const {
       return NomJeton;
    }
 
@@ -59,12 +60,12 @@
    }
 
 // Accesseur : Récupère la valeur Utilisé du Jeton.
-   bool & Jeton::getUtilisation () const {
-      return Utilisé;
+   bool Jeton::getUtilisation () const {
+      return Utilise;
    }
 
 // Mutateur : Modifie la valeur NomJeton du Jeton.
-   void Jeton::setNomJeton (char & nvNom) {
+   void Jeton::setNomJeton (std::string & nvNom) {
       NomJeton = nvNom;
    }
 
@@ -75,6 +76,6 @@
 
 // Mutateur : Modifie la valeur Utilisé du Jeton.
    void Jeton::setUtilisation (bool & nvBool) {
-      Utilisé = nvBool;
+      Utilise = nvBool;
    }
 

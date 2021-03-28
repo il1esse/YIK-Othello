@@ -7,7 +7,7 @@
         dimx = 0;
         dimy = 0;
         classique = true;
-        tabCase = NULL;
+        tabCase[] = NULL;
     }
 
 
@@ -19,7 +19,7 @@
         dimx = x;
         dimy = y;
         classique = type;
-        tabCase = new Case[dimx*dimy];
+        tabCase[] = new Case[dimx*dimy];
     }
     // Destructeur de la classe:
 

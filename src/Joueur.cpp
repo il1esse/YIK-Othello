@@ -28,22 +28,22 @@
 
     
     // Accesseur : Récupère le pseudo du joueur.
-    std::string & Joueur::getPseudo() const{
+    std::string Joueur::getPseudo() const{
         return pseudo;
     }
 
     // Accesseur : Récupère la couleur associé au joueur.
-    std::string & Joueur::getCouleur() const{
+    std::string Joueur::getCouleur() const{
         return couleur;
     }
 
     // Accesseur : Récupère le nombre de jeton possédé par le joueur.
-    unsigned int & Joueur::getNombreJeton() const{
+    unsigned int Joueur::getNombreJeton() const{
         return nbrJ;
     }
 
     // Accesseur : Récupère le nombre de case possédé par le joueur.
-    unsigned int & Joueur::getNombreCase() const{
+    unsigned int Joueur::getNombreCase() const{
         return nbrJ;
     }
 
@@ -64,7 +64,7 @@
 
     // Mutateur : Modifie le nombre de case possédé par le joueur.
     void Joueur::setNombreCase(unsigned int nvNbCase){
-        nbrC = nvNbCase
+        nbrC = nvNbCase;
     }
 
     // Crée les 7 jetons.

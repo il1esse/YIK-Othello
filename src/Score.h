@@ -31,8 +31,12 @@ class Score {
  public :   
     /**
     @brief Constructeur par défaut de la classe:
+    @param nbCaseJ1 initialise nbCaseJ1 par le nombre de case occupé par le joueur 1
+    @param nbCaseJ2 initialise nbCaseJ2 par le nombre de case occupé par le joueur 2
+    @param tabClassique initialise si le plateau est de type classique ou spécial
+    @param p recupère le plateau de jeu
     */
-    Score();
+    Score::Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p)
 
     /**
     @brief Constructeur de la classe:

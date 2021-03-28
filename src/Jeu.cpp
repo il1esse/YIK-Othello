@@ -93,7 +93,7 @@
 
     // Met fin à la partie.
     void Jeu::finDePartie(){
-        Score * scof = new Score(j1.getNombreCase,j2.getNombreCase, pla.getClassique,pla);
+        Score * scof = new Score(j1.getNombreCase(),j2.getNombreCase(), pla.getClassique(),pla);
         scof.CalculateurScore();
         sco.setScore(scof);
         //A COMPLETER//

@@ -158,7 +158,7 @@
         {
             for(i; i>0; i--)
             {
-                tabCase[(y-i)*dimx+x)].setEtat(tabCase[y*dimx+x].getEtat());
+                tabCase[(y-i)*dimx+x].setEtat(tabCase[y*dimx+x].getEtat());
                 tabCase[(y-i)*dimx+x].setCouleurC(tabCase[y*dimx+x].getCouleurC());
             }
 
@@ -171,7 +171,7 @@
             for(j; j>0; j--)
             {
                 tabCase[(y+j)*dimx+x].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y+j)*dimx+x)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                tabCase[(y+j)*dimx+x].setCouleurC(tabCase[y*dimx+x].getCouleurC());
             }
 
         }

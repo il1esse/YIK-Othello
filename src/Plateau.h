@@ -22,7 +22,7 @@ class Plateau {
     unsigned int dimx;
     unsigned int dimy;
     bool classique;
-    Case tabCase;
+    Case tabCase[];
 
 /* Donnée et fonctions publique */
  public :

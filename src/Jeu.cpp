@@ -1,5 +1,6 @@
 /* Inclusions des entêtes utilisées */
 #include "Jeu.h"
+#include <iostream>
 
     // Constructeur par défaut de la classe Jeu.
     Jeu::Jeu(){
@@ -21,29 +22,29 @@
     // Destructeur de la classe Joueur.
     Jeu::~Jeu(){
         pla = Plateau();
-        j1 = NULL;
-        j2 = NULL;
+        j1 = Joueur();
+        j2 = Joueur();
         score = Score();
     }
 
 
     // Accesseur : Récupère le plateau de jeu.
-    char & Jeu::getPlateau() const{
+    const Plateau & Jeu::getPlateau() const{
         return pla;
     }
 
     // Accesseur : Récupère le joueur1 de la partie en cours.
-    char & Jeu::getJoueur1() const{
+    const Joueur & Jeu::getJoueur1() const{
         return j1;
     }
 
     // Accesseur : Récupère le joueur2 de la partie en cours.
-    char & Jeu::getJoueur2() const{
+    const Joueur & Jeu::getJoueur2() const{
         return j2;
     }
 
     // Accesseur : Récupère le score de la partie.
-    unsigned int & Jeu::getScore() const{
+    const Score & Jeu::getScore() const{
         return score;
     }
 
@@ -70,84 +71,33 @@
         score = nvScore;
     }
 
-    // Défini les options du jeu.
-    void Jeu::menuJeu(int choix){
-        switch (choix)
-        {
-        case 0:
-            modeVsJoueur();
-            break;
-        case 1:
-            modeVsIA();
-            break;
-        case 2:
-            quitJeu();
-            break;
-        }
+    // Donne la couleur du joueur1 et du joueur2
+    void Jeu::donneCouleur(){
+        j1.setCouleur("Bleu");
+        j2.setCouleur("Rouge");
     }
 
-    // Met à jour la partie de jeu avec les dernières informations.
-    void Jeu::majJeu(){
-
+    // Donne un pseudo à un joueur.
+    void Jeu::pseudoJoueur(Joueur j, std::string pseudo){
+        j.setPseudo(pseudo);
     }
 
-    // Met fin à la partie.
-    void Jeu::finDePartie(){
-        Score * scof = new Score(j1.getNombreCase(),j2.getNombreCase(), pla.getClassique(),pla);
-        scof.CalculateurScore();
-        sco.setScore(scof);
-        //A COMPLETER//
-    }
-
-    // Définie aléatoirement l'ordre dans lequelle les joueurs vont jouer.
-    void Jeu::ordreJeu(){
-        int choix = rand() % 2 + 1; 
-        switch (choix)
-        {
-        case 1:
-            joueurTour(j1);
-            break;
-        case 2:
-            joueurTour(j2);
-            break;
-    }
-
-
-    // Définie l'ordre dans lequelle les joueurs vont jouer.
-    void Jeu::ordreJeu(Joueur j){
-        joueurTour(j);
-    }
-
-    // Permet de déterminer le tour des joueurs.
-    void Jeu::joueurTour(Joueur j){
-        
-    }
-
-    // Permet au joueur de jouer son tour.
-    void Jeu::actionJoueur(Joueur j){
-
+    // Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.
+    void Jeu::initJeu(){
+        donneCouleur();
+        pla.dessinePlateau();
     }
 
     // Permet de fermer le jeu.
     void Jeu::quitJeu(){
         exit(0);
     }
-
+    
     // Permet de rejouer une partie.
     void Jeu::rejouerPartie(){
-        ~Jeu();
-        quitJeu();
-        //A COMPLETER//
-    }
-
-    // Lance le mode Joueur vs Joueur.
-    void Jeu::modeVsJoueur(){
-        ordreJeu();
-        finDePartie();
-    }
-
-    // Lance le mode vs IA.
-    void Jeu::modeVsIA(){
-        ordreJeu();
-        finDePartie();
+        delete j1;
+        delete j2;
+        delete pla;
+        delete score;
+        initJeu();
     }

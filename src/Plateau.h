@@ -80,6 +80,16 @@ class Plateau {
     void initPlateau();
 
     /**
+    @brief Affiche les bordures du plateau.
+    */
+    void afficheBordureHorizontale(int taille);
+    
+    /**
+    @brief Affiche le contenu des cases du plateau.
+    */
+    void afficheContenu(int taille_x,int val_y);
+    
+    /**
     @brief Dessine le plateau.
     */
     void dessinePlateau();

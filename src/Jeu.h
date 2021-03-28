@@ -49,22 +49,22 @@ class Jeu{
     /**
     @brief Accesseur : Récupère le plateau de jeu.
     */
-    char & getPlateau() const;
+    const Plateau & getPlateau() const;
 
     /**
     @brief Accesseur : Récupère le joueur1 de la partie en cours.
     */
-    char & getJoueur1() const;
+    const Joueur  & getJoueur1() const;
 
     /**
     @brief Accesseur : Récupère le joueur2 de la partie en cours.
     */
-    char & getJoueur2() const;
+    const Joueur  & getJoueur2() const;
 
     /**
     @brief Accesseur : Récupère le score de la partie.
     */
-    unsigned int & getScore() const;
+    const Score & getScore() const;
 
 
     /**
@@ -97,55 +97,31 @@ class Jeu{
     void menuJeu(int choix);
 
     /**
-    @brief Met à jour la partie de jeu avec les dernières informations.
+    @brief Défini la couleur des joueurs 1 et 2.
     */
-    void majJeu();
+    void donneCouleur();
 
     /**
-    @brief Met fin à la partie.
+    @brief Donne un pseudo à un joueur.
+    @param j Le joueur qui portera le pseudo.
+    @param pseudo Le pseudo du joueur.
     */
-    void finDePartie();
+    void Jeu::pseudoJoueur(Joueur j, std::string pseudo);
 
     /**
-    @brief Définie aléatoirement l'ordre dans lequelle les joueurs vont jouer.
+    @brief Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.
     */
-    void ordreJeu();
-
-    /**
-    @brief Définie l'ordre dans lequelle les joueurs vont jouer.
-    @param j Le joueur à jouer en premier.
-    */
-    void ordreJeu(Joueur j);
-
-    /**
-    @brief Permet de déterminer le tour des joueurs.
-    */
-    void joueurTour(Joueur j);
-
-    /**
-    @brief Permet au joueur de jouer son tour.
-    */
-    void actionJoueur(Joueur j);
+    void initJeu();
 
     /**
     @brief Permet de fermer le jeu.
     */
     void quitJeu();
-
+    
     /**
     @brief Permet de rejouer une partie.
     */
     void rejouerPartie();
-
-    /**
-    @brief Lance le mode Joueur vs Joueur.
-    */
-    void modeVsJoueur();
-
-    /**
-    @brief Lance le mode vs IA.
-    */
-    void modeVsIA();
 
 };
 #endif /* Termine le #ifndef JEU_H */

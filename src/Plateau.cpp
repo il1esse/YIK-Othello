@@ -83,9 +83,11 @@
     // Initialise les cases du plateau.
 
     void Plateau::initPlateau(){
-        for (int i = 0; i < dimx; i++)
+        int i;
+        int j;
+        for (i = 1; i < dimx-1; i++)
         {
-            for(int j = 0; j < dimy; j++)
+            for(j = 1; j < dimy-1; j++)
             {
                 unsigned int etatN = 2;
                 std::string couleurC = "Neutre";
@@ -95,22 +97,75 @@
             }
         }
 
+        j=0;
+        for(i = 0; i<dimx; i++){
+            unsigned int etatN = 3;
+            std::string couleurC = "Bord";
+
+            tabCase[j*dimx+i].setEtat(etatN);
+            tabCase[j*dimx+i].setCouleurC(couleurC);
+        }
+
+        j=dimy-1;
+        for(i = 0; i<dimx; i++){
+            unsigned int etatN = 3;
+            std::string couleurC = "Bord";
+
+            tabCase[j*dimx+i].setEtat(etatN);
+            tabCase[j*dimx+i].setCouleurC(couleurC);
+        }
+
+        int i=dimx-1;
+        for(j = 0; j<dimy; j++){
+            unsigned int etatN = 3;
+            std::string couleurC = "Bord";
+
+            tabCase[j*dimx+i].setEtat(etatN);
+            tabCase[j*dimx+i].setCouleurC(couleurC);
+        }
+
+        int i=0;
+        for(j = 0; j<dimy; j++){
+            unsigned int etatN = 3;
+            std::string couleurC = "Bord";
+
+            tabCase[j*dimx+i].setEtat(etatN);
+            tabCase[j*dimx+i].setCouleurC(couleurC);
+        }
+
     }
 
+    // Affiche les bordures du plateau.
+    void Plateau::afficheBordureHorizontale(int taille){
+        for(int i=1; i<taille; i++)
+        {
+            std::cout<<"+---";
+        }
+        std::cout<<"+"<<std::endl;
+    }
+
+    //Affiche le contenu des cases du plateau.
+    void Plateau::afficheContenu(int taille_x,int val_y){
+        for(int i=1; i<taille_x; i++)
+        {
+            std::cout<<"| "<< tabCase[val_y*dimx-2+i].getEtat()<<" ";
+        }
+        std::cout<<"|"<<std::endl;
+    }
 
     // Dessine le plateau.
 
     void Plateau::dessinePlateau(){
         for(int y=1; y< dimy-1; y++)
         {
-            std::cout << "_" << std::endl;
-            for(int x=1; x<dimx-1; x++)
-            {
-                std::cout<< "|" << tabCase[y*dimx+x].getEtat()<< std::endl;
-            }
-            std::cout << "|" << std::endl;
-
+                afficheBordureHorizontale(dimx-1);
+                afficheContenu(dimx-1,y);
+                if(y+1 == dimy-1){
+                    afficheBordureHorizontale(dimx-1);
+                }
+            
         }
+        
     }
 
 
@@ -239,7 +294,7 @@
 
         while (tabCase[(y-k)*dimx+(x+k)].getEtat() == 1 - tabCase[y*dimx+x].getEtat()) k++;
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
-        if (tabCase[(y-k)*dimx+(x+k)].getEtat() == tabCase[y*dimx+x].getEtat()) 
+        if(tabCase[(y-k)*dimx+(x+k)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
             for(j; j>0; j--)
             {
@@ -253,7 +308,7 @@
 
         while (tabCase[(y-l)*dimx+(x-l)].getEtat() == 1 - tabCase[y*dimx+x].getEtat()) l++;
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
-        if (tabCase[(y-l)*dimx+(x-l)].getEtat() == tabCase[y*dimx+x].getEtat()) 
+        if(tabCase[(y-l)*dimx+(x-l)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
             for(l; l>0; l--)
             {

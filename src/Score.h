@@ -45,34 +45,32 @@ class Score {
     ~Score();
 
    /**
-    @brief 
+    @brief Fonction qui retourne un entier, fonction qui permettre de calculer le nombre
+    avec lequel on multipliera le score du joueur pour determiner son vrai score
+    en fonction des différents exploits réalisé par le joueur lors de la partie (ex:plateau plein avec
+    uniquement ses jetons , etc...)
     */
-    condMultiplicateur()
+    int condMultiplicateur();
 
     /**
-    @brief 
+    @brief Fonction principale du score, fonction qui retournera le score du joueur qui a gagné la partie (score multiplié par les différent bonus)
     */
-    CalculateurScore();
+    Score & CalculateurScore();
 
     /**
-    @brief 
+    @brief Fonction qui permet d'afficher le score du joueur vainqueur à l'écran 
     */
-    AfficherScore();
+    void Score::AfficherScore();
 
     /**
-    @brief
+    @brief Accesseur: Récupère le contenu de score
     */
-    EffacerScore();
+    Score & Score::getScore () const;
 
     /**
-    @brief
+    @brief Mutateur: Modifie le contenu de score
     */
-    GetScore();
-
-    /**
-    @brief
-    */
-   SetScore(Score & nouvScore);
+   void Score::SetScore (Score & nouvScore);
 
 };
 #endif /* Termine le #ifndef SCORE_H */

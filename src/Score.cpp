@@ -49,7 +49,7 @@
         {
             m=m*2;
         }
-        int nbCaseMax = j*dimx*i; //refaire calcul du nombre de case a part
+        int nbCaseMax = j*dimx + i; //refaire calcul du nombre de case a part
         if(nbCaseJ1Sco == nbCaseMax || nbCaseJ2Sco == nbCaseMax)
         {
             m=m*2;

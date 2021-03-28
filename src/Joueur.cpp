@@ -104,7 +104,7 @@
 
     // Permet au joueur de poser un jeton sur le plateau.
     void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, char nomJeton){
-        Jeton nvTabJeton = new TabJeton[nbJeton-1];
+        Jeton * nvTabJeton = new tabJeton[nbJeton-1];
         int j = 0;
         for(int i=0; i<nbrJ; i++){
             if(tabJeton[i].getNomJeton() == nomJeton)
@@ -130,7 +130,7 @@
         delete [] nvTabJeton;
         nbrJ--;
         majCaseJoueur(p);
-        Plateau::majPlateau(x,y,tabCase[y*dimx+x]);
+        p.majPlateau(x,y,tabCase[y*p.getDimensionX()+x]);
     }
 
     // Affiche les informations du joueur graphiquement.

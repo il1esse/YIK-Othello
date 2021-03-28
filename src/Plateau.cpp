@@ -7,7 +7,7 @@
         dimx = 0;
         dimy = 0;
         classique = true;
-        tabCase[] = NULL;
+        tabCase = NULL;
     }
 
 
@@ -19,7 +19,7 @@
         dimx = x;
         dimy = y;
         classique = type;
-        tabCase[] = new Case[dimx*dimy];
+        tabCase = new Case[dimx*dimy];
     }
     // Destructeur de la classe:
 
@@ -31,12 +31,12 @@
     }
 
     // Accesseur : Récupère la dimension x du plateau
-    unsigned int & Plateau::getDimensionX() const{
+    unsigned int Plateau::getDimensionX() const{
         return dimx;
     }
 
     // Accesseur : Récupère la dimension y du plateau
-    unsigned int & Plateau::getDimensionY() const{
+    unsigned int Plateau::getDimensionY() const{
         return dimy;
     }
 
@@ -52,7 +52,7 @@
 
     // Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
 
-    void Plateau::setCase(unsigned int x, unsigned int y, char couleur){
+    void Plateau::setCase(unsigned int x, unsigned int y, std::string couleur){
         assert(x >= 0 && y >= 0); // Précondition X et Y positif ou égale à 0.
         assert(x < dimx && y < dimy); // Précondition x et y inférieur à leurs bornes.
         if(couleur == "Rouge")
@@ -60,11 +60,11 @@
             tabCase[y*dimx+x].setEtat(1);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
-        if(couleur == "Bleu"){
+        else if(couleur == "Bleu"){
             tabCase[y*dimx+x].setEtat(0);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
-        else(couleur == "Neutre"){
+        else if(couleur == "Neutre"){
             tabCase[y*dimx+x].setEtat(2);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
@@ -79,8 +79,8 @@
         {
             for(int j = 0; j < dimy; j++)
             {
-                tabCase[y*dimx+x].setEtat("Neutre");
-                tabCase[y*dimx+x].setCouleurC("Blanc");
+                tabCase[j*dimx+i].setEtat("Neutre");
+                tabCase[j*dimx+i].setCouleurC("Blanc");
             }
         }
 
@@ -105,7 +105,7 @@
 
     // Met à jour le plateau par rapport à l'état d'une case.
 
-    void Plateau::majPlateau(unsigned int x, unsigned int y,char couleur){
+    void Plateau::majPlateau(unsigned int x, unsigned int y,std::string couleur){
         setCase(x,y,couleur);
         appliRegleHori(x,y);
         appliRegleVerti(x,y);

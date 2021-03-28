@@ -22,7 +22,7 @@ class Plateau {
     unsigned int dimx;
     unsigned int dimy;
     bool classique;
-    Case tabCase[];
+    Case * tabCase;
 
 /* Donnée et fonctions publique */
  public :
@@ -54,12 +54,12 @@ class Plateau {
     /**
     @brief Accesseur : Récupère la dimension x du plateau
     */
-    unsigned int & getDimensionX() const;
+    unsigned int getDimensionX() const;
 
     /**
     @brief Accesseur : Récupère la dimension y du plateau
     */
-    unsigned int & getDimensionY() const;
+    unsigned int getDimensionY() const;
 
     /**
     @brief Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
@@ -67,7 +67,7 @@ class Plateau {
     @param y La valeur de la case en Y.
     @param etat La nouvelle valeur état de la case.
     */
-    void setCase(unsigned int x, unsigned int y,char couleur);
+    void setCase(unsigned int x, unsigned int y,std::string couleur);
 
     /**
     @brief Initialise les cases du plateau.
@@ -82,7 +82,7 @@ class Plateau {
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.
     */
-    void majPlateau(unsigned int x, unsigned int y,char couleur);
+    void majPlateau(unsigned int x, unsigned int y,std::string couleur);
 
     /**
     @brief Applique la règle horizontale.

@@ -62,7 +62,7 @@ public :
     /**
     @brief Accesseur : Récupère la valeur booléenne "special" de l'effet.
     */
-    unsigned char getSpecial() const;
+    bool getSpecial() const;
 
     /**
     @brief Mutateur : Modifie la valeur special de l'effet.
@@ -75,6 +75,8 @@ public :
 
 class HautGauche : public Effet
 {
+    public: 
+
     /**
     @brief Constructeur par défaut de la classe HautGauche.
     */
@@ -84,11 +86,13 @@ class HautGauche : public Effet
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementHG(int & x,int & y, Plateau & p,char couleur);
+    void comportementHG(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class HautDroite : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe HautDroite.
     */    
@@ -100,11 +104,13 @@ class HautDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementHD(int & x,int & y, Plateau & p,char couleur);
+    void comportementHD(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class BasGauche : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe BasGauche.
     */  
@@ -116,11 +122,13 @@ class BasGauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementBG(int & x,int & y, Plateau & p,char couleur);
+    void comportementBG(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class BasDroite : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe BasDroite.
     */  
@@ -132,13 +140,15 @@ class BasDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementBD(int & x,int & y, Plateau & p,char couleur);
+    void comportementBD(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 
 
 class Haut : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe Haut.
     */  
@@ -150,11 +160,13 @@ class Haut : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementH(int & x,int & y, Plateau & p,char couleur);
+    void comportementH(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class Droite : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe Droite.
     */  
@@ -166,11 +178,13 @@ class Droite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementD(int & x,int & y, Plateau & p,char couleur);
+    void comportementD(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class Gauche : public Effet
 {
+    public:
+
     /**
     @brief Constructeur par défaut de la classe Gauche.
     */  
@@ -182,11 +196,13 @@ class Gauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementG(int & x,int & y, Plateau & p,char couleur);
+    void comportementG(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class Bas : public Effet
 {
+    public:
+    
     /**
     @brief Constructeur par défaut de la classe Bas.
     */    
@@ -198,7 +214,7 @@ class Bas : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementB(int & x,int & y, Plateau & p,char couleur);
+    void comportementB(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 #endif // EFFET_H_INCLUDED

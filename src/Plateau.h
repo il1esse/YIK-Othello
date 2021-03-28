@@ -62,6 +62,11 @@ class Plateau {
     unsigned int getDimensionY() const;
 
     /**
+    @brief Accesseur : Récupère le type du plateau.
+    */
+    bool Plateau::getType() const;
+
+    /**
     @brief Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).
     @param x La valeur de la case en X.
     @param y La valeur de la case en Y.

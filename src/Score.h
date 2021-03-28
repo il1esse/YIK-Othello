@@ -36,12 +36,11 @@ class Score {
    
    /**
     @brief Constructeur de la classe:
-    @param nbCaseJ1 initialise nbCaseJ1 par le nombre de case occupé par le joueur 1
-    @param nbCaseJ2 initialise nbCaseJ2 par le nombre de case occupé par le joueur 2
-    @param tabClassique initialise si le plateau est de type classique ou spécial
-    @param p recupère le plateau de jeu
+    @param p Plateau de jeu
+    @param j1 Joueur1
+    @param j2 Joueur2
     */
-    Score(int nbCaseJ1,int nbCaseJ2, bool tabClassique,Plateau p)
+    Score(const Plateau & p, const Joueur & j1, const Joueur & j2);
 
     
     /**
@@ -50,33 +49,35 @@ class Score {
     ~Score();
 
    /**
-    @brief Fonction qui retourne un entier, fonction qui permettre de calculer le nombre
-    avec lequel on multipliera le score du joueur pour determiner son vrai score
-    en fonction des différents exploits réalisé par le joueur lors de la partie (ex:plateau plein avec
-    uniquement ses jetons , etc...)
+    @brief Retourne le multiplicateur de score du joueur victorieux selon les conditions de bonus.
+    @param p Plateau de jeu.
     */
-    int condMultiplicateur();
+    int condMultiplicateur(const Plateau & p);
 
     /**
-    @brief Fonction principale du score, fonction qui retournera le score du joueur qui a gagné la partie (score multiplié par les différent bonus)
+    @brief Retourne le score final du joueur victorieux.
+    @param p Plateau de jeu.
     */
-    Score & CalculateurScore();
+    const int & CalculateurScore(const Plateau & p);
 
     /**
-    @brief Fonction qui permet d'afficher le score du joueur vainqueur à l'écran 
+    @brief Affiche textuellement et de manière détaillé le score du joueur victorieux.
+    @param j1 Joueur 1.
+    @param j2 Joueur 2.
+    @param p Plateau de jeu. 
     */
-    void AfficherScore();
+    void AfficherScoreTxt(const Joueur & j1, const Joueur & j2, const Plateau & p);
 
     /**
     @brief Accesseur: Récupère le contenu de score
     */
-    Score & getScore () const;
+    const int & getScore () const;
 
     /**
-    @brief Mutateur: Modifie le contenu de score
-    @param nouvScore variable du nouveau score
+    @brief Mutateur: Modifie la valeur du score.
+    @param nouvScore La nouvelle valeur du score.
     */
-   void SetScore (Score & nouvScore);
+   void setScore (int nouvScore);
 
 };
 #endif /* Termine le #ifndef SCORE_H */

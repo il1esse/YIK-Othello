@@ -42,7 +42,7 @@ void Effet::setDescription(std::string & nouvDescription)
 }
 
 //Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
-unsigned char Effet::getSpecial() const
+bool Effet::getSpecial() const
 {
     return special;
 }
@@ -56,10 +56,10 @@ void Effet::setSpecial(bool & nouvSpecial)
 
 
 //Constructeur par défaut de la classe HautGauche.
-HautGauche::HautGauche()
+HautGauche::HautGauche() : Effet()
 {
     std::string nomTMP = "Haut Gauche";
-    std::string descriptionTMP = "Acquiert la case à la diagonale haute gauche de l'endroit ou a été posé le jeton, si elle est neutre";
+    std::string descriptionTMP = "Acquiert la case à la diagonale haute gauche de l'endroit ou a été posé le jeton, si elle est neutre.";
     bool specialTMP = false;
 
     setNomE(nomTMP);
@@ -67,7 +67,7 @@ HautGauche::HautGauche()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet HautGauche.
-HautGauche::comportementHG(int & x,int & y, Plateau & p,char couleur)
+ void HautGauche::comportementHG(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
     int nvY = y+1;
@@ -75,7 +75,7 @@ HautGauche::comportementHG(int & x,int & y, Plateau & p,char couleur)
 }
 
 //Constructeur par défaut de la classe HautDroite.
-HautDroite::HautDroite()
+HautDroite::HautDroite() : Effet()
 {
     std::string nomTMP = "Haut Droite";
     std::string descriptionTMP = "Acquiert la case à la diagonale haute droite de l'endroit ou a été posé le jeton, si elle est neutre";
@@ -86,7 +86,7 @@ HautDroite::HautDroite()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet HautDroite.
-HautDroite::comportementHD(int & x,int & y, Plateau & p,char couleur)
+void HautDroite::comportementHD(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
     int nvY = y+1;
@@ -94,7 +94,7 @@ HautDroite::comportementHD(int & x,int & y, Plateau & p,char couleur)
 }
 
 //Constructeur par défaut de la classe BasGauche.
-BasGauche::BasGauche()
+BasGauche::BasGauche() : Effet()
 {
     std::string nomTMP = "BasGauche";
     std::string descriptionTMP = "Acquiert la case à la diagonale basse gauche de l'endroit ou a été posé le jeton, si elle est neutre";
@@ -105,7 +105,7 @@ BasGauche::BasGauche()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet BasGauche.
-BasGauche::comportementBG(int & x,int & y, Plateau & p,char couleur)
+void BasGauche::comportementBG(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
     int nvY = y-1;
@@ -113,7 +113,7 @@ BasGauche::comportementBG(int & x,int & y, Plateau & p,char couleur)
 }
 
 //Constructeur par défaut de la classe BasDroite.
-BasDroite::BasDroite()
+BasDroite::BasDroite() : Effet()
 {
     std::string nomTMP = "BasDroite";
     std::string descriptionTMP = "Acquiert la case à la diagonale basse droite de l'endroit ou a été posé le jeton, si elle est neutre";
@@ -124,7 +124,7 @@ BasDroite::BasDroite()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet BasDroite.
-BasDroite::comportementBD(int & x,int & y, Plateau & p,char couleur)
+void BasDroite::comportementBD(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
     int nvY = y-1;
@@ -132,7 +132,7 @@ BasDroite::comportementBD(int & x,int & y, Plateau & p,char couleur)
 }
 
 //Constructeur par défaut de la classe Haut.
-Haut::Haut()
+Haut::Haut() : Effet()
 {
     std::string nomTMP = "Haut";
     std::string descriptionTMP = "Acquiert la case au dessus du l'endroit ou le jeton a été posé, si elle est neutre";
@@ -143,14 +143,14 @@ Haut::Haut()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Haut.
-Haut::comportementH(int & x,int & y, Plateau & p,char couleur)
+void Haut::comportementH(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvY = y+1;
     p.Plateau::majPlateau(x,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Droite.
-Droite::Droite()
+Droite::Droite() : Effet()
 {
     std::string nomTMP = "Droite";
     std::string descriptionTMP = "Acquiert la case à droite l'endroit ou le jeton a été posé, si elle est neutre";
@@ -161,14 +161,14 @@ Droite::Droite()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Droite.
-Droite::comportementD(int & x,int & y, Plateau & p,char couleur)
+void Droite::comportementD(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
     p.Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Gauche.
-Gauche::Gauche()
+Gauche::Gauche() : Effet()
 {
     std::string nomTMP = "Gauche";
     std::string descriptionTMP = "Acquiert la case a gauche l'endroit ou le jeton a été posé, si elle est neutre";
@@ -179,14 +179,14 @@ Gauche::Gauche()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Gauche.
-Gauche::comportementG(int & x,int & y, Plateau & p,char couleur)
+void Gauche::comportementG(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
     p.Plateau::majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Bas.
-Bas::Bas()
+Bas::Bas() : Effet()
 {
     std::string nomTMP = "Bas";
     std::string descriptionTMP = "Acquiert la case en dessous de l'endroit ou le jeton a été posé, si elle est neutre";
@@ -197,7 +197,7 @@ Bas::Bas()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Bas.
-Bas::comportementB(int & x,int & y, Plateau & p,char couleur)
+void Bas::comportementB(int & x,int & y, Plateau & p,std::string couleur)
 {
     int nvY = y-1;
     p.Plateau::majPlateau(x,nvY,couleur);

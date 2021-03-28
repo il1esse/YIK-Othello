@@ -102,7 +102,7 @@ class Joueur {
     /**
     @brief Permet au joueur de poser un jeton sur le plateau.
     */
-    void poseJeton(unsigned int x, unsigned int y, Plateau & p, char nomJeton);
+    void poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton);
 
     /**
     @brief Affiche les informations du joueur graphiquement.

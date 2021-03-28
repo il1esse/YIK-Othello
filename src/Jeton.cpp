@@ -4,43 +4,44 @@
 // Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
        NomJeton = "Pion";
-       EffetJeton = new Effet();
+       EffetJeton = new Effet;
        Utilise = false;
    }
 
 // Constructeur de la classe Jeton.
- /*  Jeton::Jeton(std::string nom) {
+   Jeton::Jeton(std::string nom) {
       NomJeton = nom;
 
       int effetRand = rand() % 8 + 1; 
       switch(effetRand)
       {
          case 1:
-               EffetJeton = HautGauche();
+               EffetJeton = new HautGauche;
                break;
          case 2:
-               EffetJeton = HautDroite();
+               EffetJeton = new HautDroite;
                break;
          case 3:
-               EffetJeton = BasGauche();
+               EffetJeton = new BasGauche;
                break;
          case 4:
-               EffetJeton = BasDroite();
+               EffetJeton = new BasDroite;
                break;
          case 5:
-               EffetJeton = Haut();
+               EffetJeton = new Haut;
                break;
          case 6:
-               EffetJeton = Droite();
+               EffetJeton = new Droite;
                break;
          case 7:
-               EffetJeton = Gauche();
+               EffetJeton = new Gauche;
                break;
          case 8:
-               EffetJeton = Bas();
+               EffetJeton = new Bas;
                break;
-      } 
-*/
+      }
+
+   }
 // Destructeur de la classe Jeton.
    Jeton::~Jeton()
    {
@@ -50,12 +51,12 @@
    }
 
 // Accesseur : Récupère la valeur NomJeton du Jeton.
-   std::string & Jeton::getNomJeton () const {
+   std::string Jeton::getNomJeton () const {
       return NomJeton;
    }
 
 // Accesseur : Récupère la valeur EffetJeton du Jeton.
-   Effet & Jeton::getEffet () const {
+   Effet * Jeton::getEffet () const {
       return EffetJeton;
    }
 
@@ -70,7 +71,7 @@
    }
 
 // Mutateur : Modifie l'effet du Jeton.
-   void Jeton::setEffet(Effet & nvEffet) {
+   void Jeton::setEffet(Effet * nvEffet) {
       EffetJeton = nvEffet;
    }
 

@@ -21,7 +21,7 @@
         classique = type;
         tabCase = new Case[dimx*dimy];
     }
-    // Destructeur de la classe:
+    // Destructeur de la classe Plateau.
 
     Plateau::~Plateau(){
         if(tabCase != NULL) delete [] tabCase;
@@ -30,14 +30,19 @@
         classique = true;
     }
 
-    // Accesseur : Récupère la dimension x du plateau
+    // Accesseur : Récupère la dimension x du plateau.
     unsigned int Plateau::getDimensionX() const{
         return dimx;
     }
 
-    // Accesseur : Récupère la dimension y du plateau
+    // Accesseur : Récupère la dimension y du plateau.
     unsigned int Plateau::getDimensionY() const{
         return dimy;
+    }
+
+    // Accesseur : Récupère le type du plateau.
+    bool Plateau::getType() const{
+        return classique;
     }
 
     
@@ -57,15 +62,18 @@
         assert(x < dimx && y < dimy); // Précondition x et y inférieur à leurs bornes.
         if(couleur == "Rouge")
         {
-            tabCase[y*dimx+x].setEtat(1);
+            unsigned int valeur_Case = 1;
+            tabCase[y*dimx+x].setEtat(valeur_Case);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
         else if(couleur == "Bleu"){
-            tabCase[y*dimx+x].setEtat(0);
+            unsigned int valeur_Case = 0;
+            tabCase[y*dimx+x].setEtat(valeur_Case);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
         else if(couleur == "Neutre"){
-            tabCase[y*dimx+x].setEtat(2);
+            unsigned int valeur_Case = 2;
+            tabCase[y*dimx+x].setEtat(valeur_Case);
             tabCase[y*dimx+x].setCouleurC(couleur);
         }
 
@@ -79,8 +87,11 @@
         {
             for(int j = 0; j < dimy; j++)
             {
-                tabCase[j*dimx+i].setEtat("Neutre");
-                tabCase[j*dimx+i].setCouleurC("Blanc");
+                unsigned int etatN = 2;
+                std::string couleurC = "Neutre";
+
+                tabCase[j*dimx+i].setEtat(etatN);
+                tabCase[j*dimx+i].setCouleurC(couleurC);
             }
         }
 
@@ -125,8 +136,10 @@
         {
             for(i; i>0; i--)
             {
-                tabCase[y*dimx+(x-i)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[y*dimx+(x-i)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -137,8 +150,10 @@
         {
             for(j; j>0; j--)
             {
-                tabCase[y*dimx+(x+j)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[y*dimx+(x+j)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -158,8 +173,10 @@
         {
             for(i; i>0; i--)
             {
-                tabCase[(y-i)*dimx+x].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y-i)*dimx+x].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -170,8 +187,10 @@
         {
             for(j; j>0; j--)
             {
-                tabCase[(y+j)*dimx+x].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y+j)*dimx+x].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -195,8 +214,10 @@
         {
             for(i; i>0; i--)
             {
-                tabCase[(y+i)*dimx+(x+i)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y+i)*dimx+(x+i)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -208,8 +229,10 @@
         {
             for(j; j>0; j--)
             {
-                tabCase[(y+j)*dimx+(x-j)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y+j)*dimx+(x-j)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -220,8 +243,10 @@
         {
             for(j; j>0; j--)
             {
-                tabCase[(y-k)*dimx+(x+k)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y-k)*dimx+(x+k)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }
@@ -232,8 +257,10 @@
         {
             for(l; l>0; l--)
             {
-                tabCase[(y-l)*dimx+(x-l)].setEtat(tabCase[y*dimx+x].getEtat());
-                tabCase[(y-l)*dimx+(x-l)].setCouleurC(tabCase[y*dimx+x].getCouleurC());
+                unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
+                std::string couleurC = tabCase[y*dimx+x].getCouleurC();
+                tabCase[y*dimx+(x-i)].setEtat(etatC);
+                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
             }
 
         }

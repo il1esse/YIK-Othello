@@ -17,7 +17,7 @@
 class Jeton {
 /* Données privés */
  private :
-    std::string * NomJeton;
+    std::string NomJeton;
     Effet * EffetJeton;
     bool Utilise;
 
@@ -34,7 +34,7 @@ class Jeton {
     @param effet Effet du jeton.
     @param utilisation Utilisation du jeton par un booléen.
     */
-    Jeton(const std::string & nom);
+    Jeton(std::string nom);
 
     /**
     @brief Destructeur de la classe Jeton.
@@ -49,7 +49,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur EffetJeton du Jeton.
     */
-    Effet & getEffet() const;
+    Effet * getEffet() const;
 
     /**
     @brief Accesseur : Récupère la valeur Utilisé du Jeton.
@@ -60,7 +60,7 @@ class Jeton {
     @brief Mutateur : Modifie l'effet du Jeton.
     @param nvEffet Le nouvelle effet du Jeton.
     */
-    void setEffet(Effet & nvEffet);
+    void setEffet(Effet * nvEffet);
 
     /**
     @brief Mutateur : Modifie la valeur Utilisé du Jeton.

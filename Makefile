@@ -1,12 +1,12 @@
 all: bin/TestR bin/ModeTxt bin/ModeGraphique
 
-bin/TestR : obj/JeuTest.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
+bin/TestR : obj/mainTest.o obj/JeuTest.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
 	g++ -g -Wall obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/TestR
 
-bin/ModeTxt : obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
+bin/ModeTxt : obj/mainTxt.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
 	g++ -g -Wall obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/ModeTxt
 
-bin/ModeGraphique : obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
+bin/ModeGraphique : obj/mainGraphique.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
 	g++ -g -Wall obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/ModeGraphique
 
 obj/JeuTest.o : src/JeuTest.cpp src/JeuTest.h src/Jeu.h
@@ -39,6 +39,15 @@ obj/Plateau.o : src/Plateau.cpp src/Plateau.h src/Case.h
 obj/Score.o : src/Score.cpp src/Score.h src/Plateau.h src/Joueur.h
 	g++ -g -Wall -c src/Score.cpp -o obj/Score.o
 
+obj/mainTxt.o : src/mainTxt.cpp src/JeuModeTexte.cpp src/JeuModeTexte.h
+	g++ -g -Wall -c src/mainTxt.cpp -o obj/mainTxt.o
+	
+obj/mainGraphique.o : src/mainGraphique.cpp src/JeuModeGraphique.cpp src/JeuModeGraphique.h
+	g++ -g -Wall -c src/mainGraphique.cpp -o obj/mainGraphique.o
+	
+obj/mainTest.o : src/mainTest.cpp src/JeuTest.cpp src/JeuTest.h
+	g++ -g -Wall -c src/mainTest.cpp -o obj/mainTest.o
+	
 clean:
 	rm obj/*.o
 	rm bin/*

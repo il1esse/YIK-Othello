@@ -12,6 +12,11 @@
     Score::Score()
     {
         score = 0;
+        nbCaseJ1Sco = 0;
+        nbCaseJ2Sco = 0;
+        tabClassiqueSco = true;
+        victoireJ1 = false;
+
     }
 
     // Constructeur de la classe Score.
@@ -21,6 +26,7 @@
         nbCaseJ2Sco = j2.getNombreCase();
         tabClassiqueSco = p.getType();
         pSco = p;
+        victoireJ1 = false;
     }
 
     // Destructeur de la classe Score/
@@ -29,16 +35,21 @@
         nbCaseJ1Sco = 0;
         nbCaseJ2Sco = 0 ;
         tabClassiqueSco = true;
+        victoireJ1 = false;
    }
 
     // Accesseur : Retoune le score.
-   const int & Score::getScore () const {
+   const int & Score::getValScore() const {
       return score;
    }
 
     // Mutateur : Modifie la valeur du score.
-   void Score::setScore (int nouvScore) {
+   void Score::setValScore(int nouvScore) {
         score = nouvScore;
+   }
+
+   const bool & Score::getVictoire() const{
+       return victoireJ1;
    }
    
     // Retourne le multiplicateur de score du joueur victorieux selon les conditions de bonus.

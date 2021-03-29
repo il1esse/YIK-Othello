@@ -61,18 +61,18 @@ class JeuModeTexte {
     /**
     @brief Met fin à la partie.
     */
-    void finDePartie(Jeu j);
+    void finDePartie();
 
     /**
     @brief Définie aléatoirement l'ordre dans lequelle les joueurs vont jouer.
     */
-    void ordreJeu(Jeu j);
+    void ordreJeu();
 
     /**
     @brief Définie l'ordre dans lequelle les joueurs vont jouer.
     @param j Le joueur à jouer en premier.
     */
-    void ordreJeu(Jeu j,Joueur & joueur);
+    void ordreJeu(Joueur joueur);
 
     /**
     @brief Permet de déterminer le tour des joueurs.

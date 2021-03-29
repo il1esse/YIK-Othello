@@ -69,15 +69,26 @@ class Score {
     void AfficherScoreTxt(const Joueur & j1, const Joueur & j2, const Plateau & p);
 
     /**
-    @brief Accesseur: Récupère le contenu de score
+    @brief Accesseur: Récupère la valeur entière du score.
     */
-    const int & getScore () const;
+    const int & getValScore() const;
 
     /**
-    @brief Mutateur: Modifie la valeur du score.
-    @param nouvScore La nouvelle valeur du score.
+    @brief Accesseur: Récupère la valeur booléenne de victoire du joueur1.
     */
-   void setScore (int nouvScore);
+    const bool & getVictoire() const;
+
+    /**
+    @brief Mutateur: Modifie la valeur booléenne de victoire du joueur1.
+    @param nvVictoireJ1 La nouvelle valeur booléenne de victoire du joueur1.
+    */
+   void setVictoire(bool nvVictoireJ1);
+
+    /**
+    @brief Mutateur: Modifie la valeur entière du score.
+    @param nouvScore La nouvelle valeur entière du score.
+    */
+   void setValScore(int nouvScore);
 
 };
 #endif /* Termine le #ifndef SCORE_H */

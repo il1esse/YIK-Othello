@@ -48,6 +48,11 @@ class Joueur {
     @brief Accesseur : Récupère le pseudo du joueur.
     */
     std::string getPseudo() const;
+    
+    /**
+    @brief Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
+    */
+    Jeton Joueur::getJeton(std::string nomJeton) const;
 
     /**
     @brief Accesseur : Récupère la couleur associé au joueur.

@@ -73,8 +73,10 @@
 
     // Donne la couleur du joueur1 et du joueur2
     void Jeu::donneCouleur(){
-        j1.setCouleur("Bleu");
-        j2.setCouleur("Rouge");
+        std::string couleur_j1 = "Bleu";
+        std::string couleur_j2 = "Rouge";
+        j1.setCouleur(couleur_j1);
+        j2.setCouleur(couleur_j2);
     }
 
     // Donne un pseudo à un joueur.
@@ -95,9 +97,9 @@
     
     // Permet de rejouer une partie.
     void Jeu::rejouerPartie(){
-        delete j1;
-        delete j2;
-        delete pla;
-        delete score;
+        j1 = Joueur();
+        j2 = Joueur();
+        pla = Plateau();
+        score = Score();
         initJeu();
     }

@@ -32,6 +32,19 @@
         return pseudo;
     }
 
+    // Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
+    Jeton Joueur::getJeton(std::string nomJeton) const{
+        for(int i=0; i<nbrJ; i++)
+        {
+            if(tabJeton[i].getNomJeton() == nomJeton)
+            {
+                return tabJeton[i];
+            }
+            
+        }
+        
+    }
+
     // Accesseur : Récupère la couleur associé au joueur.
     std::string Joueur::getCouleur() const{
         return couleur;

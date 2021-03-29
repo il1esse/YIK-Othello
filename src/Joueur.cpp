@@ -34,15 +34,14 @@
 
     // Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
     Jeton Joueur::getJeton(std::string nomJeton) const{
-        for(int i=0; i<nbrJ; i++)
+        for(unsigned int i=0; i<nbrJ; i++)
         {
             if(tabJeton[i].getNomJeton() == nomJeton)
             {
                 return tabJeton[i];
             }
             
-        }
-        
+        } 
     }
 
     // Accesseur : Récupère la couleur associé au joueur.
@@ -111,9 +110,9 @@
     // Met à jour l'information du nombre de case possédé par le joueur.
     void Joueur::majCaseJoueur(Plateau & p){
         nbrC=0;
-        for(int i=1; i<p.getDimensionX()-2; i++)
+        for(unsigned int i=1; i<p.getDimensionX()-2; i++)
         {
-            for(int j=1; j<p.getDimensionY()-2; j++)
+            for(unsigned int j=1; j<p.getDimensionY()-2; j++)
             {
                 if(p.getCase(i,j).getCouleurC() == couleur)
                 {
@@ -128,7 +127,7 @@
     void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton){
         Jeton * nvTabJeton = new Jeton[nbrJ-1];
         int j = 0;
-        for(int i=0; i<nbrJ; i++){
+        for(unsigned int i=0; i<nbrJ; i++){
             if(tabJeton[i].getNomJeton() == nomJeton)
             {
                 bool uVrai = true;
@@ -148,7 +147,7 @@
         }
         delete [] tabJeton;
         tabJeton = new Jeton[nbrJ-1];
-        for(int i=0; i<nbrJ-1; i++){
+        for(unsigned int i=0; i<nbrJ-1; i++){
             std::string nom = nvTabJeton[i].getNomJeton();
             bool u = nvTabJeton[i].getUtilisation();
                 tabJeton[i].setNomJeton(nom);
@@ -174,7 +173,7 @@
         std::cout << "Nombre de Case possédé par le joueur : " << nbrC << std::endl;
         std::cout << "Nombre de jeton restant a utilisé : " << nbrJ << std::endl;
         std::cout << "Jeton restant : " << std::endl;
-        for(int i =0; i<nbrJ; i++)
+        for(unsigned int i =0; i<nbrJ; i++)
         {
             std::cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << std::endl;
             std::cout << "Effet du jeton : " << tabJeton[i].getEffet() << std::endl;

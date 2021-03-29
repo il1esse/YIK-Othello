@@ -15,9 +15,9 @@
 
     Plateau::Plateau(unsigned int x, unsigned int y, bool type)
     {
-        assert(dimx > 0 && dimy > 0); //précondition x et y >0
         dimx = x;
         dimy = y;
+        assert(dimx > 0 && dimy > 0); //précondition x et y >0
         classique = type;
         tabCase = new Case[dimx*dimy];
     }
@@ -83,8 +83,8 @@
     // Initialise les cases du plateau.
 
     void Plateau::initPlateau(){
-        int i;
-        int j;
+        unsigned int i;
+        unsigned int j;
         for (i = 1; i < dimx-1; i++)
         {
             for(j = 1; j < dimy-1; j++)
@@ -156,7 +156,7 @@
     // Dessine le plateau.
 
     void Plateau::dessinePlateau(){
-        for(int y=1; y< dimy-1; y++)
+        for(unsigned int y=1; y< dimy-1; y++)
         {
                 afficheBordureHorizontale(dimx-1);
                 afficheContenu(dimx-1,y);
@@ -182,19 +182,19 @@
     // Applique la règle horizontale.
 
     void Plateau::appliRegleHori(unsigned int x, unsigned int y){
-        int i = 1;
-        int j = 1;
+        unsigned int i = 1;
+        unsigned int j = 1;
 
         while (tabCase[y*dimx+(x-i)].getEtat() == 1 - tabCase[y*dimx+x].getEtat()) i++;
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[y*dimx+(x-i)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(i; i>0; i--)
+            for(unsigned int k = i; k>0; k--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[y*dimx+(x-k)].setEtat(etatC);
+                tabCase[y*dimx+(x-k)].setCouleurC(couleurC);
             }
 
         }
@@ -203,12 +203,12 @@
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[y*dimx+(x+j)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(j; j>0; j--)
+            for(unsigned int l = j; l>0; l--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[y*dimx+(x-l)].setEtat(etatC);
+                tabCase[y*dimx+(x-l)].setCouleurC(couleurC);
             }
 
         }
@@ -219,19 +219,19 @@
     // Applique la règle verticale.
 
     void Plateau::appliRegleVerti(unsigned int x, unsigned int y){
-        int i = 1;
-        int j = 1;
+        unsigned int i = 1;
+        unsigned int j = 1;
 
         while (tabCase[(y-i)*dimx+x].getEtat() == 1 - tabCase[y*dimx+x].getEtat()) i++;
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[(y-i)*dimx+x].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(i; i>0; i--)
+            for(unsigned int k = i; k>0; k--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[y*dimx+(x-k)].setEtat(etatC);
+                tabCase[y*dimx+(x-k)].setCouleurC(couleurC);
             }
 
         }
@@ -240,17 +240,15 @@
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[(y+j)*dimx+x].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(j; j>0; j--)
+            for(unsigned int l = j; l>0; l--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[y*dimx+(x-l)].setEtat(etatC);
+                tabCase[y*dimx+(x-l)].setCouleurC(couleurC);
             }
 
         }
-
-
     }
 
 
@@ -258,21 +256,21 @@
 
     void Plateau::appliRegleDiag(unsigned int x, unsigned int y){
         //x et y définissent la position du jeton posé
-        int i = 1;
-        int j = 1;
-        int k = 1;
-        int l = 1;
+        unsigned int i = 1;
+        unsigned int j = 1;
+        unsigned int k = 1;
+        unsigned int l = 1;
 
         while (tabCase[(y+i)*dimx+(x+i)].getEtat() == 1 - tabCase[y*dimx+x].getEtat()) i++;
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[(y+i)*dimx+(x+i)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(i; i>0; i--)
+            for(unsigned int a=i; a>0; a--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[(y+a)*dimx+(x+a)].setEtat(etatC);
+                tabCase[(y+a)*dimx+(x+a)].setCouleurC(couleurC);
             }
 
         }
@@ -282,12 +280,12 @@
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if (tabCase[(y+j)*dimx+(x-j)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(j; j>0; j--)
+            for(unsigned int b = j; b>0; b--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[(y+b)*dimx+(x-b)].setEtat(etatC);
+                tabCase[(y+b)*dimx+(x-b)].setCouleurC(couleurC);
             }
 
         }
@@ -296,12 +294,12 @@
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if(tabCase[(y-k)*dimx+(x+k)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(j; j>0; j--)
+            for(unsigned int c =j; c>0; c--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[(y-c)*dimx+(x+c)].setEtat(etatC);
+                tabCase[(y-c)*dimx+(x+c)].setCouleurC(couleurC);
             }
 
         }
@@ -310,12 +308,12 @@
         // ici x+i et y+i définissent la premiere case n'appartenant pas a l'adversaire en suivant cette diagonale
         if(tabCase[(y-l)*dimx+(x-l)].getEtat() == tabCase[y*dimx+x].getEtat()) 
         {
-            for(l; l>0; l--)
+            for(unsigned int d =l; d>0; d--)
             {
                 unsigned int etatC = tabCase[y*dimx+x].getEtat() ;
                 std::string couleurC = tabCase[y*dimx+x].getCouleurC();
-                tabCase[y*dimx+(x-i)].setEtat(etatC);
-                tabCase[y*dimx+(x-i)].setCouleurC(couleurC);
+                tabCase[(y-d)*dimx+(x-d)].setEtat(etatC);
+                tabCase[(y-d)*dimx+(x-d)].setCouleurC(couleurC);
             }
 
         }

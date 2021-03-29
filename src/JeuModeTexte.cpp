@@ -242,7 +242,7 @@
 
     int main ( int argc, char** argv ) {
     
-    Jeu jeu;
-    menuJeu();
+    JeuModeTexte jeu;
+    jeu.menuJeu();
 	return 0;
-}
+    }

@@ -11,7 +11,6 @@
 /* Inclusions des entêtes utilisées */
 
 #include "Plateau.h"
-#include "Jeu.h"
 #include "Joueur.h"
 #include <iostream>
 

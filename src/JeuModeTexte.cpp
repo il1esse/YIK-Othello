@@ -239,10 +239,3 @@
         joueur1.setPseudo(pseudo_j1);
         menuChoix();
     }
-
-    int main ( int argc, char** argv ) {
-    
-    JeuModeTexte jeu;
-    jeu.menuJeu();
-	return 0;
-    }

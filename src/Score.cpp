@@ -48,8 +48,16 @@
         score = nouvScore;
    }
 
+    //Accesseur : Retourne la valeur de la variable victoire
    const bool & Score::getVictoire() const{
        return victoireJ1;
+   }
+
+   //Mutateur : Modifie la valeur de de victoire
+
+   void Score::setVictoire(bool nvvictoire)
+   {
+       victoireJ1 = nvvictoire;
    }
    
     // Retourne le multiplicateur de score du joueur victorieux selon les conditions de bonus.

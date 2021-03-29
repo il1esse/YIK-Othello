@@ -106,7 +106,7 @@ class Jeu{
     @param j Le joueur qui portera le pseudo.
     @param pseudo Le pseudo du joueur.
     */
-    void Jeu::pseudoJoueur(Joueur j, std::string pseudo);
+    void pseudoJoueur(Joueur j, std::string pseudo);
 
     /**
     @brief Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.

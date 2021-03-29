@@ -115,7 +115,7 @@
             tabCase[j*dimx+i].setCouleurC(couleurC);
         }
 
-        int i=dimx-1;
+        i=dimx-1;
         for(j = 0; j<dimy; j++){
             unsigned int etatN = 3;
             std::string couleurC = "Bord";
@@ -124,7 +124,7 @@
             tabCase[j*dimx+i].setCouleurC(couleurC);
         }
 
-        int i=0;
+        i=0;
         for(j = 0; j<dimy; j++){
             unsigned int etatN = 3;
             std::string couleurC = "Bord";

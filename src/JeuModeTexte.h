@@ -51,12 +51,12 @@ class JeuModeTexte {
     /**
     @brief Défini les options du jeu.
     */
-    void JeuModeTexte::menuJeu();
+    void menuJeu();
 
     /**
     @brief Défini les options de choix de départ.
     */
-    void JeuModeTexte::menuChoix();
+    void menuChoix();
 
     /**
     @brief Met fin à la partie.

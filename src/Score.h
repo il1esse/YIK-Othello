@@ -12,6 +12,7 @@
 
 #include "Plateau.h"
 #include "Jeu.h"
+#include "Joueur.h"
 #include <iostream>
 
 /* Définitions de la classes */

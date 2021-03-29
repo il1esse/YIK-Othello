@@ -96,9 +96,9 @@
             victoire.setVictoire(true);
             victoire.AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
         }
-        else if(jeu.getJoueur2().getNombreCase() > jeu.getJoueur2().getNombreCase())
+        else if(jeu.getJoueur2().getNombreCase() > jeu.getJoueur1().getNombreCase())
         {
-            victoire.setVictoire(true);
+            victoire.setVictoire(false); //A DISCUTER
             victoire.AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
         }
         else
@@ -133,7 +133,18 @@
 
     // Définie aléatoirement l'ordre dans lequelle les joueurs vont jouer.
     void JeuModeTexte::ordreJeu(){
-        
+        int joueurRand = rand() % 2 + 1; 
+        switch (joueurRand)
+        {
+        case 1:
+            std::cout << "C'est au tour de " << jeu.getJoueur1().getPseudo() << " de commencer." << std::endl;
+            joueurTour(jeu.getJoueur1());
+            break;
+        case 2:
+            std::cout << "C'est au tour de " << jeu.getJoueur2().getPseudo() << " de commencer." << std::endl;
+            joueurTour(jeu.getJoueur2());
+            break;
+        }
     }
 
     // Définie l'ordre dans lequelle les joueurs vont jouer.

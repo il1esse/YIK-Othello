@@ -64,7 +64,7 @@ class Plateau {
     /**
     @brief Accesseur : Récupère le type du plateau.
     */
-    bool Plateau::getType() const;
+    bool getType() const;
 
     /**
     @brief Mutateur : Modifie l'état & la couleur de la case de coordonnées (x,y).

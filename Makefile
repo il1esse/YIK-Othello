@@ -39,13 +39,13 @@ obj/Plateau.o : src/Plateau.cpp src/Plateau.h src/Case.h
 obj/Score.o : src/Score.cpp src/Score.h src/Plateau.h src/Joueur.h
 	g++ -g -Wall -c src/Score.cpp -o obj/Score.o
 
-obj/mainTxt.o : src/mainTxt.cpp src/JeuModeTexte.cpp src/JeuModeTexte.h
+obj/mainTxt.o : src/mainTxt.cpp src/JeuModeTexte.h
 	g++ -g -Wall -c src/mainTxt.cpp -o obj/mainTxt.o
 	
-obj/mainGraphique.o : src/mainGraphique.cpp src/JeuModeGraphique.cpp src/JeuModeGraphique.h
+obj/mainGraphique.o : src/mainGraphique.cpp src/JeuModeGraphique.h
 	g++ -g -Wall -c src/mainGraphique.cpp -o obj/mainGraphique.o
 	
-obj/mainTest.o : src/mainTest.cpp src/JeuTest.cpp src/JeuTest.h
+obj/mainTest.o : src/mainTest.cpp  src/JeuTest.h
 	g++ -g -Wall -c src/mainTest.cpp -o obj/mainTest.o
 	
 clean:

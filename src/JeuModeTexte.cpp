@@ -98,7 +98,7 @@
         }
         else if(jeu.getJoueur2().getNombreCase() > jeu.getJoueur1().getNombreCase())
         {
-            victoire.setVictoire(false); //A DISCUTER
+            victoire.setVictoire(false);
             victoire.AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
         }
         else
@@ -239,3 +239,10 @@
         joueur1.setPseudo(pseudo_j1);
         menuChoix();
     }
+
+    int main ( int argc, char** argv ) {
+    
+    Jeu jeu;
+    menuJeu();
+	return 0;
+}

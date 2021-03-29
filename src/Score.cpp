@@ -89,13 +89,11 @@
     const int & Score::CalculateurScore(const Plateau & p)
     {   
         int m = condMultiplicateur(p);
-        int calcj1 = nbCaseJ1Sco * m; // CHANGER LE NOM
-        int calcj2 = nbCaseJ2Sco * m;
         if (victoireJ1 == true)
         {
-            return calcj1;
+            return nbCaseJ1Sco * m;
         }
-        else return calcj2;
+        else return nbCaseJ2Sco * m;
     }
         
 

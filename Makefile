@@ -36,7 +36,7 @@ obj/Joueur.o : src/Joueur.cpp src/Joueur.h src/Jeton.h src/Plateau.h
 obj/Plateau.o : src/Plateau.cpp src/Plateau.h src/Case.h
 	g++ -g -Wall -c src/Plateau.cpp -o obj/Plateau.o
 
-obj/Score.o : src/Score.cpp src/Score.h src/Jeu.h src/Plateau.h src/Joueur.h
+obj/Score.o : src/Score.cpp src/Score.h src/Plateau.h src/Joueur.h
 	g++ -g -Wall -c src/Score.cpp -o obj/Score.o
 
 clean:

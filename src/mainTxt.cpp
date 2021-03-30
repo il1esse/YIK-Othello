@@ -1,6 +1,6 @@
 #include "JeuModeTexte.h"
 
-int main(){
+int main(int argc, char** argv){
 
     JeuModeTexte jeu;
     jeu.menuJeu();

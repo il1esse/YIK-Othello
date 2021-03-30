@@ -57,7 +57,7 @@ public :
     @brief Mutateur : Modifie la description de l'effet.
     @param nouvDescription La nouvelle description de l'effet.
     */
-    void setDescription(std::string & nouvDescription);
+    void setDescription(std::string nouvDescription);
 
     /**
     @brief Accesseur : Récupère la valeur booléenne "special" de l'effet.

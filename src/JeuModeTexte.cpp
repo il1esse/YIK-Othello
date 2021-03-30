@@ -190,19 +190,19 @@
         std::string nomJeton;
 
             do{
-                std::cout << "Coordonnée x de la case." ;
+                std::cout << "Coordonnée x de la case :" ;
                 std::cin >> x;
                 std::cout << std::endl;
             }while(x<0 || x>(plateau.getDimensionX()-2));
             
             do{
-                std::cout << "Coordonnée y de la case." ;
+                std::cout << "Coordonnée y de la case : " ;
                 std::cin >> y;
                 std::cout << std::endl;
             }while(y<0 || y>(plateau.getDimensionY()-2));
 
             do{
-                std::cout << "Nom du jeton à jouer." ;
+                std::cout << "Nom du jeton à jouer : " ;
                 std::cin >> nomJeton;
                 std::cout << std::endl;
             }while(j.getJeton(nomJeton).getNomJeton() != nomJeton);

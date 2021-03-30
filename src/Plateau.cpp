@@ -4,8 +4,8 @@
     // Constructeur par défaut de la classe Plateau.
 
     Plateau::Plateau(){
-        dimx = 0;
-        dimy = 0;
+        dimx = 8;
+        dimy = 8;
         classique = true;
         tabCase = NULL;
     }
@@ -25,8 +25,8 @@
 
     Plateau::~Plateau(){
         if(tabCase != NULL) delete [] tabCase;
-        dimx = 0;
-        dimy = 0;
+        dimx = 8;
+        dimy = 8;
         classique = true;
     }
 

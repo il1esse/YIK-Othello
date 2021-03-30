@@ -18,8 +18,8 @@ Case::Case(std::string c, unsigned int e)
 /* Destructeur de la classe Case */
 Case::~Case()
 {
-    couleurC = "Neutre";
-    etat = 2;
+    //couleurC = "Neutre";
+    //etat = 2;
 }
 
 /* Accesseur : Récupère la valeur de couleur de la case. */
@@ -29,7 +29,7 @@ std::string Case::getCouleurC() const
 }
 
 /* Mutateur : Modifie la couleur de la case. */
-void Case::setCouleurC(std::string & nvCouleur)
+void Case::setCouleurC(std::string nvCouleur)
 {
     couleurC = nvCouleur;
 }
@@ -41,7 +41,7 @@ unsigned int Case::getEtat() const
 }
 
 /* Mutateur : Modifie l'état de la case. */
-void Case::setEtat(unsigned int & nvEtat)
+void Case::setEtat(unsigned int nvEtat)
 {
     etat = nvEtat;
 }

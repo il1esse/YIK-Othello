@@ -69,6 +69,8 @@ public :
     @param nouvSpecial La nouvelle valeur booléenne spécial de l'effet.
     */
     void setSpecial(bool & nouvSpecial);
+
+    virtual void comportement(int & x,int & y, Plateau & p,std::string couleur) = 0;
 };
 
 /* Définitions des classes qui heritent de la classe effet*/
@@ -86,7 +88,7 @@ class HautGauche : public Effet
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportementHG(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(int & x,int & y, Plateau & p,std::string couleur);
 };
 
 class HautDroite : public Effet

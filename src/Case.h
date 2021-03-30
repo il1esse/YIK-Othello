@@ -51,7 +51,7 @@ public :
     @brief Mutateur : Modifie la couleur de la case.
     @param nvCouleur La nouvelle valeur couleur de la case.
     */
-    void setCouleurC(std::string & nvCouleur);
+    void setCouleurC(std::string nvCouleur);
 
     /**
     @brief Accesseur : Récupère la valeur d'état de la case.
@@ -62,7 +62,7 @@ public :
     @brief Mutateur : Modifie l'état de la case.
     @param nvEtat La nouvelle valeur d'état de la case.
     */
-    void setEtat(unsigned int & nvEtat);
+    void setEtat(unsigned int nvEtat);
 
 };
 

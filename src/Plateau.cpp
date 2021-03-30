@@ -7,7 +7,7 @@
         dimx = 8;
         dimy = 8;
         classique = true;
-        tabCase = NULL;
+        tabCase = new Case[dimx*dimy];
     }
 
 
@@ -99,12 +99,13 @@
             }
         }
 
-        j=0;
+        /*j=0;
         for(i = 0; i<dimx; i++){
             unsigned int etatN = 3;
             std::string couleurC = "Bord";
 
             tabCase[j*dimx+i].setEtat(etatN);
+
             tabCase[j*dimx+i].setCouleurC(couleurC);
         }
 
@@ -133,7 +134,7 @@
 
             tabCase[j*dimx+i].setEtat(etatN);
             tabCase[j*dimx+i].setCouleurC(couleurC);
-        }
+        }*/
 
     }
 
@@ -150,7 +151,7 @@
     void Plateau::afficheContenu(int taille_x,int val_y){
         for(int i=1; i<taille_x; i++)
         {
-            std::cout<<"| "<< tabCase[val_y*(dimx-2)+i].getEtat()<<" ";
+            std::cout<<"| "<< tabCase[val_y*dimx+i].getEtat()<<" ";
         }
         std::cout<<"|"<<std::endl;
     }

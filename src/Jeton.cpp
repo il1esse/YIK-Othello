@@ -4,7 +4,7 @@
 // Constructeur par défaut de la classe Jeton.
     Jeton::Jeton() {
        NomJeton = "Pion";
-       EffetJeton = new Effet;
+       EffetJeton = NULL;
        Utilise = false;
    }
 
@@ -45,9 +45,13 @@
 // Destructeur de la classe Jeton.
    Jeton::~Jeton()
    {
-       NomJeton = "Pion";
+     /*  NomJeton = "Pion";
        EffetJeton = new Effet();
-       Utilise = false;
+       Utilise = false;*/
+       if(EffetJeton != NULL)
+       {
+          delete EffetJeton;
+       }
    }
 
 // Accesseur : Récupère la valeur NomJeton du Jeton.

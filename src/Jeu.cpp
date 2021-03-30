@@ -4,10 +4,10 @@
 
     // Constructeur par défaut de la classe Jeu.
     Jeu::Jeu(){
-        pla = Plateau();
-        j1 = Joueur();
-        j2 = Joueur();
-        score = Score();
+        //pla = Plateau();
+        //j1 = Joueur();
+        //j2 = Joueur();
+        //score = Score();
     }
 
 
@@ -16,15 +16,15 @@
         pla = p;
         j1 = joueur1;
         j2 = joueur2;
-        score = Score();
+        //score = Score();
     }
 
     // Destructeur de la classe Jeu.
     Jeu::~Jeu(){
-        pla = Plateau();
+        /*pla = Plateau();
         j1 = Joueur();
         j2 = Joueur();
-        score = Score();
+        score = Score();*/
     }
 
 

@@ -4,7 +4,7 @@
     
     // Constructeur par défaut de la classe JeuModeTexte.
     JeuModeTexte::JeuModeTexte(){
-        jeu = Jeu();
+        //jeu = Jeu();
     }
 
     // Constructeur de la classe JeuModeTexte.
@@ -14,7 +14,7 @@
 
     // Destructeur de la classe JeuModeTexte.
     JeuModeTexte::~JeuModeTexte(){
-        jeu = Jeu();
+        //jeu = Jeu();
     }
 
     // Accesseur : Récupère le jeu.

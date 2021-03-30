@@ -89,6 +89,7 @@
         j1.initJoueur();
         j2.initJoueur();
         donneCouleur();
+        pla.initPlateau();
         pla.dessinePlateau();
     }
 

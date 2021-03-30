@@ -1,4 +1,4 @@
-#include "JeuModeGraphique.h";
+#include "JeuModeGraphique.h"
 
 int main(int argc, char** argv){
 

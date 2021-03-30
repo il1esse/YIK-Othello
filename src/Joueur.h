@@ -55,6 +55,11 @@ class Joueur {
     Jeton getJeton(std::string nomJeton) const;
 
     /**
+    @brief Initialise les infos du Joueur.
+    */
+    void initJoueur();
+
+    /**
     @brief Accesseur : Récupère la couleur associé au joueur.
     */
     std::string getCouleur() const;

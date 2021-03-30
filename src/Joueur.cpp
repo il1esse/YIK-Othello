@@ -186,3 +186,8 @@
     void Joueur::dessineJeton(){
 
     }
+
+    // Initialise les infos du Joueur.
+    void Joueur::initJoueur(){
+        creerJeton();
+    }

@@ -7,6 +7,7 @@
         couleur = "Aucune";
         nbrJ = 0;
         nbrC = 0;
+        tabJeton = NULL;
     }
 
     // Constructeur de la classe Joueur.
@@ -15,6 +16,7 @@
         couleur = "Aucune";
         nbrJ = 0;
         nbrC = 0;
+        tabJeton = NULL;
     }
 
     //Destructeur de la classe Joueur.

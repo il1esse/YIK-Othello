@@ -148,7 +148,7 @@
     void Plateau::afficheContenu(int taille_x,int val_y){
         for(int i=1; i<taille_x; i++)
         {
-            std::cout<<"| "<< tabCase[val_y*dimx-2+i].getEtat()<<" ";
+            std::cout<<"| "<< tabCase[val_y*(dimx-2)+i].getEtat()<<" ";
         }
         std::cout<<"|"<<std::endl;
     }

@@ -22,10 +22,7 @@
     //Destructeur de la classe Joueur.
     Joueur::~Joueur(){
         if(tabJeton != NULL) delete [] tabJeton;
-        pseudo = "Joueur";
-        couleur = "Aucune";
-        nbrJ = 0;
-        nbrC = 0;
+
     }
 
     
@@ -97,13 +94,13 @@
         for (int i=0; i<7; i++)
         {
             switch(i){
-                case 0 : tabJeton[0].setNomJeton(pion);break;
-                case 1 : tabJeton[1].setNomJeton(soldat);break;
-                case 2 : tabJeton[2].setNomJeton(cavalier);break;
-                case 3 : tabJeton[3].setNomJeton(clown);break;
-                case 4 : tabJeton[4].setNomJeton(danseuse);break;
-                case 5 : tabJeton[5].setNomJeton(sorcier);break;
-                case 6 : tabJeton[6].setNomJeton(empereur);break;
+                case 0 : tabJeton[0].setNomJeton(pion);tabJeton[0].setEffet();break;
+                case 1 : tabJeton[1].setNomJeton(soldat);tabJeton[1].setEffet();break;
+                case 2 : tabJeton[2].setNomJeton(cavalier);tabJeton[2].setEffet();break;
+                case 3 : tabJeton[3].setNomJeton(clown);tabJeton[3].setEffet();break;
+                case 4 : tabJeton[4].setNomJeton(danseuse);tabJeton[4].setEffet();break;
+                case 5 : tabJeton[5].setNomJeton(sorcier);tabJeton[5].setEffet();break;
+                case 6 : tabJeton[6].setNomJeton(empereur);tabJeton[6].setEffet();break;
             }
         }
     }
@@ -127,39 +124,17 @@
 
     // Permet au joueur de poser un jeton sur le plateau.
     void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton){
-        Jeton * nvTabJeton = new Jeton[nbrJ-1];
-        int j = 0;
-        for(unsigned int i=0; i<nbrJ; i++){
-            if(tabJeton[i].getNomJeton() == nomJeton)
-            {
+        for(int i=0; i<7; i++){
+            if(tabJeton[i].getNomJeton() == nomJeton && tabJeton[i].getUtilisation() == false){
                 bool uVrai = true;
                 tabJeton[i].setUtilisation(uVrai);
-            }
-
-            if(tabJeton[i].getUtilisation() != true)
-            {
-                std::string nom = tabJeton[i].getNomJeton();
-                bool u = tabJeton[i].getUtilisation();
-                
-                nvTabJeton[j].setNomJeton(nom);               
-                nvTabJeton[j].setEffet(tabJeton[i].getEffet());
-                nvTabJeton[j].setUtilisation(u);
-                j++;
+                nbrJ--;
+                p.majPlateau(x,y,couleur);
+                tabJeton[i].getEffet()->comportement(x,y,p,couleur);
+                majCaseJoueur(p);
             }
         }
-        delete [] tabJeton;
-        tabJeton = new Jeton[nbrJ-1];
-        for(unsigned int i=0; i<nbrJ-1; i++){
-            std::string nom = nvTabJeton[i].getNomJeton();
-            bool u = nvTabJeton[i].getUtilisation();
-                tabJeton[i].setNomJeton(nom);
-                tabJeton[i].setEffet(nvTabJeton[i].getEffet());
-                tabJeton[i].setUtilisation(u);
-        }
-        delete [] nvTabJeton;
-        nbrJ--;
-        majCaseJoueur(p);
-        p.majPlateau(x,y,couleur);
+        
     }
 
     // Affiche les informations du joueur graphiquement.
@@ -178,7 +153,7 @@
         for(unsigned int i =0; i<nbrJ; i++)
         {
             std::cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << std::endl;
-            std::cout << "Effet du jeton : " << tabJeton[i].getEffet() << std::endl;
+            std::cout << "Effet du jeton : " << tabJeton[i].getEffet()->getDescription() << std::endl;
         }
     }
 

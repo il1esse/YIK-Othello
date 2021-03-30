@@ -75,8 +75,36 @@
    }
 
 // Mutateur : Modifie l'effet du Jeton.
-   void Jeton::setEffet(Effet * nvEffet) {
-      EffetJeton = nvEffet;
+   void Jeton::setEffet() {
+      
+      int effetRand = rand() % 8 + 1; 
+      switch(effetRand)
+      {
+         case 1:
+               EffetJeton = new HautGauche;
+               break;
+         case 2:
+               EffetJeton = new HautDroite;
+               break;
+         case 3:
+               EffetJeton = new BasGauche;
+               break;
+         case 4:
+               EffetJeton = new BasDroite;
+               break;
+         case 5:
+               EffetJeton = new Haut;
+               break;
+         case 6:
+               EffetJeton = new Droite;
+               break;
+         case 7:
+               EffetJeton = new Gauche;
+               break;
+         case 8:
+               EffetJeton = new Bas;
+               break;
+      }
    }
 
 // Mutateur : Modifie la valeur Utilisé du Jeton.

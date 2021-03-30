@@ -70,7 +70,7 @@ public :
     */
     void setSpecial(bool & nouvSpecial);
 
-    virtual void comportement(int & x,int & y, Plateau & p,std::string couleur) = 0;
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) = 0;
 };
 
 /* Définitions des classes qui heritent de la classe effet*/
@@ -88,7 +88,7 @@ class HautGauche : public Effet
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportement(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class HautDroite : public Effet
@@ -106,7 +106,7 @@ class HautDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementHD(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class BasGauche : public Effet
@@ -124,7 +124,7 @@ class BasGauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementBG(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class BasDroite : public Effet
@@ -142,7 +142,7 @@ class BasDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementBD(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 
@@ -162,7 +162,7 @@ class Haut : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementH(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class Droite : public Effet
@@ -180,7 +180,7 @@ class Droite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementD(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class Gauche : public Effet
@@ -198,7 +198,7 @@ class Gauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementG(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 class Bas : public Effet
@@ -216,7 +216,7 @@ class Bas : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportementB(int & x,int & y, Plateau & p,std::string couleur);
+    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
 };
 
 #endif // EFFET_H_INCLUDED

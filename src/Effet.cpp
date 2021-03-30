@@ -12,9 +12,7 @@ Effet::Effet()
 // Desctructeur par défaut de la classe Effet.
 Effet::~Effet()
 {
-    nomE = "Vide";
-    description = "Vide";
-    special = false;
+    
 }
 
 //Accesseur : Récupère le nom de l'effet.
@@ -67,11 +65,11 @@ HautGauche::HautGauche() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet HautGauche.
- void HautGauche::comportementHG(int & x,int & y, Plateau & p,std::string couleur)
+ void HautGauche::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
     int nvY = y+1;
-    p.Plateau::majPlateau(nvX,nvY,couleur);
+    p.majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe HautDroite.
@@ -86,11 +84,11 @@ HautDroite::HautDroite() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet HautDroite.
-void HautDroite::comportementHD(int & x,int & y, Plateau & p,std::string couleur)
+void HautDroite::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
     int nvY = y+1;
-    p.Plateau::majPlateau(nvX,nvY,couleur);
+    p.majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasGauche.
@@ -105,11 +103,11 @@ BasGauche::BasGauche() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet BasGauche.
-void BasGauche::comportementBG(int & x,int & y, Plateau & p,std::string couleur)
+void BasGauche::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
     int nvY = y-1;
-    p.Plateau::majPlateau(nvX,nvY,couleur);
+    p.majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe BasDroite.
@@ -124,11 +122,11 @@ BasDroite::BasDroite() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet BasDroite.
-void BasDroite::comportementBD(int & x,int & y, Plateau & p,std::string couleur)
+void BasDroite::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
     int nvY = y-1;
-    p.Plateau::majPlateau(nvX,nvY,couleur);
+    p.majPlateau(nvX,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Haut.
@@ -143,10 +141,10 @@ Haut::Haut() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Haut.
-void Haut::comportementH(int & x,int & y, Plateau & p,std::string couleur)
+void Haut::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvY = y+1;
-    p.Plateau::majPlateau(x,nvY,couleur);
+    p.majPlateau(x,nvY,couleur);
 }
 
 //Constructeur par défaut de la classe Droite.
@@ -161,10 +159,10 @@ Droite::Droite() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Droite.
-void Droite::comportementD(int & x,int & y, Plateau & p,std::string couleur)
+void Droite::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x+1;
-    p.Plateau::majPlateau(nvX,y,couleur);
+    p.majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Gauche.
@@ -179,10 +177,10 @@ Gauche::Gauche() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Gauche.
-void Gauche::comportementG(int & x,int & y, Plateau & p,std::string couleur)
+void Gauche::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvX = x-1;
-    p.Plateau::majPlateau(nvX,y,couleur);
+    p.majPlateau(nvX,y,couleur);
 }
 
 //Constructeur par défaut de la classe Bas.
@@ -197,8 +195,8 @@ Bas::Bas() : Effet()
     setSpecial(specialTMP);
 }
 //Procédure permettant de gerer le comportement de l'effet Bas.
-void Bas::comportementB(int & x,int & y, Plateau & p,std::string couleur)
+void Bas::comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur)
 {
     int nvY = y-1;
-    p.Plateau::majPlateau(x,nvY,couleur);
+    p.majPlateau(x,nvY,couleur);
 }

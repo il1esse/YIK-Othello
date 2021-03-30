@@ -4,7 +4,7 @@
     
     // Constructeur par défaut de la classe JeuModeTexte.
     JeuModeTexte::JeuModeTexte(){
-        //jeu = Jeu();
+
     }
 
     // Constructeur de la classe JeuModeTexte.
@@ -14,7 +14,7 @@
 
     // Destructeur de la classe JeuModeTexte.
     JeuModeTexte::~JeuModeTexte(){
-        //jeu = Jeu();
+
     }
 
     // Accesseur : Récupère le jeu.
@@ -31,6 +31,7 @@
     // Défini les options du jeu.
     void JeuModeTexte::menuJeu(){
         unsigned int x;
+        jeu.initJeu();
         std::cout << "Que voulez vous faire ? " << std::endl;
         std::cout << "1: Mode VS IA " << std::endl;
         std::cout << "2: Mode VS Joueur " << std::endl;
@@ -58,7 +59,7 @@
 
     //Défini les options de choix de départ.
     void JeuModeTexte::menuChoix(){
-        jeu.initJeu();
+        
         unsigned int x;
         std::cout << "Dans quelle ordre voulez vous commencez ? " << std::endl;
         std::cout << "1: Choix aléatoire " << std::endl;
@@ -206,7 +207,7 @@
                 std::cout << std::endl;
             }while(j.getJeton(nomJeton).getNomJeton() != nomJeton);
 
-        std::cout << "Vous jouer le jeton " << nomJeton << "sur la case [" << x << "," << y <<"] "<<std::endl;
+        std::cout << "Vous jouer le jeton " << nomJeton << " sur la case [" << x << "," << y <<"] "<<std::endl;
         j.poseJeton(x,y,plateau,nomJeton);
         plateau.dessinePlateau();
         std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s)";
@@ -227,7 +228,9 @@
         Joueur joueur2 = jeu.getJoueur2();
         joueur1.setPseudo(pseudo_j1);
         joueur2.setPseudo(pseudo_j2);
-        
+        jeu.setJoueur1(joueur1);
+        jeu.setJoueur2(joueur2);
+
         menuChoix();
     }
 
@@ -238,5 +241,6 @@
         std::cin >> pseudo_j1;
         Joueur joueur1 = jeu.getJoueur1();
         joueur1.setPseudo(pseudo_j1);
+        jeu.setJoueur1(joueur1);
         menuChoix();
     }

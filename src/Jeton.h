@@ -60,7 +60,7 @@ class Jeton {
     @brief Mutateur : Modifie l'effet du Jeton.
     @param nvEffet Le nouvelle effet du Jeton.
     */
-    void setEffet(Effet * nvEffet);
+    void setEffet();
 
     /**
     @brief Mutateur : Modifie la valeur Utilisé du Jeton.

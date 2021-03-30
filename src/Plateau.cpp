@@ -99,43 +99,6 @@
             }
         }
 
-        /*j=0;
-        for(i = 0; i<dimx; i++){
-            unsigned int etatN = 3;
-            std::string couleurC = "Bord";
-
-            tabCase[j*dimx+i].setEtat(etatN);
-
-            tabCase[j*dimx+i].setCouleurC(couleurC);
-        }
-
-        j=dimy-1;
-        for(i = 0; i<dimx; i++){
-            unsigned int etatN = 3;
-            std::string couleurC = "Bord";
-
-            tabCase[j*dimx+i].setEtat(etatN);
-            tabCase[j*dimx+i].setCouleurC(couleurC);
-        }
-
-        i=dimx-1;
-        for(j = 0; j<dimy; j++){
-            unsigned int etatN = 3;
-            std::string couleurC = "Bord";
-
-            tabCase[j*dimx+i].setEtat(etatN);
-            tabCase[j*dimx+i].setCouleurC(couleurC);
-        }
-
-        i=0;
-        for(j = 0; j<dimy; j++){
-            unsigned int etatN = 3;
-            std::string couleurC = "Bord";
-
-            tabCase[j*dimx+i].setEtat(etatN);
-            tabCase[j*dimx+i].setCouleurC(couleurC);
-        }*/
-
     }
 
     // Affiche les bordures du plateau.
@@ -175,10 +138,17 @@
     // Met à jour le plateau par rapport à l'état d'une case.
 
     void Plateau::majPlateau(unsigned int x, unsigned int y,std::string couleur){
-        setCase(x,y,couleur);
-        appliRegleHori(x,y);
-        appliRegleVerti(x,y);
-        appliRegleDiag(x,y);
+        if(x != 0 && x != dimx-1)
+        {
+            if(y != 0 && y!= dimy-1)
+            {
+                setCase(x,y,couleur);
+                appliRegleHori(x,y);
+                appliRegleVerti(x,y);
+                appliRegleDiag(x,y);
+            }
+        }
+        
     }
 
 

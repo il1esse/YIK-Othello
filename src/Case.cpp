@@ -4,8 +4,8 @@
 /* Constructeur par défaut de la classe Case, met les valeurs à la case Neutre */
 Case::Case()
 {
-    couleurC = "Neutre";
-    etat = 2;
+    couleurC = "Bord";
+    etat = 3;
 }
 
 /* Constructeur de la classe Case */
@@ -18,8 +18,7 @@ Case::Case(std::string c, unsigned int e)
 /* Destructeur de la classe Case */
 Case::~Case()
 {
-    //couleurC = "Neutre";
-    //etat = 2;
+
 }
 
 /* Accesseur : Récupère la valeur de couleur de la case. */

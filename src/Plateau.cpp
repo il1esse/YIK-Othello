@@ -60,6 +60,7 @@
     void Plateau::setCase(unsigned int x, unsigned int y, std::string couleur){
         assert(x >= 0 && y >= 0); // Précondition X et Y positif ou égale à 0.
         assert(x < dimx && y < dimy); // Précondition x et y inférieur à leurs bornes.
+        
         if(couleur == "Rouge")
         {
             unsigned int valeur_Case = 1;
@@ -85,6 +86,7 @@
     void Plateau::initPlateau(){
         unsigned int i;
         unsigned int j;
+
         for (i = 1; i < dimx-1; i++)
         {
             for(j = 1; j < dimy-1; j++)

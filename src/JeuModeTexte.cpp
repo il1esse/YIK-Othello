@@ -31,7 +31,6 @@
     // Défini les options du jeu.
     void JeuModeTexte::menuJeu(){
         unsigned int x;
-        jeu.initJeu();
         std::cout << "Que voulez vous faire ? " << std::endl;
         std::cout << "1: Mode VS IA " << std::endl;
         std::cout << "2: Mode VS Joueur " << std::endl;
@@ -59,6 +58,7 @@
 
     //Défini les options de choix de départ.
     void JeuModeTexte::menuChoix(){
+        jeu.initJeu();
         unsigned int x;
         std::cout << "Dans quelle ordre voulez vous commencez ? " << std::endl;
         std::cout << "1: Choix aléatoire " << std::endl;

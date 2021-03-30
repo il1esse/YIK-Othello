@@ -19,7 +19,7 @@
         score = Score();
     }
 
-    // Destructeur de la classe Joueur.
+    // Destructeur de la classe Jeu.
     Jeu::~Jeu(){
         pla = Plateau();
         j1 = Joueur();

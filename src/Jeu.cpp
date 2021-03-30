@@ -86,6 +86,8 @@
 
     // Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.
     void Jeu::initJeu(){
+        j1.initJoueur();
+        j2.initJoueur();
         donneCouleur();
         pla.dessinePlateau();
     }

@@ -35,7 +35,7 @@ public :
     /**
     @brief Destructeur de la classe Case (Met les valeurs à NULL).
     */
-    ~Effet();
+    virtual ~Effet();
 
     /**
     @brief Accesseur : Récupère le nom de l'effet.
@@ -88,7 +88,7 @@ class HautGauche : public Effet
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class HautDroite : public Effet
@@ -106,7 +106,7 @@ class HautDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class BasGauche : public Effet
@@ -124,7 +124,7 @@ class BasGauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class BasDroite : public Effet
@@ -142,7 +142,7 @@ class BasDroite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 
@@ -162,7 +162,7 @@ class Haut : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class Droite : public Effet
@@ -180,7 +180,7 @@ class Droite : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class Gauche : public Effet
@@ -198,7 +198,7 @@ class Gauche : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 class Bas : public Effet
@@ -216,7 +216,7 @@ class Bas : public Effet
     @param p Plateau de jeu.
     @param couleur Couleur du jeton.
     */
-    void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur);
+    virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) override;
 };
 
 #endif // EFFET_H_INCLUDED

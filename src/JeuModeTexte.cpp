@@ -237,10 +237,14 @@
     // Lance le mode vs IA.
     void JeuModeTexte::modeVsIA(){
         std::string pseudo_j1;
+        std::string pseudo_j2 = "Ordinateur";
         std::cout << "Entrez le pseudo du joueur 1 : ";
         std::cin >> pseudo_j1;
         Joueur joueur1 = jeu.getJoueur1();
+        Joueur joueur2 = jeu.getJoueur2();
         joueur1.setPseudo(pseudo_j1);
+        joueur2.setPseudo(pseudo_j2);
         jeu.setJoueur1(joueur1);
+        jeu.setJoueur2(joueur2);
         menuChoix();
     }

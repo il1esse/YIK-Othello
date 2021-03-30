@@ -52,7 +52,7 @@ class Joueur {
     /**
     @brief Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
     */
-    Jeton getJeton(std::string nomJeton) const;
+    const Jeton& getJeton (std::string nomJeton) const;
 
     /**
     @brief Initialise les infos du Joueur.

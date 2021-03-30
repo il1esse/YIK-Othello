@@ -32,7 +32,7 @@
     }
 
     // Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
-    Jeton Joueur::getJeton(std::string nomJeton) const{
+    const Jeton& Joueur::getJeton (std::string nomJeton) const{
         for(unsigned int i=0; i<nbrJ; i++)
         {
             if(tabJeton[i].getNomJeton() == nomJeton)

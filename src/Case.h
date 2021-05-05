@@ -45,7 +45,7 @@ public :
     /**
     @brief Accesseur : Récupère la valeur de couleur de la case.
     */
-    std::string getCouleurC() const;
+    const std::string & getCouleurC() const;
 
     /**
     @brief Mutateur : Modifie la couleur de la case.
@@ -56,7 +56,7 @@ public :
     /**
     @brief Accesseur : Récupère la valeur d'état de la case.
     */
-    unsigned int getEtat() const;
+    const unsigned int & getEtat() const;
 
     /**
     @brief Mutateur : Modifie l'état de la case.

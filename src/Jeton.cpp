@@ -55,7 +55,7 @@
    }
 
 // Accesseur : Récupère la valeur NomJeton du Jeton.
-   std::string Jeton::getNomJeton () const {
+   const std::string & Jeton::getNomJeton () const {
       return NomJeton;
    }
 
@@ -65,7 +65,7 @@
    }
 
 // Accesseur : Récupère la valeur Utilisé du Jeton.
-   bool Jeton::getUtilisation () const {
+   const bool & Jeton::getUtilisation () const {
       return Utilise;
    }
 

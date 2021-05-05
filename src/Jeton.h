@@ -44,7 +44,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur NomJeton du Jeton.
     */
-    std::string getNomJeton() const;
+    const std::string & getNomJeton() const;
 
     /**
     @brief Accesseur : Récupère la valeur EffetJeton du Jeton.
@@ -54,7 +54,7 @@ class Jeton {
     /**
     @brief Accesseur : Récupère la valeur Utilisé du Jeton.
     */
-    bool getUtilisation() const;
+    const bool & getUtilisation() const;
 
     /**
     @brief Mutateur : Modifie l'effet du Jeton.

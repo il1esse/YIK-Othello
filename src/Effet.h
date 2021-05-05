@@ -40,7 +40,7 @@ public :
     /**
     @brief Accesseur : Récupère le nom de l'effet.
     */
-    std::string getNomE() const;
+    const std::string & getNomE() const;
 
     /**
     @brief Mutateur : Modifie le nom de l'effet.
@@ -51,7 +51,7 @@ public :
     /**
     @brief Accesseur : Récupère la description de l'effet.
     */
-    std::string getDescription() const;
+    const std::string & getDescription() const;
 
     /**
     @brief Mutateur : Modifie la description de l'effet.
@@ -62,7 +62,7 @@ public :
     /**
     @brief Accesseur : Récupère la valeur booléenne "special" de l'effet.
     */
-    bool getSpecial() const;
+    const bool & getSpecial() const;
 
     /**
     @brief Mutateur : Modifie la valeur special de l'effet.

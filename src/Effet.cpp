@@ -16,7 +16,7 @@ Effet::~Effet()
 }
 
 //Accesseur : Récupère le nom de l'effet.
-std::string Effet::getNomE() const
+const std::string & Effet::getNomE() const
 {
     return nomE;
 }
@@ -28,7 +28,7 @@ void Effet::setNomE(std::string & nouvNomE)
 }
 
 //Accesseur : Récupère la description de l'effet.
-std::string Effet::getDescription() const
+const std::string & Effet::getDescription() const
 {
     return description;
 }
@@ -40,7 +40,7 @@ void Effet::setDescription(std::string nouvDescription)
 }
 
 //Accesseur : Récupère la valeur permettant de savoir si l'effet est special.
-bool Effet::getSpecial() const
+const bool & Effet::getSpecial() const
 {
     return special;
 }

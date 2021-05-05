@@ -187,10 +187,11 @@
         std::cout << "Sur quelle case veux-tu poser un jeton ? " << std::endl;
         unsigned int x;
         unsigned int y;
+        
         std::string nomJeton;
 
             do{
-                std::cout << "Coordonnée x de la case :" ;
+                std::cout << "Coordonnée x de la case : " ;
                 std::cin >> x;
                 std::cout << std::endl;
             }while(x<0 || x>(plateau.getDimensionX()-2));
@@ -201,16 +202,39 @@
                 std::cout << std::endl;
             }while(y<0 || y>(plateau.getDimensionY()-2));
 
+            Case evalCase = plateau.getCase(x,y);
+            if(evalCase.getCouleurC() != "Neutre"){
+                do{
+                    std::cout << "Veuillez entrer des coordonnées pour une case non occupée. " << std::endl;
+                    std::cout << std::endl;
+                    do{
+                    std::cout << "Coordonnée x de la case : " ;
+                    std::cin >> x;
+                    std::cout << std::endl;
+                    }while(x<0 || x>(plateau.getDimensionX()-2));
+
+                    do{
+                    std::cout << "Coordonnée y de la case : " ;
+                    std::cin >> y;
+                    std::cout << std::endl;
+                    }while(y<0 || y>(plateau.getDimensionY()-2));
+                
+                    evalCase = plateau.getCase(x,y);
+                }while(evalCase.getCouleurC() != "Neutre");
+                
+            }
+
             do{
                 std::cout << "Nom du jeton à jouer : " ;
                 std::cin >> nomJeton;
                 std::cout << std::endl;
-            }while(j.getJeton(nomJeton).getNomJeton() != nomJeton);
+            }while(j.getJeton(nomJeton).getNomJeton() != nomJeton && j.getJeton(nomJeton).getUtilisation() != false);
 
         std::cout << "Vous jouer le jeton " << nomJeton << " sur la case [" << x << "," << y <<"] "<<std::endl;
+        std::cout << std::endl;
         j.poseJeton(x,y,plateau,nomJeton);
         plateau.dessinePlateau();
-        std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s)";
+        std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s) " << std::endl;
     }
 
     // Lance le mode Joueur vs Joueur.

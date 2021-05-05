@@ -47,7 +47,7 @@ class Joueur {
     /**
     @brief Accesseur : Récupère le pseudo du joueur.
     */
-    std::string getPseudo() const;
+    const std::string & getPseudo() const;
     
     /**
     @brief Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
@@ -62,17 +62,17 @@ class Joueur {
     /**
     @brief Accesseur : Récupère la couleur associé au joueur.
     */
-    std::string getCouleur() const;
+    const std::string & getCouleur() const;
 
     /**
     @brief Accesseur : Récupère le nombre de jeton possédé par le joueur.
     */
-    unsigned int getNombreJeton() const;
+    const unsigned int & getNombreJeton() const;
 
     /**
     @brief Accesseur : Récupère le nombre de case possédé par le joueur.
     */
-    unsigned int getNombreCase() const;
+    const unsigned int & getNombreCase() const;
 
     /**
     @brief Mutateur : Modifie le nom du joueur.

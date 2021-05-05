@@ -27,7 +27,7 @@
 
     
     // Accesseur : Récupère le pseudo du joueur.
-    std::string Joueur::getPseudo() const{
+    const std::string & Joueur::getPseudo() const{
         return pseudo;
     }
 
@@ -44,17 +44,17 @@
     }
 
     // Accesseur : Récupère la couleur associé au joueur.
-    std::string Joueur::getCouleur() const{
+    const std::string & Joueur::getCouleur() const{
         return couleur;
     }
 
     // Accesseur : Récupère le nombre de jeton possédé par le joueur.
-    unsigned int Joueur::getNombreJeton() const{
+    const unsigned int & Joueur::getNombreJeton() const{
         return nbrJ;
     }
 
     // Accesseur : Récupère le nombre de case possédé par le joueur.
-    unsigned int Joueur::getNombreCase() const{
+    const unsigned int & Joueur::getNombreCase() const{
         return nbrJ;
     }
 
@@ -124,17 +124,16 @@
 
     // Permet au joueur de poser un jeton sur le plateau.
     void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton){
-        for(int i=0; i<7; i++){
-            if(tabJeton[i].getNomJeton() == nomJeton && tabJeton[i].getUtilisation() == false){
-                bool uVrai = true;
-                tabJeton[i].setUtilisation(uVrai);
-                nbrJ--;
-                p.majPlateau(x,y,couleur);
-                tabJeton[i].getEffet()->comportement(x,y,p,couleur);
-                majCaseJoueur(p);
-            }
-        }
-        
+            for(int i=0; i<7; i++){
+                if(tabJeton[i].getNomJeton() == nomJeton && tabJeton[i].getUtilisation() == false){
+                    bool uVrai = true;
+                    tabJeton[i].setUtilisation(uVrai);
+                    nbrJ--;
+                    p.majPlateau(x,y,couleur);
+                    tabJeton[i].getEffet()->comportement(x,y,p,couleur);
+                    majCaseJoueur(p);
+                }
+            }      
     }
 
     // Affiche les informations du joueur graphiquement.

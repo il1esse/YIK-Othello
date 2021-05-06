@@ -158,18 +158,20 @@
 
     // Permet de déterminer le tour des joueurs.
     void JeuModeTexte::joueurTour(Joueur j){
+        const Joueur & joueur1 = jeu.getJoueur1();
+        const Joueur & joueur2 = jeu.getJoueur2();
         for(int i=0; i<7; i++)
         {
             std::cout << "Tour " << i+1 << std::endl;
             if(j.getPseudo() == jeu.getJoueur1().getPseudo())
             {
-                actionJoueur(jeu.getJoueur1());
-                actionJoueur(jeu.getJoueur2());
+                actionJoueur(joueur1);
+                actionJoueur(joueur2);
             }
             else 
             {
-                actionJoueur(jeu.getJoueur2());
-                actionJoueur(jeu.getJoueur1());
+                actionJoueur(joueur2);
+                actionJoueur(joueur1);
             }
         }
         finDePartie();
@@ -180,7 +182,7 @@
         std::cout << "A toi de jouer "<<j.getPseudo() << std::endl;
         std::cout << "Voici tes informations. " << std::endl;
         j.afficheJoueurTxt();
-        Plateau plateau = jeu.getPlateau();
+        const Plateau & plateau = jeu.getPlateau();
         std::cout << "Plateau de jeu : " << std::endl;
         plateau.dessinePlateau(); 
         std::cout << "Rappel : Pour choisir une case donnée sa coordonnée x(min = 1) et y(min = 1)" << std::endl;
@@ -232,9 +234,18 @@
 
         std::cout << "Vous jouer le jeton " << nomJeton << " sur la case [" << x << "," << y <<"] "<<std::endl;
         std::cout << std::endl;
-        j.poseJeton(x,y,plateau,nomJeton);
+        jeu.poseJeton(j,x,y,nomJeton);
         plateau.dessinePlateau();
+        j.majCaseJoueur(plateau);
+        if(j.getCouleur() == "Bleu"){
+            jeu.setJoueur1(j);
+        }
+        else
+        {
+            jeu.setJoueur2(j);
+        }
         std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s) " << std::endl;
+        
     }
 
     // Lance le mode Joueur vs Joueur.

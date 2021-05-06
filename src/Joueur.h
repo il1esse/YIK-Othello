@@ -52,7 +52,7 @@ class Joueur {
     /**
     @brief Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
     */
-    const Jeton& getJeton (std::string nomJeton) const;
+    const Jeton & getJeton (std::string nomJeton) const;
 
     /**
     @brief Initialise les infos du Joueur.
@@ -107,12 +107,13 @@ class Joueur {
     @brief Met à jour l'information du nombre de case possédé par le joueur.
     @param p Plateau de jeu.
     */
-    void majCaseJoueur(Plateau & p);
+    void majCaseJoueur(const Plateau & p);
 
     /**
-    @brief Permet au joueur de poser un jeton sur le plateau.
+    @brief Change la valeur utilisation du jeton utilisé
+    @param nomJeton nom du Jeton dont on doit mettre là valeur d'utilisation à vrai
     */
-    void poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton);
+    void setUtilisationJeton(std::string nomJeton);
 
     /**
     @brief Affiche les informations du joueur graphiquement.

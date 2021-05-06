@@ -117,7 +117,7 @@
     }
 
     // Affiche les bordures du plateau.
-    void Plateau::afficheBordureHorizontale(int taille){
+    void Plateau::afficheBordureHorizontale(int taille) const{
         for(int i=1; i<taille; i++)
         {
             std::cout<<"+---";
@@ -126,7 +126,7 @@
     }
 
     //Affiche le contenu des cases du plateau.
-    void Plateau::afficheContenu(int taille_x,int val_y){
+    void Plateau::afficheContenu(int taille_x,int val_y) const{
         for(int i=1; i<taille_x; i++)
         {
             std::cout<<"| "<< tabCase[val_y*dimx+i].getEtat()<<" ";
@@ -136,7 +136,7 @@
 
     // Dessine le plateau.
 
-    void Plateau::dessinePlateau(){
+    void Plateau::dessinePlateau()const {
         for(unsigned int y=dimy-2; y>0; y--)
         {
                 afficheBordureHorizontale(dimx-1);

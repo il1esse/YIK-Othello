@@ -84,6 +84,19 @@
         j.setPseudo(pseudo);
     }
 
+    // Permet au jeu de poser un jeton d'un joueur sur le plateau.
+    void Jeu::poseJeton(Joueur & j, unsigned int x, unsigned int y, std::string nomJeton){
+        if(j.getJeton(nomJeton).getUtilisation() == false){
+            j.setUtilisationJeton(nomJeton);
+            int nbJ = j.getNombreJeton();
+            j.setNombreJeton(nbJ-1);
+            std::string couleur = j.getCouleur();
+            pla.majPlateau(x,y,couleur);
+            j.getJeton(nomJeton).getEffet()->comportement(x,y,pla,couleur);
+            j.majCaseJoueur(pla);
+        } 
+    }
+
     // Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.
     void Jeu::initJeu(){
         j1.initJoueur();

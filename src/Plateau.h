@@ -82,17 +82,17 @@ class Plateau {
     /**
     @brief Affiche les bordures du plateau.
     */
-    void afficheBordureHorizontale(int taille);
+    void afficheBordureHorizontale(int taille) const;
     
     /**
     @brief Affiche le contenu des cases du plateau.
     */
-    void afficheContenu(int taille_x,int val_y);
+    void afficheContenu(int taille_x,int val_y) const;
     
     /**
     @brief Dessine le plateau.
     */
-    void dessinePlateau();
+    void dessinePlateau() const;
 
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.

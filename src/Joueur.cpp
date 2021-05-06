@@ -22,7 +22,6 @@
     //Destructeur de la classe Joueur.
     Joueur::~Joueur(){
         if(tabJeton != NULL) delete [] tabJeton;
-
     }
 
     
@@ -33,7 +32,7 @@
 
     // Accesseur : Récupère le Jeton du joueur qui porte le nomJeton.
     const Jeton& Joueur::getJeton (std::string nomJeton) const{
-        for(unsigned int i=0; i<nbrJ; i++)
+        for(unsigned int i=0; i<7; i++)
         {
             if(tabJeton[i].getNomJeton() == nomJeton)
             {
@@ -55,7 +54,7 @@
 
     // Accesseur : Récupère le nombre de case possédé par le joueur.
     const unsigned int & Joueur::getNombreCase() const{
-        return nbrJ;
+        return nbrC;
     }
 
     //Mutateur : Modifie le nom du joueur.
@@ -107,7 +106,7 @@
 
 
     // Met à jour l'information du nombre de case possédé par le joueur.
-    void Joueur::majCaseJoueur(Plateau & p){
+    void Joueur::majCaseJoueur(const Plateau & p){
         nbrC=0;
         for(unsigned int i=1; i<p.getDimensionX()-2; i++)
         {
@@ -121,19 +120,16 @@
         }
     }
 
-
-    // Permet au joueur de poser un jeton sur le plateau.
-    void Joueur::poseJeton(unsigned int x, unsigned int y, Plateau & p, std::string nomJeton){
-            for(int i=0; i<7; i++){
-                if(tabJeton[i].getNomJeton() == nomJeton && tabJeton[i].getUtilisation() == false){
-                    bool uVrai = true;
-                    tabJeton[i].setUtilisation(uVrai);
-                    nbrJ--;
-                    p.majPlateau(x,y,couleur);
-                    tabJeton[i].getEffet()->comportement(x,y,p,couleur);
-                    majCaseJoueur(p);
-                }
-            }      
+    void Joueur::setUtilisationJeton(std::string nomJeton){
+        bool vrai = true;
+        for(unsigned int i=0; i<7; i++)
+        {
+            if(tabJeton[i].getNomJeton() == nomJeton)
+            {
+                tabJeton[i].setUtilisation(vrai);
+            }
+            
+        } 
     }
 
     // Affiche les informations du joueur graphiquement.
@@ -149,10 +145,13 @@
         std::cout << "Nombre de Case possédé par le joueur : " << nbrC << std::endl;
         std::cout << "Nombre de jeton restant a utilisé : " << nbrJ << std::endl;
         std::cout << "Jeton restant : " << std::endl;
-        for(unsigned int i =0; i<nbrJ; i++)
+        for(unsigned int i =0; i<7; i++)
         {
-            std::cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << std::endl;
-            std::cout << "Effet du jeton : " << tabJeton[i].getEffet()->getDescription() << std::endl;
+            if(tabJeton[i].getUtilisation() == false){
+                std::cout << "Nom du jeton : " << tabJeton[i].getNomJeton() << std::endl;
+                std::cout << "Effet du jeton : " << tabJeton[i].getEffet()->getDescription() << std::endl;
+            }
+            
         }
     }
 

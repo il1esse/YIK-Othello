@@ -109,6 +109,15 @@ class Jeu{
     void pseudoJoueur(Joueur j, std::string pseudo);
 
     /**
+    @brief Permet au jeu de poser un jeton d'un joueur sur le plateau.
+    @param j Joueur qui pose un jeton.
+    @param x coordonnée X du jeton.
+    @param y coordonnée Y du jeton.
+    @param nomJeton nom du jeton posé.
+    */
+    void poseJeton(Joueur & j,unsigned int x, unsigned int y, std::string nomJeton);
+
+    /**
     @brief Initialise le jeu avec deux joueurs et leurs couleurs + initialisation du plateau.
     */
     void initJeu();

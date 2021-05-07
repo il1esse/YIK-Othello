@@ -23,7 +23,7 @@ class Jeu{
     Plateau pla;
     Joueur j1;
     Joueur j2;
-    Score score;
+    Score * score = new Score (pla,j1,j2);
 
 /* Donnée et fonctions publique */
  public :
@@ -57,14 +57,29 @@ class Jeu{
     const Joueur  & getJoueur1() const;
 
     /**
+    @brief Accesseur : Récupère le joueur1 de la partie en cours.
+    */
+    Joueur & getJoueur1();
+
+    /**
     @brief Accesseur : Récupère le joueur2 de la partie en cours.
     */
     const Joueur  & getJoueur2() const;
 
     /**
+    @brief Accesseur : Récupère le joueur2 de la partie en cours.
+    */
+    Joueur  & getJoueur2();
+
+    /**
     @brief Accesseur : Récupère le score de la partie.
     */
-    const Score & getScore() const;
+    const Score * getScore() const;
+
+    /**
+    @brief Accesseur : Récupère le score de la partie.
+    */
+    Score * getScore();
 
 
     /**
@@ -89,7 +104,7 @@ class Jeu{
     @brief Mutateur : Modifie le nombre de case possédé par le joueur.
     @param nvScore Le nouveau nombre de case possédé par joueur.
     */
-    void setScore(Score & nvScore);
+    void setScore(Score * nvScore);
 
     /**
     @brief Défini les options du jeu.

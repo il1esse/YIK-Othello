@@ -92,16 +92,16 @@
 
     // Met fin à la partie.
     void JeuModeTexte::finDePartie(){
-        Score victoire = jeu.getScore();
+        Score * victoire = jeu.getScore();
         if(jeu.getJoueur1().getNombreCase() > jeu.getJoueur2().getNombreCase())
         {
-            victoire.setVictoire(true);
-            victoire.AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
+            victoire->setVictoire(true);
+            victoire->AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
         }
         else if(jeu.getJoueur2().getNombreCase() > jeu.getJoueur1().getNombreCase())
         {
-            victoire.setVictoire(false);
-            victoire.AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
+            victoire->setVictoire(false);
+            victoire->AfficherScoreTxt(jeu.getJoueur1(),jeu.getJoueur2(),jeu.getPlateau());
         }
         else
         {
@@ -150,16 +150,16 @@
     }
 
     // Définie l'ordre dans lequelle les joueurs vont jouer.
-    void JeuModeTexte::ordreJeu(Joueur joueur)
+    void JeuModeTexte::ordreJeu(Joueur & joueur)
     {
         std::cout << "C'est au tour de " << joueur.getPseudo() << " de commencer." << std::endl;
         joueurTour(joueur);
     }  
 
     // Permet de déterminer le tour des joueurs.
-    void JeuModeTexte::joueurTour(Joueur j){
-        const Joueur & joueur1 = jeu.getJoueur1();
-        const Joueur & joueur2 = jeu.getJoueur2();
+    void JeuModeTexte::joueurTour(Joueur & j){
+        Joueur & joueur1 = jeu.getJoueur1();
+        Joueur & joueur2 = jeu.getJoueur2();
         for(int i=0; i<7; i++)
         {
             std::cout << "Tour " << i+1 << std::endl;
@@ -178,11 +178,12 @@
     }
 
     // Permet au joueur de jouer son tour.
-    void JeuModeTexte::actionJoueur(Joueur j){
+    void JeuModeTexte::actionJoueur(Joueur & j){
+        const Plateau & plateau = jeu.getPlateau();
         std::cout << "A toi de jouer "<<j.getPseudo() << std::endl;
+        j.majCaseJoueur(plateau);
         std::cout << "Voici tes informations. " << std::endl;
         j.afficheJoueurTxt();
-        const Plateau & plateau = jeu.getPlateau();
         std::cout << "Plateau de jeu : " << std::endl;
         plateau.dessinePlateau(); 
         std::cout << "Rappel : Pour choisir une case donnée sa coordonnée x(min = 1) et y(min = 1)" << std::endl;
@@ -236,14 +237,6 @@
         std::cout << std::endl;
         jeu.poseJeton(j,x,y,nomJeton);
         plateau.dessinePlateau();
-        j.majCaseJoueur(plateau);
-        if(j.getCouleur() == "Bleu"){
-            jeu.setJoueur1(j);
-        }
-        else
-        {
-            jeu.setJoueur2(j);
-        }
         std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s) " << std::endl;
         
     }

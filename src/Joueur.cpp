@@ -108,9 +108,9 @@
     // Met à jour l'information du nombre de case possédé par le joueur.
     void Joueur::majCaseJoueur(const Plateau & p){
         nbrC=0;
-        for(unsigned int i=1; i<p.getDimensionX()-2; i++)
+        for(unsigned int i=1; i<p.getDimensionX()-1; i++)
         {
-            for(unsigned int j=1; j<p.getDimensionY()-2; j++)
+            for(unsigned int j=1; j<p.getDimensionY()-1; j++)
             {
                 if(p.getCase(i,j).getCouleurC() == couleur)
                 {

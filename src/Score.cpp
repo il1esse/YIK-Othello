@@ -20,7 +20,7 @@
     }
 
     // Constructeur de la classe Score.
-    Score::Score(const Plateau & p, const Joueur & j1, const Joueur & j2) {
+    Score::Score(Plateau & p, Joueur & j1, Joueur & j2) {
         score = 0;
         nbCaseJ1Sco = j1.getNombreCase();
         nbCaseJ2Sco = j2.getNombreCase();
@@ -31,11 +31,7 @@
 
     // Destructeur de la classe Score/
    Score::~Score () {
-        score = 0;
-        nbCaseJ1Sco = 0;
-        nbCaseJ2Sco = 0 ;
-        tabClassiqueSco = true;
-        victoireJ1 = false;
+       
    }
 
     // Accesseur : Retoune le score.
@@ -63,7 +59,7 @@
     // Retourne le multiplicateur de score du joueur victorieux selon les conditions de bonus.
     int Score::condMultiplicateur(const Plateau & p)
     {
-        int nbCaseMax = (p.getDimensionX()-1)*(p.getDimensionY()-1);
+        int nbCaseMax = (p.getDimensionX()-2)*(p.getDimensionY()-2);
         int m=1;
         if(victoireJ1 == true && nbCaseJ2Sco == 0)
         {
@@ -86,7 +82,7 @@
     }
 
     // Retourne le score final du joueur victorieux.
-    const int & Score::CalculateurScore(const Plateau & p)
+    int Score::CalculateurScore(const Plateau & p)
     {   
         int m = condMultiplicateur(p);
         if (victoireJ1 == true)
@@ -104,8 +100,9 @@
     {
         score = CalculateurScore(p);
         if(victoireJ1 == true){
-            std::cout << "Bien joué !!! " << j1.getPseudo() << " as gagné ! " <<std::endl;
-            std::cout << "Nombre de case de " << j1.getPseudo() << "est " << j1.getNombreCase() << std::endl;
+            std::cout << std::endl;
+            std::cout << "Bien joué !!! " << j1.getPseudo() << ", Tu as gagné ! " <<std::endl;
+            std::cout << "Nombre de case de " << j1.getPseudo() << " est " << j1.getNombreCase() << std::endl;
             std::cout << "Ton adversaire possède " << j2.getNombreCase() << std::endl;
             if(j2.getNombreCase() == 0){ std::cout << "Bonus de domination sur ton adversaire score multiplié par 2" << std::endl;}
             if(tabClassiqueSco == true){ std::cout << "Bonus de plateau classique, score multiplié par 2."<< std::endl;}
@@ -117,9 +114,10 @@
             std::cout << "Ton score total est de : " << score <<std::endl;
         }
         if(victoireJ1 == false){
-            std::cout << "Bien joué !!! " << j2.getPseudo() << " as gagné ! " <<std::endl;
-            std::cout << "Nombre de case de " << j2.getPseudo() << "est " << j2.getNombreCase() << std::endl;
-            std::cout << "Ton adversaire possède " << j2.getNombreCase() << std::endl;
+            std::cout << std::endl;
+            std::cout << "Bien joué !!! " << j2.getPseudo() << ", Tu as gagné ! " <<std::endl;
+            std::cout << "Nombre de case de " << j2.getPseudo() << " est " << j2.getNombreCase() << std::endl;
+            std::cout << "Ton adversaire possède " << j1.getNombreCase() << std::endl;
             if(j1.getNombreCase() == 0){ std::cout << "Bonus de domination sur ton adversaire score multiplié par 2" << std::endl;}
             if(tabClassiqueSco == true){ std::cout << "Bonus de plateau classique, score multiplié par 2."<< std::endl;}
             else{std::cout << "Bonus de plateau extravagant, score multiplié par 3."<< std::endl;}

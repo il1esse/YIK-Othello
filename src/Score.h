@@ -40,7 +40,7 @@ class Score {
     @param j1 Joueur1
     @param j2 Joueur2
     */
-    Score(const Plateau & p, const Joueur & j1, const Joueur & j2);
+    Score(Plateau & p, Joueur & j1, Joueur & j2);
 
     
     /**
@@ -58,7 +58,7 @@ class Score {
     @brief Retourne le score final du joueur victorieux.
     @param p Plateau de jeu.
     */
-    const int & CalculateurScore(const Plateau & p);
+    int CalculateurScore(const Plateau & p);
 
     /**
     @brief Affiche textuellement et de manière détaillé le score du joueur victorieux.

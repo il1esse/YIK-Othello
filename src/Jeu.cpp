@@ -4,10 +4,7 @@
 
     // Constructeur par défaut de la classe Jeu.
     Jeu::Jeu(){
-        //pla = Plateau();
-        //j1 = Joueur();
-        //j2 = Joueur();
-        //score = Score();
+
     }
 
 
@@ -16,15 +13,11 @@
         pla = p;
         j1 = joueur1;
         j2 = joueur2;
-        //score = Score();
     }
 
     // Destructeur de la classe Jeu.
     Jeu::~Jeu(){
-        /*pla = Plateau();
-        j1 = Joueur();
-        j2 = Joueur();
-        score = Score();*/
+
     }
 
 
@@ -38,13 +31,29 @@
         return j1;
     }
 
+    
+    //Accesseur : Récupère le joueur1 de la partie en cours.
+    Joueur & Jeu::getJoueur1(){
+        return j1;
+    }
+
     // Accesseur : Récupère le joueur2 de la partie en cours.
     const Joueur & Jeu::getJoueur2() const{
         return j2;
     }
 
+    //Accesseur : Récupère le joueur2 de la partie en cours.
+    Joueur & Jeu::getJoueur2(){
+        return j2;
+    }
+
     // Accesseur : Récupère le score de la partie.
-    const Score & Jeu::getScore() const{
+    const Score * Jeu::getScore() const{
+        return score;
+    }
+
+    // Accesseur : Récupère le score de la partie.
+    Score * Jeu::getScore(){
         return score;
     }
 
@@ -67,7 +76,7 @@
 
 
     // Mutateur : Modifie le nombre de case possédé par le joueur.
-    void Jeu::setScore(Score & nvScore){
+    void Jeu::setScore(Score * nvScore){
         score = nvScore;
     }
 
@@ -116,6 +125,6 @@
         j1 = Joueur();
         j2 = Joueur();
         pla = Plateau();
-        score = Score();
+        score = new Score(pla,j1,j2);
         initJeu();
     }

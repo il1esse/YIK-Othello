@@ -72,17 +72,17 @@ class JeuModeTexte {
     @brief Définie l'ordre dans lequelle les joueurs vont jouer.
     @param j Le joueur à jouer en premier.
     */
-    void ordreJeu(Joueur joueur);
+    void ordreJeu(Joueur & joueur);
 
     /**
     @brief Permet de déterminer le tour des joueurs.
     */
-    void joueurTour(Joueur j);
+    void joueurTour(Joueur & j);
 
     /**
     @brief Permet au joueur de jouer son tour.
     */
-    void actionJoueur(Joueur j);
+    void actionJoueur(Joueur & j);
 
     /**
     @brief Lance le mode Joueur vs Joueur.

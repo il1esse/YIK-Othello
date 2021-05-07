@@ -104,6 +104,39 @@
         }
     }
 
+    
+    //Retourne un booléen disant si le nom du jeton est un jeton du jeu.
+    bool Joueur::existeJeton(std::string nomJeton){
+        if(nomJeton == "Pion")
+        {
+            return true;
+        }
+        else if(nomJeton == "Soldat")
+        {
+            return true;
+        }
+        else if(nomJeton == "Cavalier")
+        {
+            return true;
+        }
+        else if(nomJeton == "Clown")
+        {
+            return true;
+        }
+        else if(nomJeton == "Danseuse")
+        {
+            return true;
+        }
+        else if(nomJeton == "Sorcier")
+        {
+            return true;
+        }
+        else if(nomJeton == "Empereur")
+        {
+            return true;
+        }
+        return false;
+    }
 
     // Met à jour l'information du nombre de case possédé par le joueur.
     void Joueur::majCaseJoueur(const Plateau & p){

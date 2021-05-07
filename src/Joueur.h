@@ -110,6 +110,12 @@ class Joueur {
     void majCaseJoueur(const Plateau & p);
 
     /**
+    @brief Retourne un booléen disant si le nom du jeton est un jeton du jeu.
+    @param nomJeton nom du Jeton dont on doit vérifier l'existence
+    */
+    bool existeJeton(std::string nomJeton);
+
+    /**
     @brief Change la valeur utilisation du jeton utilisé
     @param nomJeton nom du Jeton dont on doit mettre là valeur d'utilisation à vrai
     */

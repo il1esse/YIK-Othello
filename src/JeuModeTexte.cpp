@@ -226,12 +226,25 @@
                 }while(evalCase.getCouleurC() != "Neutre");
                 
             }
-
+            
+            unsigned int i = 1;
             do{
-                std::cout << "Nom du jeton à jouer : " ;
-                std::cin >> nomJeton;
-                std::cout << std::endl;
-            }while(j.getJeton(nomJeton).getNomJeton() != nomJeton && j.getJeton(nomJeton).getUtilisation() != false);
+                if(i<2){
+                    std::cout << "Nom du jeton à jouer : " ;
+                    std::cin >> nomJeton;
+                    std::cout << std::endl;
+                    i++;
+                }
+                else
+                {
+                    std::cout << "Veuillez entrez un nom de jeton à jouer valide ou non utilisé. " << std::endl;
+                    std::cout << std::endl;
+                    std::cout << "Nom du jeton à jouer : " ;
+                    std::cin >> nomJeton;
+                    std::cout << std::endl;
+                }
+                
+            }while(j.existeJeton(nomJeton) == false || j.getJeton(nomJeton).getUtilisation() != false);
 
         std::cout << "Vous jouer le jeton " << nomJeton << " sur la case [" << x << "," << y <<"] "<<std::endl;
         std::cout << std::endl;

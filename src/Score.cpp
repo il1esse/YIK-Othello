@@ -61,6 +61,15 @@
     {
         int nbCaseMax = (p.getDimensionX()-2)*(p.getDimensionY()-2);
         int m=1;
+
+        if(victoireJ1 == true)
+        {
+            m=m*3;
+        }
+        else if(victoireJ1 == false)
+        {
+            m=m*3;
+        }
         if(victoireJ1 == true && nbCaseJ2Sco == 0)
         {
             m=m*2;
@@ -80,15 +89,8 @@
         {
             m=m*3;
         }
-        if(victoireJ1 == true)
-        {
-            m*3;
-        }
-        else if(victoireJ1 == false)
-        {
-            m*3;
-        }
         return m;
+        
     }
 
     // Retourne le score final du joueur victorieux.

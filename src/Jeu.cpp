@@ -122,9 +122,12 @@
     
     // Permet de rejouer une partie.
     void Jeu::rejouerPartie(){
-        j1 = Joueur();
-        j2 = Joueur();
-        pla = Plateau();
-        score = new Score(pla,j1,j2);
-        initJeu();
+        Joueur nouveauJ1;
+        Joueur nouveauJ2;
+        Plateau nouveauPla;
+        setJoueur1(nouveauJ1);
+        setJoueur2(nouveauJ2);
+        setPlateau(nouveauPla);
+        delete score;
+        score = new Score();
     }

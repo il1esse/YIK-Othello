@@ -76,8 +76,18 @@
         {
             m=m*2;
         }
-        else m=m*3;
-
+        else
+        {
+            m=m*3;
+        }
+        if(victoireJ1 == true)
+        {
+            m*3;
+        }
+        else if(victoireJ1 == false)
+        {
+            m*3;
+        }
         return m;
     }
 
@@ -85,11 +95,16 @@
     int Score::CalculateurScore(const Plateau & p)
     {   
         int m = condMultiplicateur(p);
+        int scorefiJ2 = nbCaseJ2Sco * m;
+        int scorefiJ1 = nbCaseJ1Sco * m;
         if (victoireJ1 == true)
         {
-            return nbCaseJ1Sco * m;
+            return scorefiJ1;
         }
-        else return nbCaseJ2Sco * m;
+        else{
+            return scorefiJ2;
+        }
+        
     }
         
 
@@ -98,6 +113,8 @@
     // Affiche textuellement et de manière détaillé le score du joueur victorieux.
     void Score::AfficherScoreTxt(const Joueur & j1, const Joueur & j2, const Plateau &p)
     {
+        nbCaseJ1Sco = j1.getNombreCase();
+        nbCaseJ2Sco = j2.getNombreCase();
         score = CalculateurScore(p);
         if(victoireJ1 == true){
             std::cout << std::endl;
@@ -121,7 +138,7 @@
             if(j1.getNombreCase() == 0){ std::cout << "Bonus de domination sur ton adversaire score multiplié par 2" << std::endl;}
             if(tabClassiqueSco == true){ std::cout << "Bonus de plateau classique, score multiplié par 2."<< std::endl;}
             else{std::cout << "Bonus de plateau extravagant, score multiplié par 3."<< std::endl;}
-            if(j2.getNombreCase()+j1.getNombreCase() == (p.getDimensionX()-1)*(p.getDimensionY()-1)){
+            if(j2.getNombreCase()+j1.getNombreCase() == (p.getDimensionX()-2)*(p.getDimensionY()-2)){
                 { std::cout << "Bonus de plateau plateau rempli, score multiplié par 2."<< std::endl;}
             }
             std::cout << "Bonus de victoire, score multiplié par 3." <<std::endl;

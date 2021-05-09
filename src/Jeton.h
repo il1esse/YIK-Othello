@@ -75,6 +75,11 @@ class Jeton {
     @param nvNom Le nouvelle valeur NomJeton du Jeton.
     */
     void setNomJeton(std::string & nvNom);
+
+    /**
+    @brief Test de regression : Lance les test de régressions de Jeton.
+    */
+    void testRJeton();
 };
 
 #endif /* Termine le #ifndef JETON_H */

@@ -147,5 +147,10 @@ class Jeu{
     */
     void rejouerPartie();
 
+    /**
+    @brief Test de regression : Lance les test de régressions de Jeu.
+    */
+    void testRJeu();
+
 };
 #endif /* Termine le #ifndef JEU_H */

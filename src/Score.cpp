@@ -108,9 +108,6 @@
         }
         
     }
-        
-
-
 
     // Affiche textuellement et de manière détaillé le score du joueur victorieux.
     void Score::AfficherScoreTxt(const Joueur & j1, const Joueur & j2, const Plateau &p)
@@ -149,6 +146,75 @@
         
 
     }
-  
 
+    // Test de regression : Lance les test de régressions de Score.
+    void Score::testRScore(){
+        unsigned int x;
+        unsigned int xFin;
+        std::cout << "Test de regression de la classe Score." << std::endl;
+        std::cout << "1: Test fonction getValScore." << std::endl;
+        std::cout << "2: Test fonction setValScore." << std::endl;
+        std::cout << "3: Test fonction getVictoire." << std::endl;
+        std::cout << "4: Test fonction setVictoire." << std::endl;
+        std::cout << "5: Test fonction condMultiplicateur" << std::endl;
+        std::cout << "6: Test fonction calculateurScore." << std::endl;
+        std::cout << std::endl;
 
+        do{
+            std::cout << "Quel test voulez vous lancez ? " << std::endl;
+            std::cin >> x;
+        }while(x<0 || x>6);
+
+        switch (x)
+        {
+            case 1:
+            {
+                break;
+            }
+
+            case 2:
+            {
+                break;
+            }
+
+            case 3:
+            {
+                break;
+            }
+
+            case 4:
+            {
+                break;
+            }
+
+            case 5:
+            {
+                break;
+            }
+
+            case 6:
+            {
+                break;
+            }
+        }
+
+        std::cout << std::endl;
+        std::cout << "1: Retour aux tests de régression de Score" << std::endl;
+        std::cout << "2: Quitter les tests de régression de Score" << std::endl;
+
+        do{
+            std::cout << "Que voulez vous faire ? " << std::endl;
+            std::cin >> xFin;
+        }while(x<0 || x>2);
+        
+        switch (xFin)
+        {
+        case 1:
+            testRScore();
+            break;
+        
+        case 2:
+            exit(0);
+            break;
+        }
+    }

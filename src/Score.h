@@ -90,6 +90,11 @@ class Score {
     */
    void setValScore(int nouvScore);
 
+   /**
+    @brief Test de regression : Lance les test de régressions de Score.
+    */
+    void testRScore();
+
 };
 #endif /* Termine le #ifndef SCORE_H */
 

@@ -136,5 +136,10 @@ class Joueur {
     */
     void dessineJeton();
 
+    /**
+    @brief Test de regression : Lance les test de régressions de Joueur.
+    */
+    void testRJoueur();
+
 };
 #endif /* Termine le #ifndef JOUEUR_H */

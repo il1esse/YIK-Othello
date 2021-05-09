@@ -114,5 +114,10 @@ class Plateau {
     */
     void appliRegleDiag(unsigned int x, unsigned int y);
 
+    /**
+    @brief Test de regression : Lance les test de régressions de Plateau.
+    */
+    void testRPlateau();
+
 };
 #endif /* Termine le #ifndef PLATEAU_H */

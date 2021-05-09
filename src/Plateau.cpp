@@ -307,3 +307,105 @@
         }
 
     }
+
+    // Test de regression : Lance les test de régressions de Plateau.
+    void Plateau::testRPlateau(){
+        unsigned int x;
+        unsigned int xFin;
+        std::cout << "Test de regression de la classe Plateau." << std::endl;
+        std::cout << "1: Test fonction getDimX." << std::endl;
+        std::cout << "2: Test fonction getDimY." << std::endl;
+        std::cout << "3: Test fonction getType." << std::endl;
+        std::cout << "4: Test fonction getCase." << std::endl;
+        std::cout << "5: Test fonction setCase" << std::endl;
+        std::cout << "6: Test fonction initPlateau." << std::endl;
+        std::cout << "7: Test fontion dessinePlateau." << std::endl;
+        std::cout << "8: Test majPlateau." << std::endl;
+        std::cout << "9: AppliRegleVerti." << std::endl;
+        std::cout << "10: AppliRegleHori." << std::endl;
+        std::cout << "11: AppliRegleDiag." << std::endl;
+        std::cout << std::endl;
+
+        do{
+            std::cout << "Quel test voulez vous lancez ? " << std::endl;
+            std::cin >> x;
+        }while(x<0 || x>11);
+
+        switch (x)
+        {
+            case 1:
+            {
+                break;
+            }
+
+            case 2:
+            {
+                break;
+            }
+
+            case 3:
+            {
+                break;
+            }
+
+            case 4:
+            {
+                break;
+            }
+
+            case 5:
+            {
+                break;
+            }
+
+            case 6:
+            {
+                break;
+            }
+
+            case 7:
+            {
+                break;
+            }
+
+            case 8:
+            {
+                break;
+            }
+
+            case 9:
+            {
+                break;
+            }
+
+            case 10:
+            {
+                break;
+            }
+
+            case 11:
+            {
+                break;
+            }
+        }
+
+        std::cout << std::endl;
+        std::cout << "1: Retour aux tests de régression de Plateau" << std::endl;
+        std::cout << "2: Quitter les tests de régression de Plateau" << std::endl;
+
+        do{
+            std::cout << "Que voulez vous faire ? " << std::endl;
+            std::cin >> xFin;
+        }while(x<0 || x>2);
+        
+        switch (xFin)
+        {
+        case 1:
+            testRPlateau();
+            break;
+        
+        case 2:
+            exit(0);
+            break;
+        }
+    }

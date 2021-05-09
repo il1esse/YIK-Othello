@@ -1,7 +1,7 @@
 all: bin/TestR bin/ModeTxt bin/ModeGraphique
 
 bin/TestR : obj/mainTest.o obj/JeuTest.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
-	g++ -g -Wall obj/mainTest.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/TestR
+	g++ -g -Wall obj/mainTest.o obj/JeuTest.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/TestR
 
 bin/ModeTxt : obj/mainTxt.o obj/JeuModeTexte.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o
 	g++ -g -Wall obj/mainTxt.o obj/JeuModeTexte.o obj/Case.o obj/Effet.o obj/Jeton.o obj/Jeu.o obj/Joueur.o obj/Plateau.o obj/Score.o -o bin/ModeTxt

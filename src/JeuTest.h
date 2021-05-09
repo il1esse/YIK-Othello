@@ -18,9 +18,30 @@ class JeuTest {
     private:
     Jeu jeu;
 
+
     /* Donnée et fonctions publique */
     public: 
-    
+
+    /**
+    @brief Constructeur par défaut de la classe JeuTest.
+    */
+    JeuTest();
+
+    /**
+    @brief Constructeur de la classe JeuTest.
+    @param j Jeu.
+    */
+    JeuTest(Jeu j);
+
+    /**
+    @brief Destructeur de la classe JeuTest.
+    */
+    ~JeuTest();
+
+    /**
+    @brief Menu de test de régression
+    */
+    void menuTestRegression();
 
 };
 #endif /* Termine le #ifndef JEUTEST_H */

@@ -64,6 +64,11 @@ public :
     */
     void setEtat(unsigned int nvEtat);
 
+    /**
+    @brief Test de regression : Lance les test de régressions de Case.
+    */
+    void testRCase();
+
 };
 
 #endif // CASE_H_INCLUDED

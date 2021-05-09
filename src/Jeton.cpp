@@ -11,6 +11,7 @@
 // Constructeur de la classe Jeton.
    Jeton::Jeton(std::string nom) {
       NomJeton = nom;
+      srand(time(NULL));
 
       int effetRand = rand() % 8 + 1; 
       switch(effetRand)
@@ -45,9 +46,6 @@
 // Destructeur de la classe Jeton.
    Jeton::~Jeton()
    {
-     /*  NomJeton = "Pion";
-       EffetJeton = new Effet();
-       Utilise = false;*/
        if(EffetJeton != NULL)
        {
           delete EffetJeton;

@@ -135,6 +135,7 @@
 
     // Définie aléatoirement l'ordre dans lequelle les joueurs vont jouer.
     void JeuModeTexte::ordreJeu(){
+        srand(time(NULL));
         int joueurRand = rand() % 2 + 1; 
         switch (joueurRand)
         {

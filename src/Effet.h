@@ -70,6 +70,11 @@ public :
     */
     void setSpecial(bool & nouvSpecial);
 
+    /**
+    @brief Test de regression : Lance les test de régressions de Effet.
+    */
+    void testREffet();
+
     virtual void comportement(unsigned int x,unsigned int y, Plateau & p,std::string couleur) = 0;
 };
 

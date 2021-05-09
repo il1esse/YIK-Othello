@@ -10,14 +10,17 @@
 #define JEUTEST_H
 
 /* Inclusions des entêtes utilisées */
+#include "Jeu.h"
 
 /* Définitions de la classes */
 class JeuTest {
     /* Données privés */
     private:
+    Jeu jeu;
 
     /* Donnée et fonctions publique */
     public: 
+    
 
 };
 #endif /* Termine le #ifndef JEUTEST_H */

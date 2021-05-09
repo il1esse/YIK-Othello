@@ -12,6 +12,8 @@
 /* Inclusions des entêtes utilisées */
 #include "Effet.h"
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 /* Définitions de la classes */
 class Jeton {

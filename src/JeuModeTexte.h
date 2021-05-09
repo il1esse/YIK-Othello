@@ -11,6 +11,8 @@
 
 /* Inclusions des entêtes utilisées */
 #include "Jeu.h"
+#include <ctime>
+#include <cstdlib>
 
 /* Définitions de la classes */
 class JeuModeTexte {

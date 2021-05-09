@@ -432,15 +432,7 @@ using namespace std;
                         SDL_RenderPresent(renderer); 
                         choixdebut = true ; 
 
-                                               /* SDL_Surface *pSurf = SDL_GetWindowSurface(pWindow);
-                        SDL_FillRect(pSurf, NULL, SDL_MapRGB(pSurf->format, 255, 255, 255));
-                        position.x = 0;
-                        position.y = 0;
-                //        SDL_BlitSurface(fond, NULL, pSurf, &position); 
-                //        position.x = 60;
-                //        position.y = 370;
-                        SDL_BlitSurface(texte, NULL, pSurf, &position); 
-                        SDL_UpdateWindowSurface(pWindow); */
+                                              
 
                     }
                     else if (   (events.button.y > 135) && (events.button.y <= 289) && (events.button.x > 300) && (events.button.x <= 632) && (choixdebut == true) && (choixjoueur == false) )
@@ -549,6 +541,16 @@ using namespace std;
                 // Render the rect to the screen
                 SDL_RenderPresent(renderer);
             }
+
+            SDL_Surface *pSurf = SDL_GetWindowSurface(pWindow);
+            SDL_FillRect(pSurf, NULL, SDL_MapRGB(pSurf->format, 255, 255, 255));
+            position.x = 0;
+            position.y = 0;
+            SDL_BlitSurface(fond, NULL, pSurf, &position); 
+            position.x = 60;
+            position.y = 370;
+            SDL_BlitSurface(texte, NULL, pSurf, &position); 
+            SDL_UpdateWindowSurface(pWindow); 
         }
 
     }

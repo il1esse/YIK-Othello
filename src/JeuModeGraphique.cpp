@@ -162,10 +162,10 @@ using namespace std;
                             
                             for(int i = 1; i<7;i++)
                             {
-                                for(int j=1; j<7;j++)
+                                for(int j=6; j>0;j--)
                                 {
                                     
-                                    if((events.button.y > 50+(j-1)*133) && (events.button.y <= 100+(j-1)*133) && (events.button.x > 50+(i-1)*166) && (events.button.x <= 100+(i-1)*166))
+                                    if((events.button.y > 125+(6-j)*100) && (events.button.y <= 175+(6-j)*100) && (events.button.x > 225+(i-1)*100) && (events.button.x <= 275+(i-1)*100))
                                     {
 
                                         
@@ -507,14 +507,22 @@ using namespace std;
         // Clear winow
         SDL_RenderClear( renderer );
 
-        for(int i = 1;i<=7;i++)
+        SDL_Surface* image7 = SDL_LoadBMP("data/PLATEAU.bmp");
+        SDL_Texture* monImage7 = SDL_CreateTextureFromSurface(renderer,image7);  //La texture monImage contient maintenant l'image importée
+        SDL_FreeSurface(image7); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
+
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, monImage7, NULL, NULL);
+        SDL_RenderPresent(renderer); 
+
+        for(int i = 1;i<=6;i++)
         {
-            for(int j=1;j<=7;j++ )
+            for(int j=6;j>0;j-- )
             {
                 // Creat a rect at pos ( 50, 50 ) that's 50 pixels wide and 50 pixels high.
                 SDL_Rect r;
-                r.x = 50+(i-1)*166;
-                r.y = 50+(j-1)*133;
+                r.x = 225+(i-1)*100;
+                r.y = 125+(6-j)*100;
                 r.w = 50;
                 r.h = 50;
 
@@ -523,7 +531,7 @@ using namespace std;
                 //cout<<e<<endl;
                 if(e==2)
                 {
-                    SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+                    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 }
                 else if(e==1)
                 {

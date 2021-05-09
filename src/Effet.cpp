@@ -169,11 +169,11 @@ void Effet::testREffet ()
             std::cout << "Utilisation de getSpecial."<<std::endl;
             testHaut.setSpecial(specialR_Effet);
             if(testHaut.getSpecial() == specialR_Effet){
-                std::cout << "Test réussi, la couleur de la case est "<< testHaut.getSpecial() << "." <<std::endl;
+                std::cout << "Test réussi, la valeur spéciale de l'effet est "<< testHaut.getSpecial() << "." <<std::endl;
             }
             else
             {
-                std::cout << "Test échoué, la couleur de la case n'est pas "<< specialR_Effet << "." <<std::endl;
+                std::cout << "Test échoué, la valeur spéciale de l'effet n'est pas "<< specialR_Effet << "." <<std::endl;
             }
             break;
         }

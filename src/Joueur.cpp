@@ -11,7 +11,7 @@
     }
 
     // Constructeur de la classe Joueur.
-    Joueur::Joueur(char nomJoueur){
+    Joueur::Joueur(std::string nomJoueur){
         pseudo = nomJoueur;
         couleur = "Aucune";
         nbrJ = 0;

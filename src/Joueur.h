@@ -37,7 +37,7 @@ class Joueur {
     @brief Constructeur de la classe Joueur.
     @param nomJoueur Pseudo du joueur.
     */
-    Joueur(char nomJoueur);
+    Joueur(std::string nomJoueur);
 
     /**
     @brief Destructeur de la classe Joueur.

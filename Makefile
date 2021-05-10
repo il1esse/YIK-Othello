@@ -51,6 +51,22 @@ obj/mainTest.o : src/mainTest.cpp  src/JeuTest.h
 clean:
 	rm obj/*.o
 	rm bin/*
-
+	
+.PHONY: doc
 doc: 
-	doxygen doc/YikO.doxy
+	doxygen doc/yik.doxy
+
+consulteDoc:
+	firefox doc/html/index.html
+	
+cleanDoc:
+	rm doc/html/*
+	
+TestRegression:
+	./bin/TestR
+
+ModeTexte:
+	./bin/ModeTxt
+
+ModeGraphique:
+	./bin/ModeGraphique

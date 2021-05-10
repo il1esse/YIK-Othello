@@ -188,7 +188,7 @@
 
             case 2:
             {
-                unsigned int scoreTest;
+                int scoreTest;
                 std::cout << "setValScore : Modifie le score." << std::endl;
                 std::cout << "Entrez la nouvelle valeur du score" << std::endl;
                 std::cin >> scoreTest;

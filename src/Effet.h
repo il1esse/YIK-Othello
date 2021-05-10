@@ -123,7 +123,7 @@ class BasGauche : public Effet
     */  
     BasGauche();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet BasGauche.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.
@@ -141,7 +141,7 @@ class BasDroite : public Effet
     */  
     BasDroite();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet BasDroite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.
@@ -161,7 +161,7 @@ class Haut : public Effet
     */  
     Haut();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet Haut.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.
@@ -179,7 +179,7 @@ class Droite : public Effet
     */  
     Droite();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet Droite.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.
@@ -197,7 +197,7 @@ class Gauche : public Effet
     */  
     Gauche();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet Gauche.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.
@@ -215,7 +215,7 @@ class Bas : public Effet
     */    
     Bas();
     /**
-    @brief Procédure permettant de gerer le comportement de l'effet HautDroite.
+    @brief Procédure permettant de gerer le comportement de l'effet Bas.
     @param x Coordonnées ou l'effet prendra action sur l'axe x.
     @param y Coordonnées ou l'effet prendra action sur l'axe y.
     @param p Plateau de jeu.

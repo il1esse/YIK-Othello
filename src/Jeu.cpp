@@ -112,7 +112,6 @@
         j2.initJoueur();
         donneCouleur();
         pla.initPlateau();
-        pla.dessinePlateau();
     }
 
     // Permet de fermer le jeu.

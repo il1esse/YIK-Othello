@@ -285,7 +285,7 @@ using namespace std;
     void JeuModeGraphique::AfficherBoucle()
     {
         //JeuModeGraphique jeu;
-        SDL_Surface* image2 = SDL_LoadBMP("data/REGLES.bmp");
+        SDL_Surface* image2 = SDL_LoadBMP("data/REGLE.bmp");
         SDL_Texture* monImage2 = SDL_CreateTextureFromSurface(renderer,image2);  //La texture monImage contient maintenant l'image importée
         
         SDL_FreeSurface(image2); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
@@ -297,7 +297,7 @@ using namespace std;
         SDL_FreeSurface(image3); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
 
         SDL_RenderClear(renderer);
-        SDL_Surface* image4 = SDL_LoadBMP("data/PSEUDO.bmp");
+        SDL_Surface* image4 = SDL_LoadBMP("data/PSEUDO.BMP");
         SDL_Texture* monImage4 = SDL_CreateTextureFromSurface(renderer,image4);  //La texture monImage contient maintenant l'image importée
         SDL_FreeSurface(image4); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
 
@@ -310,12 +310,18 @@ using namespace std;
         SDL_Surface* image6 = SDL_LoadBMP("data/QUELJOUEUR.bmp");
         SDL_Texture* monImage6 = SDL_CreateTextureFromSurface(renderer,image6);  //La texture monImage contient maintenant l'image importée
         SDL_FreeSurface(image6); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
+
+        SDL_Surface* image = SDL_LoadBMP("data/MENU.bmp"); //On charge l'image menu
+        SDL_Texture* monImage = SDL_CreateTextureFromSurface(renderer,image);  //La texture monImage contient maintenant l'image importée
+        SDL_FreeSurface(image); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
+
     
         SDL_Event events;
         bool quit = false;
         bool choix = false;
         bool choixdebut = false;
         bool choixjoueur = false;
+        bool choixregle = false;
         while (!quit)
         {
             while (SDL_PollEvent(&events))
@@ -339,6 +345,13 @@ using namespace std;
                        SDL_RenderPresent(renderer); 
                         
                      }
+                    if (   (events.button.y > 707) && (events.button.y <= 781) && (events.button.x > 694) && (events.button.x <= 961) && choixregle == false )
+                    {
+                        SDL_RenderClear(renderer);
+                       SDL_RenderCopy(renderer, monImage, NULL, NULL);
+                       SDL_RenderPresent(renderer); 
+
+                    }
                     
                     if (   (events.button.y > 368) && (events.button.y <= 468) && (events.button.x > 324) && (events.button.x <= 638) && (choix == false))
                      {
@@ -348,6 +361,7 @@ using namespace std;
                        SDL_RenderPresent(renderer);
                        menuJeu();
                         choix = true;
+                        choixregle = true;
                     }
 
                     else if (   (events.button.y > 416) && (events.button.y <= 603) && (events.button.x > 238) && (events.button.x <= 736) && (choix == true) && (choixdebut == false) )
@@ -380,39 +394,19 @@ using namespace std;
                     }
                     else if (   (events.button.y > 112) && (events.button.y <= 359) && (events.button.x > 233) && (events.button.x <= 759) && (choixjoueur == true) ) 
                     {
+
                         dessinePLATEAUGRAPHIQUE();
-                        ordreJeu();
+                        ordreJeu(jeu.getJoueur1());
+                        choixjoueur = false; 
                             
                     }
-                        
-                        
-                    else if (   (events.button.y > 475) && (events.button.y <= 600) && (events.button.x > 300) && (events.button.x <= 640) && (choixjoueur == true) ) 
+                    else if (   (events.button.y > 403) && (events.button.y <= 644) && (events.button.x > 234) && (events.button.x <= 758) && (choixjoueur == true) ) 
                     {
-                        //jeu.joueurChoix(2);
-                        // Set render color to red ( background will be rendered in this color )
-                        SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
 
-                        // Clear winow
-                        SDL_RenderClear( renderer );
-
-                        // Creat a rect at pos ( 50, 50 ) that's 50 pixels wide and 50 pixels high.
-                        SDL_Rect r;
-                        r.x = 50;
-                        r.y = 50;
-                        r.w = 50;
-                        r.h = 50;
-
-                        // Set render color to blue ( rect will be rendered in this color )
-                        SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
-
-                        // Render rect
-                        SDL_RenderFillRect( renderer, &r );
-
-                        // Render the rect to the screen
-                        SDL_RenderPresent(renderer);
-
+                        dessinePLATEAUGRAPHIQUE();
+                        ordreJeu(jeu.getJoueur2());
+                        choixjoueur = false;    
                     }
-
                     default: break;
                 }
             }
@@ -454,11 +448,11 @@ using namespace std;
                 }
                 else if(e==1)
                 {
-                    SDL_SetRenderDrawColor( renderer, 0, 0, 255, 255 );
+                    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
                 }
                 else if(e==0)
                 {
-                    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+                    SDL_SetRenderDrawColor( renderer, 0, 0, 255, 255 );
                 }
 
 

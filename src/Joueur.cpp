@@ -336,37 +336,37 @@
                 std::cout << "Utilisation de creerJeton."<<std::endl;
                 for(unsigned int i = 0; i<7; i++)
                 {
-                    if(i = 0)
+                    if(i == 0)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Pion").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Pion").getEffet() << std::endl;
                     }
-                    else if(i = 1)
+                    else if(i == 1)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Soldat").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Soldat").getEffet() << std::endl;
                     }
-                    else if(i = 2)
+                    else if(i == 2)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Cavalier").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Cavalier").getEffet() << std::endl;
                     }
-                    else if(i = 3)
+                    else if(i == 3)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Clown").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Clown").getEffet() << std::endl;
                     }
-                    else if(i = 4)
+                    else if(i == 4)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Danseuse").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Danseuse").getEffet() << std::endl;
                     }
-                    else if(i = 5)
+                    else if(i == 5)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Sorcier").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Sorcier").getEffet() << std::endl;
                     }
-                    else if(i = 6)
+                    else if(i == 6)
                     {
                         std::cout << "Le jeton n°"<< i << " est : " << getJeton("Empereur").getNomJeton() << std::endl;
                         std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Empereur").getEffet() << std::endl;

@@ -151,6 +151,10 @@
     void Score::testRScore(){
         unsigned int x;
         unsigned int xFin;
+        score = 100;
+        nbCaseJ1Sco = 36;
+        nbCaseJ2Sco = 0;
+        Plateau pSco;
         std::cout << "Test de regression de la classe Score." << std::endl;
         std::cout << "1: Test fonction getValScore." << std::endl;
         std::cout << "2: Test fonction setValScore." << std::endl;
@@ -169,31 +173,104 @@
         {
             case 1:
             {
+                std::cout << "getValScore : Retoune le score." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getValScore."<<std::endl;
+                if(getValScore() == 100){
+                    std::cout << "Test réussi, le score est "<< score << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le score n'est pas "<< score << "." <<std::endl;
+                }
                 break;
             }
 
             case 2:
             {
+                unsigned int scoreTest;
+                std::cout << "setValScore : Modifie le score." << std::endl;
+                std::cout << "Entrez la nouvelle valeur du score" << std::endl;
+                std::cin >> scoreTest;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setValScore."<<std::endl;
+                setValScore(scoreTest);
+                if(getValScore() == scoreTest){
+                    std::cout << "Test réussi, le score est "<< score << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le score n'est pas "<< score << "." <<std::endl;
+                }
                 break;
             }
 
             case 3:
             {
+                std::cout << "getVictoire : Récupère la valeur de la variable victoire." << std::endl;            
+                std::cout << std::endl;
+                std::cout << "Utilisation de getSpecial."<<std::endl;
+                if(getVictoire() == false){
+                    std::cout << "Test réussi, la valeur de victoire est à "<< getVictoire() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la valeur de victoire n'est pas à false." <<std::endl;
+                }
                 break;
+
             }
 
             case 4:
-            {
+             {
+                bool victoireTest=true;
+                std::cout << "setVictoire : Modifie la valeur de la variable victoire." << std::endl;
+                std::cout << std::endl;
+                std::cout << "La valeur de victoire actuelle est à : " << getVictoire() << std::endl;
+                std::cout << "Utilisation de setVictoire."<<std::endl;
+                setVictoire(victoireTest);
+                if(getVictoire() == victoireTest){
+                    std::cout << "Test réussi, la valeur de victoire est à "<< getVictoire() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la valeur de victoire n'est pas à "<< victoireTest << "." <<std::endl;
+                }
                 break;
+
             }
 
             case 5:
             {
+                bool victoireTest = true;
+                setVictoire(victoireTest);
+                std::cout << "condMultiplicateur : Retoune le multiplicateur de score." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de condMultiplicateur."<<std::endl;
+                if(condMultiplicateur(pSco) == 24){
+                    std::cout << "Test réussi, le multiplicateur est " << condMultiplicateur(pSco) << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le multiplicateur n'est pas "<< condMultiplicateur(pSco) << "." <<std::endl;
+                }
                 break;
             }
 
             case 6:
             {
+                bool victoireTest = true;
+                setVictoire(victoireTest);
+                std::cout << "CalculateurScore : Retoune le score final." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de calculateurScore."<<std::endl;
+                if(CalculateurScore(pSco) == (24*36)){
+                    std::cout << "Test réussi, le multiplicateur est " << CalculateurScore(pSco)<< "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le multiplicateur n'est pas "<< CalculateurScore(pSco) << "." <<std::endl;
+                }
                 break;
             }
         }
@@ -206,7 +283,7 @@
             std::cout << "Que voulez vous faire ? " << std::endl;
             std::cin >> xFin;
         }while(x<0 || x>2);
-        
+
         switch (xFin)
         {
         case 1:

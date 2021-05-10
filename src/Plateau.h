@@ -48,6 +48,8 @@ class Plateau {
     /**
     @brief Accesseur : Récupère la case de coordonnées (x,y) en vérifiant leur 
     validité la formule pour passer d'un tab 2D à un tab 1D est tab[y*dimx+x].
+    @param x coordonnée en X
+    @param y coordonnée en Y
     */
     Case & getCase(unsigned int x, unsigned int y) const;
 
@@ -81,11 +83,14 @@ class Plateau {
 
     /**
     @brief Affiche les bordures du plateau.
+    @param taille taille du plateau en X
     */
     void afficheBordureHorizontale(int taille) const;
     
     /**
     @brief Affiche le contenu des cases du plateau.
+    @param taille_x taille du plateau en X
+    @param val_y coordonnée en y des contenus à afficher
     */
     void afficheContenu(int taille_x,int val_y) const;
     
@@ -96,21 +101,30 @@ class Plateau {
 
     /**
     @brief Met à jour le plateau par rapport à l'état d'une case.
+    @param x coordonnée en X
+    @param y coordonnée en Y
+    @param couleur couleur à donnée à la case.
     */
     void majPlateau(unsigned int x, unsigned int y,std::string couleur);
 
     /**
     @brief Applique la règle horizontale.
+    @param x coordonnée en X
+    @param y coordonnée en Y
     */
     void appliRegleHori(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle verticale.
+    @param x coordonnée en X
+    @param y coordonnée en Y
     */
     void appliRegleVerti(unsigned int x, unsigned int y);
 
     /**
     @brief Applique la règle diagonale
+    @param x coordonnée en X
+    @param y coordonnée en Y
     */
     void appliRegleDiag(unsigned int x, unsigned int y);
 

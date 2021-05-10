@@ -78,11 +78,13 @@ class JeuModeTexte {
 
     /**
     @brief Permet de déterminer le tour des joueurs.
+    @param j Le joueur qui commence son tour.
     */
     void joueurTour(Joueur & j);
 
     /**
     @brief Permet au joueur de jouer son tour.
+    @param j Le joueur qui va jouer son tour.
     */
     void actionJoueur(Joueur & j);
 

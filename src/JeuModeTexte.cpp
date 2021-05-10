@@ -121,8 +121,8 @@
         switch (x)
         {
         case 1 :
-            jeu.rejouerPartie();
-            menuJeu();
+            std::cout << "Commande non disponible pour le moment." << std::endl;
+            jeu.quitJeu();
             break;
         
         case 2 :

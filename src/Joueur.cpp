@@ -207,93 +207,224 @@
         std::cout << "2: Test fonction getJeton." << std::endl;
         std::cout << "3: Test fonction getCouleur." << std::endl;
         std::cout << "4: Test fonction getNombreJeton." << std::endl;
-        std::cout << "5: Test fonction getNombreCase" << std::endl;
-        std::cout << "6: Test fonction setPseudo." << std::endl;
-        std::cout << "7: Test fonction setCouleur." << std::endl;
-        std::cout << "8: Test fonction setNombreJeton." << std::endl;
-        std::cout << "9: Test fonction setNombreCase." << std::endl;
+        std::cout << "5: Test fonction setPseudo." << std::endl;
+        std::cout << "6: Test fonction setCouleur." << std::endl;
+        std::cout << "7: Test fonction setNombreJeton." << std::endl;
+        std::cout << "8: Test fonction setNombreCase." << std::endl;
+        std::cout << "9: Test fonction getNombreCase" << std::endl;
         std::cout << "10: Test fonction creerJeton." << std::endl;
         std::cout << "11: Test fonction existeJeton." << std::endl;
         std::cout << "12: Test majCaseJoueur" << std::endl;
         std::cout << "13: Test setUtilisationJeton" << std::endl;
-        std::cout << "14: Test initJoueur" << std::endl;
         std::cout << std::endl;
 
         do{
             std::cout << "Quel test voulez vous lancez ? " << std::endl;
             std::cin >> x;
-        }while(x<0 || x>14);
+        }while(x<0 || x>13);
 
         switch (x)
         {
             case 1:
             {
+                std::cout << "getPseudo : Retoune le Pseudo du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getPseudo."<<std::endl;
+                std::cout << "Pseudo du Joueur : " << getPseudo() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 2:
             {
+                creerJeton();
+                std::string empereur = "Empereur";
+                std::cout << "getJeton : Retoune le Jeton du nom demandé." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getJeton."<<std::endl;
+                std::cout << "Jeton du Joueur : " << getJeton(empereur).getNomJeton() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 3:
             {
+                std::cout << "getCouleur : Retoune la couleur du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getCouleur."<<std::endl;
+                std::cout << "Couleur du Joueur : " << getCouleur() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 4:
             {
+                creerJeton();
+                std::cout << "getNombreJeton : Retoune le nombre de jeton possédé par le joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getNombreJeton."<<std::endl;
+                std::cout << "Nombre de jeton du Joueur : " << getNombreJeton() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 5:
             {
+                std::string test = "Joueur1Test";
+                std::cout << "setPseudo : Modifie le Pseudo du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setPseudo."<<std::endl;
+                std::cout << "Pseudo du Joueur avant utilisation : " << getPseudo() << std::endl;
+                setPseudo(test);
+                std::cout << "Pseudo du Joueur après utilisation : " << getPseudo() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 6:
             {
+                std::string test = "Bleu";
+                std::cout << "setCouleur : Modifie la couleur du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setCouleur."<<std::endl;
+                std::cout << "Couleur du Joueur avant utilisation : " << getCouleur() << std::endl;
+                setCouleur(test);
+                std::cout << "Couleur du Joueur après utilisation : " << getCouleur() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 7:
             {
+                creerJeton();
+                std::cout << "setNombreJeton : Modifie le nombre de jeton du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setNombreJeton."<<std::endl;
+                std::cout << "Nombre de Jeton du Joueur avant utilisation : " << getNombreJeton() << std::endl;
+                setNombreJeton(10);
+                std::cout << "Nombre de Jeton du Joueur après utilisation : " << getNombreJeton() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 8:
             {
+                std::cout << "setNombreCase : Modifie le nombre de case du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setNombreJeton."<<std::endl;
+                std::cout << "Nombre de Case du Joueur avant utilisation : " << getNombreCase() << std::endl;
+                setNombreCase(5);
+                std::cout << "Nombre de Case du Joueur après utilisation : " << getNombreCase() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 9:
             {
+                std::cout << "getNombreCase : Retoune le nombre de Case possédé par le joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getNombreCase."<<std::endl;
+                std::cout << "Nombre de Case du Joueur : " << getNombreCase() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
             case 10:
             {
+                creerJeton();
+                std::cout << "creerJeton : Créer les jetons du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de creerJeton."<<std::endl;
+                for(unsigned int i = 0; i<7; i++)
+                {
+                    if(i = 0)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Pion").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Pion").getEffet() << std::endl;
+                    }
+                    else if(i = 1)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Soldat").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Soldat").getEffet() << std::endl;
+                    }
+                    else if(i = 2)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Cavalier").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Cavalier").getEffet() << std::endl;
+                    }
+                    else if(i = 3)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Clown").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Clown").getEffet() << std::endl;
+                    }
+                    else if(i = 4)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Danseuse").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Danseuse").getEffet() << std::endl;
+                    }
+                    else if(i = 5)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Sorcier").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Sorcier").getEffet() << std::endl;
+                    }
+                    else if(i = 6)
+                    {
+                        std::cout << "Le jeton n°"<< i << " est : " << getJeton("Empereur").getNomJeton() << std::endl;
+                        std::cout << "L'effet du jeton n°"<< i << " est : " << getJeton("Empereur").getEffet() << std::endl;
+                    }
+                }
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
             case 11:
             {
+                creerJeton();
+                std::cout << "existeJeton : Vérifie qu'un nom de jeton existe." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de exiseJeton."<<std::endl;
+                std::string nomTest;
+                std::cout << " Entrer le nom de Jeton à tester : " << std::endl;
+                std::cin >> nomTest;
+                if(existeJeton(nomTest) == true)
+                {
+                    std::cout << "Le jeton existe."<<std::endl;
+                }
+                else
+                {
+                    std::cout << "Le jeton n'existe pas."<<std::endl;
+                }
                 break;
             }
 
             case 12:
             {
+                creerJeton();
+                Plateau p;
+                p.initPlateau();
+                std::cout << "majCaseJoueur : Met à jour le nombre de case du joueur." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de majCaseJoueur."<<std::endl;
+                std::cout << "Nombre de case possédé avant utilisation : " << getNombreCase() << std::endl;
+                p.majPlateau(3,3,"Pion");
+                std::cout << "Nombre de case possédé après utilisation : " << getNombreCase() << std::endl;
+                std::cout << "Test effectué." << std::endl;
                 break;
             }
 
             case 13:
             {
+                creerJeton();
+                std::string empereur = "Empereur";
+                std::cout << "setUtilisation : Modifie la valeur d'utilisation du Jeton." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de setUtilisation."<<std::endl;
+                std::cout << "Jeton Empereur du Joueur avant utilisation : " << getJeton(empereur).getNomJeton() << std::endl;
+                setUtilisationJeton(empereur);
+                std::cout << "Jeton Empereur du Joueur après utilisation : " << getJeton(empereur).getNomJeton() << std::endl;
+                std::cout << "Test effectué."<<std::endl;
                 break;
             }
 
-            case 14:
-            {
-                break;
-            }
         }
 
         std::cout << std::endl;

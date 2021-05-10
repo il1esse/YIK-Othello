@@ -220,81 +220,6 @@ using namespace std;
                 }
             } 
         }
-        
-        
-        /*const Plateau & plateau = jeu.getPlateau();
-        std::cout << "A toi de jouer "<<j.getPseudo() << std::endl;
-        j.majCaseJoueur(plateau);
-        std::cout << "Voici tes informations. " << std::endl;
-        j.afficheJoueurTxt();
-        std::cout << "Plateau de jeu : " << std::endl;
-        plateau.dessinePlateau(); 
-        std::cout << "Rappel : Pour choisir une case donnée sa coordonnée x(min = 1) et y(min = 1)" << std::endl;
-        std::cout << "Sur quelle case veux-tu poser un jeton ? " << std::endl;
-        unsigned int x;
-        unsigned int y;
-        
-        std::string nomJeton;
-
-            do{
-                std::cout << "Coordonnée x de la case : " ;
-                std::cin >> x;
-                std::cout << std::endl;
-            }while(x<0 || x>(plateau.getDimensionX()-2));
-            
-            do{
-                std::cout << "Coordonnée y de la case : " ;
-                std::cin >> y;
-                std::cout << std::endl;
-            }while(y<0 || y>(plateau.getDimensionY()-2));
-
-            Case evalCase = plateau.getCase(x,y);
-            if(evalCase.getCouleurC() != "Neutre"){
-                do{
-                    std::cout << "Veuillez entrer des coordonnées pour une case non occupée. " << std::endl;
-                    std::cout << std::endl;
-                    do{
-                    std::cout << "Coordonnée x de la case : " ;
-                    std::cin >> x;
-                    std::cout << std::endl;
-                    }while(x<0 || x>(plateau.getDimensionX()-2));
-
-                    do{
-                    std::cout << "Coordonnée y de la case : " ;
-                    std::cin >> y;
-                    std::cout << std::endl;
-                    }while(y<0 || y>(plateau.getDimensionY()-2));
-                
-                    evalCase = plateau.getCase(x,y);
-                }while(evalCase.getCouleurC() != "Neutre");
-                
-            }
-            
-            unsigned int i = 1;
-            do{
-                if(i<2){
-                    std::cout << "Nom du jeton à jouer : " ;
-                    std::cin >> nomJeton;
-                    std::cout << std::endl;
-                    i++;
-                }
-                else
-                {
-                    std::cout << "Veuillez entrez un nom de jeton à jouer valide ou non utilisé. " << std::endl;
-                    std::cout << std::endl;
-                    std::cout << "Nom du jeton à jouer : " ;
-                    std::cin >> nomJeton;
-                    std::cout << std::endl;
-                }
-                
-            }while(j.existeJeton(nomJeton) == false || j.getJeton(nomJeton).getUtilisation() != false);
-
-        std::cout << "Vous jouer le jeton " << nomJeton << " sur la case [" << x << "," << y <<"] "<<std::endl;
-        std::cout << std::endl;
-        jeu.poseJeton(j,x,y,nomJeton);
-        plateau.dessinePlateau();
-        std::cout << j.getPseudo() << " possède " <<j.getNombreCase() << " case(s) " << std::endl;
-     */
     }
 
     // Lance le mode Joueur vs Joueur.
@@ -331,9 +256,11 @@ using namespace std;
         jeu.setJoueur2(joueur2);
     }
 
+//Initialise la fenetre.
     void JeuModeGraphique::AfficherInit()
     {
 
+        //Création d'une fenêtre de dimension 1000 x 800
         pWindow = SDL_CreateWindow("Ma première application SDL2",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,1000,800,SDL_WINDOW_SHOWN);
         if (pWindow == NULL) 
         {
@@ -345,19 +272,20 @@ using namespace std;
         SDL_SetRenderDrawColor(renderer, 232, 232, 232, 255); //Dessine un fond de la couleur indiqué
         SDL_RenderClear(renderer);
 
-        SDL_RenderClear(renderer);
-        SDL_Surface* image = SDL_LoadBMP("data/MENU.bmp");
+        SDL_Surface* image = SDL_LoadBMP("data/MENU.bmp"); //On charge l'image menu
         SDL_Texture* monImage = SDL_CreateTextureFromSurface(renderer,image);  //La texture monImage contient maintenant l'image importée
         SDL_FreeSurface(image); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
         SDL_RenderClear(renderer);
         SDL_RenderCopy(renderer, monImage, NULL, NULL);
-        SDL_RenderPresent(renderer);
+        SDL_RenderPresent(renderer); //Actualise la page avec les différents réalisé depuis l'appel précédent
     }
 
+
+//Met à jour fenetre (Evenement/Draw...).
     void JeuModeGraphique::AfficherBoucle()
     {
         //JeuModeGraphique jeu;
-        SDL_Surface* image2 = SDL_LoadBMP("data/REGLE.bmp");
+        SDL_Surface* image2 = SDL_LoadBMP("data/REGLES.bmp");
         SDL_Texture* monImage2 = SDL_CreateTextureFromSurface(renderer,image2);  //La texture monImage contient maintenant l'image importée
         
         SDL_FreeSurface(image2); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
@@ -379,7 +307,7 @@ using namespace std;
         SDL_FreeSurface(image5); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
 
         SDL_RenderClear(renderer);
-        SDL_Surface* image6 = SDL_LoadBMP("data/CHOIXJOUEUR.bmp");
+        SDL_Surface* image6 = SDL_LoadBMP("data/QUELJOUEUR.bmp");
         SDL_Texture* monImage6 = SDL_CreateTextureFromSurface(renderer,image6);  //La texture monImage contient maintenant l'image importée
         SDL_FreeSurface(image6); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
     
@@ -403,17 +331,18 @@ using namespace std;
                 {
 
                     case SDL_MOUSEBUTTONUP:
-                     if (   (events.button.y > 513) && (events.button.y <= 588) && (events.button.x > 350) && (events.button.x <= 630) && choix == false )
+                     if (   (events.button.y > 505) && (events.button.y <= 608) && (events.button.x > 324) && (events.button.x <= 637) && choix == false )
                      {
-                        
-                       /*SDL_RenderClear(renderer);
+                        //Bouton regle
+                       SDL_RenderClear(renderer);
                        SDL_RenderCopy(renderer, monImage2, NULL, NULL);
-                       SDL_RenderPresent(renderer); */
+                       SDL_RenderPresent(renderer); 
                         
                      }
-                        fprintf(stdout, "Un appuie sur un bouton de la souris :\n");
-                    if (   (events.button.y > 363) && (events.button.y <= 478) && (events.button.x > 350) && (events.button.x <= 630) && (choix == false))
+                    
+                    if (   (events.button.y > 368) && (events.button.y <= 468) && (events.button.x > 324) && (events.button.x <= 638) && (choix == false))
                      {
+                         //bouton jouer
                        SDL_RenderClear(renderer);
                        SDL_RenderCopy(renderer, monImage3, NULL, NULL);
                        SDL_RenderPresent(renderer);
@@ -421,8 +350,9 @@ using namespace std;
                         choix = true;
                     }
 
-                    else if (   (events.button.y > 345) && (events.button.y <= 475) && (events.button.x > 228) && (events.button.x <= 705) && (choix == true) )
+                    else if (   (events.button.y > 416) && (events.button.y <= 603) && (events.button.x > 238) && (events.button.x <= 736) && (choix == true) && (choixdebut == false) )
                     {
+                        //Bouton J VS J
                         SDL_RenderClear(renderer);
                         SDL_RenderCopy(renderer, monImage4, NULL, NULL);
                         SDL_RenderPresent(renderer); 
@@ -435,20 +365,20 @@ using namespace std;
                                               
 
                     }
-                    else if (   (events.button.y > 135) && (events.button.y <= 289) && (events.button.x > 300) && (events.button.x <= 632) && (choixdebut == true) && (choixjoueur == false) )
+                    else if (   (events.button.y > 268) && (events.button.y <= 440) && (events.button.x > 240) && (events.button.x <= 724) && (choixdebut == true) && (choixjoueur == false) )
                     {
-
+                        //bOUTON ALEATOIRE
                         dessinePLATEAUGRAPHIQUE();
                         ordreJeu();
                     }                    
-                    else if (   (events.button.y > 445) && (events.button.y <= 612) && (events.button.x > 285) && (events.button.x <= 632) && (choixdebut == true) && (choixjoueur == false) )
+                    else if (   (events.button.y > 454) && (events.button.y <= 665) && (events.button.x > 239) && (events.button.x <= 722) && (choixdebut == true) && (choixjoueur == false) )
                     {
                         SDL_RenderClear(renderer);
                         SDL_RenderCopy(renderer, monImage6, NULL, NULL);
                         SDL_RenderPresent(renderer); 
                         choixjoueur = true ; 
                     }
-                    else if (   (events.button.y > 160) && (events.button.y <= 290) && (events.button.x > 300) && (events.button.x <= 640) && (choixjoueur == true) ) 
+                    else if (   (events.button.y > 112) && (events.button.y <= 359) && (events.button.x > 233) && (events.button.x <= 759) && (choixjoueur == true) ) 
                     {
                         dessinePLATEAUGRAPHIQUE();
                         ordreJeu();
@@ -491,15 +421,11 @@ using namespace std;
         }
     }
 
+//Dessine le plateau 
     void JeuModeGraphique::dessinePLATEAUGRAPHIQUE()
     {
-        // Set render color to red ( background will be rendered in this color )
-        SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
 
-        // Clear winow
-        SDL_RenderClear( renderer );
-
-        SDL_Surface* image7 = SDL_LoadBMP("data/PLATEAU.bmp");
+        SDL_Surface* image7 = SDL_LoadBMP("data/PLATEAU.bmp"); //charge l'image plateau dans une surface
         SDL_Texture* monImage7 = SDL_CreateTextureFromSurface(renderer,image7);  //La texture monImage contient maintenant l'image importée
         SDL_FreeSurface(image7); //Équivalent du destroyTexture pour les surface, permet de libérer la mémoire quand on n'a plus besoin d'une surface
 
@@ -507,11 +433,12 @@ using namespace std;
         SDL_RenderCopy(renderer, monImage7, NULL, NULL);
         SDL_RenderPresent(renderer); 
 
+
         for(int i = 1;i<=6;i++)
         {
             for(int j=6;j>0;j-- )
             {
-                // Creat a rect at pos ( 50, 50 ) that's 50 pixels wide and 50 pixels high.
+
                 SDL_Rect r;
                 r.x = 225+(i-1)*100;
                 r.y = 125+(6-j)*100;
@@ -520,7 +447,7 @@ using namespace std;
 
 
                 int e = getJeu().getPlateau().getCase(i, j).getEtat();
-                //cout<<e<<endl;
+
                 if(e==2)
                 {
                     SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
@@ -535,26 +462,19 @@ using namespace std;
                 }
 
 
-                // Render rect
+
                 SDL_RenderFillRect( renderer, &r );
 
-                // Render the rect to the screen
+
                 SDL_RenderPresent(renderer);
             }
 
-            SDL_Surface *pSurf = SDL_GetWindowSurface(pWindow);
-            SDL_FillRect(pSurf, NULL, SDL_MapRGB(pSurf->format, 255, 255, 255));
-            position.x = 0;
-            position.y = 0;
-            SDL_BlitSurface(fond, NULL, pSurf, &position); 
-            position.x = 60;
-            position.y = 370;
-            SDL_BlitSurface(texte, NULL, pSurf, &position); 
-            SDL_UpdateWindowSurface(pWindow); 
+            
         }
 
     }
 
+//Ferme la fenetre.
     void JeuModeGraphique::AfficherDetruit()
     {
 
@@ -564,8 +484,9 @@ using namespace std;
 
     }
 
-    void JeuModeGraphique::Afficher(){
-        AfficherInit();
-        AfficherBoucle();
-        AfficherDetruit();
-    }
+//Affiche le plateau de jeu dans une fenêtre
+void JeuModeGraphique::Afficher(){
+    AfficherInit(); //Appel à la fonction pr initialiser la fenêtre
+    AfficherBoucle(); //Appel à la boucle d'évenement
+    AfficherDetruit(); //Appel à la fonction qui detruit la fenêtre
+}

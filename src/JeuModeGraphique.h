@@ -110,14 +110,33 @@ class JeuModeGraphique {
     */
     void modeVsIA();
 
+    /**
+    @brief Dessine le plateau 
+    */
     void dessinePLATEAUGRAPHIQUE();
 
+    /**
+   @brief Initialise la fenetre.
+   @return Aucun
+   */
     void AfficherInit();
 
+    /**
+   @brief Ferme la fenetre.
+   @return Aucun
+   */
     void AfficherDetruit();
 
+    /**
+   @brief Met à jour fenetre (Evenement/Draw...).
+   @return Aucun
+   */
     void AfficherBoucle();
 
+    /**
+   @brief Affiche le plateau de jeu dans une fenêtre
+   @return Aucun
+   */
     void Afficher();
 };
 #endif /* Termine le #ifndef JeuModeGraphique_H */

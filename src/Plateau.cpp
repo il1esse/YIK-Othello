@@ -313,80 +313,172 @@
         unsigned int x;
         unsigned int xFin;
         std::cout << "Test de regression de la classe Plateau." << std::endl;
-        std::cout << "1: Test fonction getDimX." << std::endl;
-        std::cout << "2: Test fonction getDimY." << std::endl;
+        std::cout << "1: Test fonction getDimensionX." << std::endl;
+        std::cout << "2: Test fonction getDimensionY." << std::endl;
         std::cout << "3: Test fonction getType." << std::endl;
         std::cout << "4: Test fonction getCase." << std::endl;
         std::cout << "5: Test fonction setCase" << std::endl;
         std::cout << "6: Test fonction initPlateau." << std::endl;
-        std::cout << "7: Test fontion dessinePlateau." << std::endl;
-        std::cout << "8: Test majPlateau." << std::endl;
-        std::cout << "9: AppliRegleVerti." << std::endl;
-        std::cout << "10: AppliRegleHori." << std::endl;
-        std::cout << "11: AppliRegleDiag." << std::endl;
+        std::cout << "7: Test majPlateau." << std::endl;
         std::cout << std::endl;
 
         do{
             std::cout << "Quel test voulez vous lancez ? " << std::endl;
             std::cin >> x;
-        }while(x<0 || x>11);
+        }while(x<0 || x>7);
 
         switch (x)
         {
             case 1:
             {
+                std::cout << "getDimensionX : Retoune la dimension X du Plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getDimX."<<std::endl;
+                if(getDimensionX() == 8){
+                    std::cout << "Test réussi, la dimension X du plateau est "<< getDimensionX() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la dimension X du plateau n'est pas égale à  "<< 8 << "." <<std::endl;
+                }
                 break;
             }
 
             case 2:
             {
+                std::cout << "getDimensionY : Retoune la dimension Y du Plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getDimX."<<std::endl;
+                if(getDimensionY() == 8){
+                    std::cout << "Test réussi, la dimension Y du plateau est "<< getDimensionY() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la dimension Y du plateau n'est pas égale à  "<< 8 << "." <<std::endl;
+                }
                 break;
             }
 
             case 3:
             {
+                std::cout << "getType : Retoune le type du Plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getType."<<std::endl;
+                if(getType() == true){
+                    std::cout << "Test réussi, le type du plateau est "<< getType() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le type du plateau n'est pas égale à true ." <<std::endl;
+                }
                 break;
             }
 
             case 4:
             {
+                std::cout << "getCase : Retoune la case de coordonnée (x,y) du Plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de getCase."<<std::endl;
+                if(getCase(0,0).getCouleurC() == "Bord" ){
+                    std::cout << "Test réussi, la case(0,0) du plateau est une case de valeur "<< getCase(0,0).getCouleurC() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la case(0,0) du plateau n'est pas une case de valeur égale à 'Bord'. " <<std::endl;
+                }
                 break;
             }
 
             case 5:
             {
+                std::cout << "setCase : Modifie la case de coordonnée (x,y) du Plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Valeur Actuelle de la case : " << getCase(1,1).getCouleurC() << std::endl;
+                std::cout << "Utilisation de setCase."<<std::endl;
+                setCase(1,1,"Neutre");
+                if(getCase(1,1).getCouleurC() == "Neutre" ){
+                    std::cout << "Test réussi, la case(1,1) du plateau est une case de valeur "<< getCase(0,0).getCouleurC() << "." <<std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, la case(1,1) du plateau n'est pas une case égale à 'Neutre'. " <<std::endl;
+                }
                 break;
             }
 
             case 6:
             {
+                std::cout << "initPlateau : Initialise les valeurs du plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de initPlateau."<<std::endl;
+                initPlateau();
+                dessinePlateau();
+                std::string val;
+                do
+                {
+                    std::cout << "Le plateau à t-il bien toutes ses valeurs de case égale à 2 ?(oui/non)" << std::endl;
+                    std::cin >> val;
+                    std::cout << std::endl;
+
+                } while (val != "o" || val != "oui" || val != "Oui" || val != "O" || val != "OUI" || val != "N" || val != "n" || val != "non" || val != "Non" || val != "NON" );
+                
+                if(val == "o" || val == "oui" || val == "Oui" || val == "O" || val == "OUI"){
+                    std::cout << "Test réussi, le plateau a bien été initialisé. " << std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, le plateau n'a pas bien été initialisé." <<std::endl;
+                }
                 break;
             }
 
             case 7:
             {
+                std::cout << "majPlateau : Met à jour le plateau." << std::endl;
+                std::cout << std::endl;
+                std::cout << "Utilisation de majPlateau."<<std::endl;
+                initPlateau();
+                std::cout << "Voici le plateau initiale : " << std::endl;
+                dessinePlateau();
+                std::cout << "" << std::endl;
+                majPlateau(1,1,"Bleu");
+                majPlateau(1,2,"Rouge");
+                majPlateau(2,1,"Rouge");
+                majPlateau(2,2,"Rouge");
+                std::cout << "Voici le plateau après le placement de 4 jetons : " << std::endl;
+                dessinePlateau();
+                std::cout << "Test de la règle appli verticale : " << std::endl;
+                majPlateau(1,3,"Bleu");
+                std::cout << "Voici les changements de la règle appli verticale : " << std::endl;
+                dessinePlateau();
+                std::cout << "Test de la règle appli horizontale : " << std::endl;
+                majPlateau(3,1,"Bleu");
+                std::cout << "Voici les changements de la règle appli horizontale : " << std::endl;
+                dessinePlateau();
+                std::cout << "Test de la règle appli diagonale : " << std::endl;
+                majPlateau(3,3,"Bleu");
+                std::cout << "Voici les changements de la règle appli diagonale : " << std::endl;
+                dessinePlateau();
+
+                std::string val;
+                do
+                {
+                    std::cout << "Les changements se sont-ils bien appliqué correctement ?(oui/non)" << std::endl;
+                    std::cin >> val;
+                    std::cout << std::endl;
+
+                } while (val != "o" || val != "oui" || val != "Oui" || val != "O" || val != "OUI" || val != "N" || val != "n" || val != "non" || val != "Non" || val != "NON" );
+                
+                if(val == "o" || val == "oui" || val == "Oui" || val == "O" || val == "OUI"){
+                    std::cout << "Test réussi, les changements ont été correctement appliqués. " << std::endl;
+                }
+                else
+                {
+                    std::cout << "Test échoué, les changements n'ont pas été correctement appliqués." <<std::endl;
+                }
                 break;
             }
 
-            case 8:
-            {
-                break;
-            }
-
-            case 9:
-            {
-                break;
-            }
-
-            case 10:
-            {
-                break;
-            }
-
-            case 11:
-            {
-                break;
-            }
         }
 
         std::cout << std::endl;

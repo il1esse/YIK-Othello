@@ -261,7 +261,7 @@ using namespace std;
     {
 
         //Création d'une fenêtre de dimension 1000 x 800
-        pWindow = SDL_CreateWindow("Ma première application SDL2",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,1000,800,SDL_WINDOW_SHOWN);
+        pWindow = SDL_CreateWindow("Yik&Othello",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,1000,800,SDL_WINDOW_SHOWN);
         if (pWindow == NULL) 
         {
         cout << "Erreur lors de la creation de la fenetre : " << SDL_GetError() << endl; //Message d'erreur si la définition de la fenetre est nulle
